@@ -5,33 +5,34 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "LIMSBOT — AI-Native Laboratory Information Management",
+  title: "THE LIMS BOX — Healthcare Infrastructure That Goes Where It's Needed",
   description:
-    "Your lab's AI operations lead. On-prem AI agent that manages sample tracking, instrument integration, compliance workflows, and result review. Data never leaves the building.",
+    "Plug-and-play LIMS system for rural and underserved clinics. AI-powered. Fully offline. Zero IT footprint. Plug in. Power on. Save lives.",
   keywords: [
     "LIMS",
     "laboratory information management",
-    "AI agent",
-    "on-prem",
-    "compliance",
-    "21 CFR Part 11",
-    "ISO 17025",
-    "laboratory automation",
-    "agentic AI",
+    "rural healthcare",
+    "AI healthcare",
+    "portable lab",
+    "offline LIMS",
+    "healthcare infrastructure",
+    "Pelican case lab",
+    "Mac Studio LIMS",
+    "healthcare desert",
   ],
   openGraph: {
-    title: "LIMSBOT — AI That Runs Your Lab",
+    title: "THE LIMS BOX — Plug in. Power on. Save lives.",
     description:
-      "On-prem AI agent for laboratory operations. Sample tracking, instrument integration, compliance automation. Data never leaves the building.",
-    url: "https://limsbot.com",
-    siteName: "LIMSBOT",
+      "Healthcare infrastructure that goes where it's needed. AI-powered portable laboratory. Fully offline. Zero IT footprint.",
+    url: "https://limsbox.com",
+    siteName: "THE LIMS BOX",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "LIMSBOT — AI That Runs Your Lab",
+    title: "THE LIMS BOX — Plug in. Power on. Save lives.",
     description:
-      "On-prem AI agent for laboratory operations. $5K setup replaces $200K/yr cloud LIMS.",
+      "47 million Americans live in healthcare deserts. THE LIMS BOX brings full diagnostic capabilities in a Pelican case. AI-powered. Fully offline.",
   },
 };
 
