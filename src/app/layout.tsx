@@ -27,6 +27,7 @@ export const metadata: Metadata = {
     url: "https://limsbox.com",
     siteName: "THE LIMS BOX",
     type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
