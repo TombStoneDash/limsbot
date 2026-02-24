@@ -355,7 +355,7 @@ function InvestorCTA() {
           ))}
         </div>
         <a
-          href="mailto:clinisyslims@gmail.com"
+          href="mailto:info@lims.bot"
           className="inline-block px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-xl font-semibold text-lg transition-all text-white"
         >
           Get in Touch →
@@ -433,7 +433,7 @@ function Footer() {
           <a href="#vignettes" className="hover:text-[#2E8B57] transition">Stories</a>
           <a href="#founder" className="hover:text-[#2E8B57] transition">Team</a>
           <a href="#investors" className="hover:text-[#2E8B57] transition">Investors</a>
-          <a href="mailto:clinisyslims@gmail.com" className="hover:text-[#2E8B57] transition">Contact</a>
+          <a href="mailto:info@lims.bot" className="hover:text-[#2E8B57] transition">Contact</a>
         </div>
         <div className="text-sm text-[#F8F9FA]/30">
           © {new Date().getFullYear()} THE LIMS BOX. All rights reserved.
