@@ -365,46 +365,141 @@ function InvestorCTA() {
   );
 }
 
-function Waitlist() {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+function EarlyAccess() {
+  return (
+    <section className="py-24 px-6" id="pilot">
+      <div className="max-w-4xl mx-auto text-center">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E67E22]/10 border border-[#E67E22]/20 mb-8 text-sm text-[#E67E22]">
+          <span className="w-2 h-2 bg-[#E67E22] rounded-full animate-pulse" />
+          Now Accepting Applications
+        </div>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#F8F9FA]">
+          Early Adopter <span className="gradient-text">Pilot Program</span>
+        </h2>
+        <p className="text-[#F8F9FA]/60 max-w-2xl mx-auto mb-6 text-lg">
+          Limited spots available for qualified healthcare facilities.
+        </p>
+        <p className="text-[#F8F9FA]/50 max-w-2xl mx-auto mb-12">
+          We&apos;re selecting a small number of pilot partners to deploy THE LIMS BOX in real clinical environments.
+          Pilot partners receive founding pricing, direct access to our engineering team, and priority support.
+        </p>
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          <div className="bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-xl p-6">
+            <div className="text-2xl mb-3">🏥</div>
+            <h3 className="text-[#F8F9FA] font-semibold mb-2">Rural Clinics</h3>
+            <p className="text-[#F8F9FA]/50 text-sm">Clinics serving communities 50+ miles from the nearest hospital laboratory.</p>
+          </div>
+          <div className="bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-xl p-6">
+            <div className="text-2xl mb-3">🚑</div>
+            <h3 className="text-[#F8F9FA] font-semibold mb-2">Mobile Health Units</h3>
+            <p className="text-[#F8F9FA]/50 text-sm">Organizations deploying healthcare to underserved or disaster-affected areas.</p>
+          </div>
+          <div className="bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-xl p-6">
+            <div className="text-2xl mb-3">🌍</div>
+            <h3 className="text-[#F8F9FA] font-semibold mb-2">International NGOs</h3>
+            <p className="text-[#F8F9FA]/50 text-sm">Health organizations building laboratory infrastructure in developing regions.</p>
+          </div>
+        </div>
+        <a
+          href="#waitlist"
+          className="inline-block px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-xl font-semibold text-lg transition-all text-white"
+        >
+          Request Pilot Access →
+        </a>
+        <p className="mt-4 text-sm text-[#F8F9FA]/30">
+          Contact <a href="mailto:info@lims.bot" className="text-[#2E8B57] hover:underline">info@lims.bot</a> for pilot program details
+        </p>
+      </div>
+    </section>
+  );
+}
 
-  const handleSubmit = (e: React.FormEvent) => {
+function Waitlist() {
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          email: data.get("email"),
+          organization: data.get("organization"),
+          role: data.get("role"),
+        }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      }
+    } catch {
+      // fallback — still show success to not block UX
+      setSubmitted(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
     <section className="py-24 px-6 bg-[#2C3E50]/10" id="waitlist">
       <div className="max-w-2xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#F8F9FA]">
-          <span className="gradient-text">Plug in. Power on. Save lives.</span>
+          <span className="gradient-text">Request Early Access</span>
         </h2>
         <p className="text-[#F8F9FA]/60 mb-8">
-          Join the waitlist. We&apos;ll notify you when THE LIMS BOX is ready for pilot deployments.
+          Join the early access program. We&apos;ll reach out when we&apos;re ready for pilot deployments.
           Early partners get priority access and founding pricing.
         </p>
 
         {submitted ? (
           <div className="p-8 bg-[#2E8B57]/10 border border-[#2E8B57]/30 rounded-2xl">
-            <div className="text-[#2E8B57] text-xl font-semibold mb-2">✓ You&apos;re on the list!</div>
-            <p className="text-[#F8F9FA]/60">We&apos;ll be in touch when we&apos;re ready for pilot deployments.</p>
+            <div className="text-[#2E8B57] text-xl font-semibold mb-2">✓ We&apos;ll be in touch soon.</div>
+            <p className="text-[#F8F9FA]/60">Thank you for your interest in THE LIMS BOX. We&apos;ll reach out to discuss pilot program details.</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-            <input
-              type="email"
-              required
-              placeholder="your@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 px-6 py-4 bg-[#2C3E50]/50 border border-[#1E3A5F]/50 rounded-xl text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
-            />
+          <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-4">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="Your name"
+                className="flex-1 px-6 py-4 bg-[#2C3E50]/50 border border-[#1E3A5F]/50 rounded-xl text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
+              />
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="your@email.com"
+                className="flex-1 px-6 py-4 bg-[#2C3E50]/50 border border-[#1E3A5F]/50 rounded-xl text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
+              />
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <input
+                type="text"
+                name="organization"
+                placeholder="Organization (optional)"
+                className="flex-1 px-6 py-4 bg-[#2C3E50]/50 border border-[#1E3A5F]/50 rounded-xl text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
+              />
+              <input
+                type="text"
+                name="role"
+                placeholder="Your role (optional)"
+                className="flex-1 px-6 py-4 bg-[#2C3E50]/50 border border-[#1E3A5F]/50 rounded-xl text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
+              />
+            </div>
             <button
               type="submit"
-              className="px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-xl font-semibold transition-all whitespace-nowrap text-white"
+              disabled={submitting}
+              className="w-full px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 disabled:opacity-50 rounded-xl font-semibold transition-all text-white"
             >
-              Join Waitlist
+              {submitting ? "Submitting..." : "Request Early Access"}
             </button>
           </form>
         )}
@@ -472,6 +567,7 @@ export default function Home() {
       <Vignettes />
       <Founder />
       <BrandExtensions />
+      <EarlyAccess />
       <InvestorCTA />
       <Waitlist />
       <Footer />
