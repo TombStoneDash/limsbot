@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "THE LIMS BOX — Healthcare Infrastructure That Goes Where It's Needed",
   description:
     "Plug-and-play LIMS system for rural and underserved clinics. AI-powered. Fully offline. Zero IT footprint. Plug in. Power on. Save lives.",
+  metadataBase: new URL("https://lims.bot"),
   keywords: [
     "LIMS",
     "laboratory information management",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     title: "THE LIMS BOX — Plug in. Power on. Save lives.",
     description:
       "Healthcare infrastructure that goes where it's needed. AI-powered portable laboratory. Fully offline. Zero IT footprint.",
-    url: "https://limsbox.com",
+    url: "https://lims.bot",
     siteName: "THE LIMS BOX",
     type: "website",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
