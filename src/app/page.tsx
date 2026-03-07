@@ -237,6 +237,43 @@ function HowItWorks() {
   );
 }
 
+function Features() {
+  const features = [
+    { icon: icons.server, title: "Offline-Capable", desc: "Full functionality without internet. Works in the most remote locations on Earth — no cloud dependency required." },
+    { icon: icons.chart, title: "AI Diagnostics", desc: "Machine learning models analyze results in real time, flagging anomalies and assisting clinical decision-making." },
+    { icon: icons.flask, title: "Predictive Supply Management", desc: "AI forecasts reagent consumption and seasonal demand. Supplies are ordered before they run out." },
+    { icon: icons.wrench, title: "Auto Scheduling", desc: "Intelligent appointment and test scheduling. Automatic cancellation fills. No manual coordination needed." },
+    { icon: icons.shield, title: "Self-Healing Systems", desc: "Auto-calibration, daily QC checks, predictive maintenance alerts. The system maintains itself so clinicians don't have to." },
+    { icon: icons.bolt, title: "Zero IT Footprint", desc: "No servers, no IT department, no configuration sprints. Open the case. Plug in. Power on. It just works." },
+  ];
+  return (
+    <section className="py-24 px-6 bg-[#2C3E50]/10" id="features">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#F8F9FA]">
+          Built for the <span className="gradient-text">Real World</span>
+        </h2>
+        <p className="text-[#F8F9FA]/60 text-center max-w-2xl mx-auto mb-16">
+          Six core capabilities that make THE LIMS BOX the most advanced portable laboratory ever built.
+        </p>
+        <div className="grid md:grid-cols-3 gap-8">
+          {features.map((f) => (
+            <div key={f.title} className="card-hover bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-2xl p-8">
+              <div className="w-12 h-12 rounded-xl bg-[#E67E22]/10 flex items-center justify-center mb-4 text-[#E67E22]">
+                <Icon d={f.icon} />
+              </div>
+              <h3 className="text-lg font-semibold mb-2 text-[#F8F9FA]">{f.title}</h3>
+              <p className="text-[#F8F9FA]/60 text-sm">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-center mt-8 text-sm text-[#F8F9FA]/40">
+          Questions? <a href="mailto:info@lims.bot" className="text-[#2E8B57] hover:underline">info@lims.bot</a>
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function Capabilities() {
   const features = [
     { icon: icons.flask, title: "Full Sample Tracking", desc: "Barcode scanning, chain of custody, result reporting. Enterprise-grade capabilities in a portable package." },
@@ -613,7 +650,8 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="text-xl font-bold gradient-text">THE LIMS BOX</div>
           <div className="hidden md:flex gap-6 text-sm text-[#F8F9FA]/50">
-            <a href="#capabilities" className="hover:text-white transition">Capabilities</a>
+            <a href="#features" className="hover:text-white transition">Features</a>
+            <a href="#use-cases" className="hover:text-white transition">Use Cases</a>
             <a href="#vignettes" className="hover:text-white transition">Stories</a>
             <a href="#founder" className="hover:text-white transition">Team</a>
             <a href="#investors" className="hover:text-white transition">Investors</a>
@@ -629,6 +667,7 @@ export default function Home() {
       <HeroQuote />
       <Problem />
       <HowItWorks />
+      <Features />
       <Capabilities />
       <Vignettes />
       <Founder />
