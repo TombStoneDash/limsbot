@@ -716,6 +716,7 @@ export default function Home() {
             <a href="#vignettes" className="hover:text-white transition">Stories</a>
             <a href="#founder" className="hover:text-white transition">Team</a>
             <a href="#investors" className="hover:text-white transition">Investors</a>
+            <a href="/blog" className="hover:text-white transition">Blog</a>
           </div>
           <a href="#waitlist" className="px-5 py-2 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-lg font-semibold text-sm transition-all text-white">
             Join Waitlist
