@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 /* ────────── tiny inline icons (Heroicons-style) ────────── */
 const Icon = ({ d, className = "w-6 h-6" }: { d: string; className?: string }) => (
@@ -48,16 +49,12 @@ function Hero() {
         <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-[#F8F9FA]">
           Plug in. Power on.
           <br />
-          <span className="gradient-text">Save lives.</span>
+          <span className="gradient-text">Expand access.</span>
         </h1>
 
-        <p className="text-lg md:text-xl text-[#F8F9FA]/70 mb-4 max-w-3xl mx-auto leading-relaxed italic">
-          &ldquo;There&apos;s not a doctor for 100 miles. You&apos;re a nurse. I&apos;m not a doctor. But together? We&apos;re going to save these people&apos;s lives. Let&apos;s go.&rdquo;
-        </p>
-
         <p className="text-xl text-[#F8F9FA]/60 mb-10 max-w-2xl mx-auto">
-          THE LIMS BOX is a plug-and-play AI-powered laboratory that fits in a Pelican case.
-          Full diagnostic capabilities. Zero IT footprint. Works offline.
+          Deployable laboratory infrastructure for sites legacy LIMS cannot economically serve.
+          Modern lab informatics, packaged for low-IT deployment.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -75,12 +72,49 @@ function Hero() {
           </a>
         </div>
 
-        <div className="mt-12 flex flex-wrap justify-center gap-6 text-sm text-[#F8F9FA]/40">
+        <div className="mt-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E67E22]/10 border border-[#E67E22]/20 text-sm text-[#E67E22]">
+          <span className="w-2 h-2 bg-[#E67E22] rounded-full animate-pulse" />
+          Currently in development. Seeking pilot partners.
+        </div>
+
+        <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-[#F8F9FA]/40">
           <span>✓ Fully offline-capable</span>
           <span>✓ Zero IT footprint</span>
           <span>✓ AI-powered</span>
           <span>✓ Enterprise-grade</span>
           <span>✓ Plug-and-play</span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProductGallery() {
+  const images = [
+    { src: "/images/hero-case.png", alt: "THE LIMS BOX — portable laboratory infrastructure in a rugged case" },
+    { src: "/images/clinic-deploy.png", alt: "THE LIMS BOX deployed in a field clinic environment" },
+    { src: "/images/clinic-deploy-wide.png", alt: "THE LIMS BOX wide view showing full deployment setup" },
+  ];
+  return (
+    <section className="py-16 px-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6">
+          {images.map((img) => (
+            <div
+              key={img.src}
+              className="relative overflow-hidden rounded-2xl border border-[#1E3A5F]/30 group"
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                width={1200}
+                height={800}
+                className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 33vw"
+                priority={false}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -183,14 +217,14 @@ function Problem() {
         <p className="text-[#F8F9FA]/60 text-center max-w-2xl mx-auto mb-16">
           Rural and underserved communities lack basic diagnostic infrastructure.
           No LIMS. No IT department. No specialists for 100 miles.
-          THE LIMS BOX changes that.
+          THE LIMS BOX was built for exactly this.
         </p>
         <div className="grid md:grid-cols-2 gap-8">
           {[
             { icon: icons.globe, title: "100+ miles to a specialist", desc: "Rural clinics operate without the laboratory infrastructure that urban hospitals take for granted." },
             { icon: icons.server, title: "Zero IT footprint needed", desc: "No servers, no infrastructure, no IT department. THE LIMS BOX works where networks don't exist." },
             { icon: icons.users, title: "Nurses become diagnostic partners", desc: "AI augments clinicians — it doesn't replace them. A nurse with THE LIMS BOX has the diagnostic power of a full laboratory." },
-            { icon: icons.bolt, title: "Plug-and-play deployment", desc: "Two Mac Studios, daisy-chained. One AI + UI. One database + integration. Open the case. Plug in. Power on. Save lives." },
+            { icon: icons.bolt, title: "Plug-and-play deployment", desc: "Two Mac Studios, daisy-chained. One AI + UI. One database + integration. Open the case. Plug in. Power on." },
           ].map((p) => (
             <div key={p.title} className="card-hover bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-2xl p-8">
               <div className="w-12 h-12 rounded-xl bg-[#E67E22]/10 flex items-center justify-center mb-4 text-[#E67E22]">
@@ -210,8 +244,8 @@ function HowItWorks() {
   const steps = [
     { num: "01", title: "Ship a Pelican case", desc: "Pre-configured with two Mac Studios, daisy-chained. AI assistant + full LIMS database. Ready to deploy anywhere." },
     { num: "02", title: "Open the case", desc: "A laminated setup card sits on top: 'Step 1: Plug in. Step 2: Power on. Step 3: Say hello.'" },
-    { num: "03", title: "AI comes alive", desc: "Natural language interaction for non-technical users. 'Hello. There's not a doctor for 100 miles. You're a nurse. I'm not a doctor. But together? We're going to save these people's lives. Let's go.'" },
-    { num: "04", title: "Save lives", desc: "Full sample tracking, result reporting, QC, inventory management, patient communication — all running. Offline. Anywhere." },
+    { num: "03", title: "AI comes alive", desc: "Natural language interaction for non-technical users. The AI handles complexity so clinicians can focus on patients." },
+    { num: "04", title: "Expand access to care", desc: "Full sample tracking, result reporting, QC, inventory management, patient communication — all running. Offline. Anywhere." },
   ];
   return (
     <section className="py-24 px-6 bg-[#2C3E50]/10" id="how-it-works">
@@ -221,7 +255,7 @@ function HowItWorks() {
         </h2>
         <p className="text-[#F8F9FA]/60 text-center max-w-2xl mx-auto mb-16">
           No implementation team. No configuration sprints. No IT department.
-          Open the case. Plug in. Power on. Save lives.
+          Open the case. Plug in. Power on.
         </p>
         <div className="grid md:grid-cols-4 gap-8">
           {steps.map((s) => (
@@ -318,6 +352,7 @@ function VideoEmbed() {
           Watch how a Pelican case transforms healthcare delivery in underserved communities.
         </p>
         <div className="relative w-full overflow-hidden rounded-2xl border border-[#1E3A5F]/30" style={{ paddingBottom: "56.25%" }}>
+          {/* TODO: Replace with final commercial YouTube ID when uploaded */}
           <iframe
             className="absolute top-0 left-0 w-full h-full"
             src="https://www.youtube-nocookie.com/embed/2gZf1RnqDWU"
@@ -516,12 +551,22 @@ function InvestorCTA() {
             </div>
           ))}
         </div>
-        <a
-          href="mailto:info@lims.bot"
-          className="inline-block px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-xl font-semibold text-lg transition-all text-white"
-        >
-          Get in Touch →
-        </a>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="mailto:info@lims.bot"
+            className="inline-block px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-xl font-semibold text-lg transition-all text-white"
+          >
+            Get in Touch →
+          </a>
+          <a
+            href="/LIMS_BOX_SELL_SHEET_v5.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-8 py-4 border border-[#1E3A5F] hover:border-[#2E8B57] rounded-xl font-semibold text-lg transition-all text-[#F8F9FA]"
+          >
+            Download One-Pager (PDF)
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -683,7 +728,7 @@ function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         <div>
           <div className="text-xl font-bold gradient-text mb-1">THE LIMS BOX</div>
-          <div className="text-sm text-[#F8F9FA]/40">Healthcare infrastructure that goes where it&apos;s needed.</div>
+          <div className="text-sm text-[#F8F9FA]/40">Deployable laboratory infrastructure for sites legacy LIMS cannot economically serve.</div>
           <div className="text-sm text-[#F8F9FA]/30">A TombStone Dash LLC product</div>
         </div>
         <div className="flex gap-8 text-sm text-[#F8F9FA]/50">
@@ -725,6 +770,7 @@ export default function Home() {
       </nav>
 
       <Hero />
+      <ProductGallery />
       <WaitlistCompact />
       <HeroQuote />
       <Problem />
