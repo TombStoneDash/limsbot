@@ -91,9 +91,9 @@ function Hero() {
 
 function ProductGallery() {
   const images = [
-    { src: "/images/hero-case.png", alt: "THE LIMS BOX — portable laboratory infrastructure in a rugged case" },
-    { src: "/images/clinic-deploy.png", alt: "THE LIMS BOX deployed in a field clinic environment" },
-    { src: "/images/clinic-deploy-wide.png", alt: "THE LIMS BOX wide view showing full deployment setup" },
+    { src: "/images/branded-newcase.jpg", alt: "THE LIMS BOX — portable laboratory infrastructure in a rugged Pelican case" },
+    { src: "/images/branded-case-logo.jpg", alt: "THE LIMS BOX with branded case logo — deployable diagnostic system" },
+    { src: "/images/branded-maclogo.jpg", alt: "THE LIMS BOX powered by Mac Mini — complete lab informatics platform" },
   ];
   return (
     <section className="py-16 px-6">
