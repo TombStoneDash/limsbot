@@ -43,18 +43,18 @@ function Hero() {
       <div className="relative z-10 max-w-4xl text-center animate-fade-in-up">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2E8B57]/10 border border-[#2E8B57]/20 mb-8 text-sm text-[#2E8B57]">
           <span className="w-2 h-2 bg-[#2E8B57] rounded-full animate-pulse" />
-          Healthcare infrastructure that goes where it&apos;s needed
+          Laboratory informatics for environmental and water testing labs
         </div>
 
         <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-[#F8F9FA]">
           Plug in. Power on.
           <br />
-          <span className="gradient-text">Expand access.</span>
+          <span className="gradient-text">Run your lab.</span>
         </h1>
 
         <p className="text-xl text-[#F8F9FA]/60 mb-10 max-w-2xl mx-auto">
-          Deployable laboratory infrastructure for sites legacy LIMS cannot economically serve.
-          Modern lab informatics, packaged for low-IT deployment.
+          Modern lab informatics for environmental testing, water quality, and contract labs.
+          Sample tracking, chain of custody, and regulatory compliance — packaged for fast deployment.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -78,10 +78,10 @@ function Hero() {
         </div>
 
         <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-[#F8F9FA]/40">
-          <span>✓ Fully offline-capable</span>
-          <span>✓ Zero IT footprint</span>
+          <span>✓ Chain of custody</span>
+          <span>✓ EPA methods</span>
           <span>✓ AI-powered</span>
-          <span>✓ Enterprise-grade</span>
+          <span>✓ ISO 17025 ready</span>
           <span>✓ Plug-and-play</span>
         </div>
       </div>
@@ -191,13 +191,13 @@ function HeroQuote() {
       <div className="max-w-4xl mx-auto text-center">
         <div className="grid md:grid-cols-3 gap-8 text-[#F8F9FA]/60">
           <div className="p-6 rounded-2xl bg-[#1E3A5F]/10 border border-[#1E3A5F]/20">
-            <p className="italic text-lg mb-2">&ldquo;You bring the expertise. I bring the infrastructure.&rdquo;</p>
+            <p className="italic text-lg mb-2">&ldquo;You run the analysis. I handle the paperwork.&rdquo;</p>
           </div>
           <div className="p-6 rounded-2xl bg-[#1E3A5F]/10 border border-[#1E3A5F]/20">
-            <p className="italic text-lg mb-2">&ldquo;I can track a thousand samples. You know which one matters most.&rdquo;</p>
+            <p className="italic text-lg mb-2">&ldquo;500 samples a week. Every chain of custody intact.&rdquo;</p>
           </div>
           <div className="p-6 rounded-2xl bg-[#1E3A5F]/10 border border-[#1E3A5F]/20">
-            <p className="italic text-lg mb-2">&ldquo;I never sleep. But I always know when you need rest.&rdquo;</p>
+            <p className="italic text-lg mb-2">&ldquo;Your auditor will love me. Your spreadsheets won&apos;t miss you.&rdquo;</p>
           </div>
         </div>
       </div>
@@ -210,21 +210,21 @@ function Problem() {
     <section className="py-24 px-6" id="problem">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#F8F9FA]">
-          47 Million Americans Live in
+          Your Lab Has Outgrown
           <br />
-          <span className="gradient-text">Healthcare Deserts</span>
+          <span className="gradient-text">Spreadsheets and Paper</span>
         </h2>
         <p className="text-[#F8F9FA]/60 text-center max-w-2xl mx-auto mb-16">
-          Rural and underserved communities lack basic diagnostic infrastructure.
-          No LIMS. No IT department. No specialists for 100 miles.
+          Environmental and water testing labs are drowning in manual processes.
+          Sample logs in Excel. Chain of custody on clipboards. EPA audits on prayer.
           THE LIMS BOX was built for exactly this.
         </p>
         <div className="grid md:grid-cols-2 gap-8">
           {[
-            { icon: icons.globe, title: "100+ miles to a specialist", desc: "Rural clinics operate without the laboratory infrastructure that urban hospitals take for granted." },
-            { icon: icons.server, title: "Zero IT footprint needed", desc: "No servers, no infrastructure, no IT department. THE LIMS BOX works where networks don't exist." },
-            { icon: icons.users, title: "Nurses become diagnostic partners", desc: "AI augments clinicians — it doesn't replace them. A nurse with THE LIMS BOX has the diagnostic power of a full laboratory." },
-            { icon: icons.bolt, title: "Plug-and-play deployment", desc: "Two Mac Studios, daisy-chained. One AI + UI. One database + integration. Open the case. Plug in. Power on." },
+            { icon: icons.globe, title: "Spreadsheets don't scale", desc: "Small labs tracking hundreds of samples per week in Excel. One copy-paste error away from an audit finding." },
+            { icon: icons.server, title: "Chain of custody gaps", desc: "Paper-based COC means gaps, missing signatures, and custody disputes. Auditors see it. Clients see it." },
+            { icon: icons.users, title: "EPA compliance outgrows manual processes", desc: "TNI standards, EPA method requirements, and holding time tracking demand real LIMS — not workarounds." },
+            { icon: icons.bolt, title: "Enterprise LIMS is overkill and overpriced", desc: "Labs spending $16–50K/yr on software built for Big Pharma. You need 20% of the features at 10% of the cost." },
           ].map((p) => (
             <div key={p.title} className="card-hover bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-2xl p-8">
               <div className="w-12 h-12 rounded-xl bg-[#E67E22]/10 flex items-center justify-center mb-4 text-[#E67E22]">
@@ -244,8 +244,8 @@ function HowItWorks() {
   const steps = [
     { num: "01", title: "Ship a Pelican case", desc: "Pre-configured with two Mac Studios, daisy-chained. AI assistant + full LIMS database. Ready to deploy anywhere." },
     { num: "02", title: "Open the case", desc: "A laminated setup card sits on top: 'Step 1: Plug in. Step 2: Power on. Step 3: Say hello.'" },
-    { num: "03", title: "AI comes alive", desc: "Natural language interaction for non-technical users. The AI handles complexity so clinicians can focus on patients." },
-    { num: "04", title: "Expand access to care", desc: "Full sample tracking, result reporting, QC, inventory management, patient communication — all running. Offline. Anywhere." },
+    { num: "03", title: "AI comes alive", desc: "Natural language interaction for lab staff. The AI handles complexity so analysts can focus on samples." },
+    { num: "04", title: "Start tracking samples", desc: "Full sample tracking, chain of custody, QC, result reporting, and compliance workflows — all running. Immediately." },
   ];
   return (
     <section className="py-24 px-6 bg-[#2C3E50]/10" id="how-it-works">
@@ -273,11 +273,11 @@ function HowItWorks() {
 
 function Features() {
   const features = [
-    { icon: icons.server, title: "Offline-Capable", desc: "Full functionality without internet. Works in the most remote locations on Earth — no cloud dependency required." },
-    { icon: icons.chart, title: "AI Diagnostics", desc: "Machine learning models analyze results in real time, flagging anomalies and assisting clinical decision-making." },
-    { icon: icons.flask, title: "Predictive Supply Management", desc: "AI forecasts reagent consumption and seasonal demand. Supplies are ordered before they run out." },
-    { icon: icons.wrench, title: "Auto Scheduling", desc: "Intelligent appointment and test scheduling. Automatic cancellation fills. No manual coordination needed." },
-    { icon: icons.shield, title: "Self-Healing Systems", desc: "Auto-calibration, daily QC checks, predictive maintenance alerts. The system maintains itself so clinicians don't have to." },
+    { icon: icons.server, title: "Offline-Capable", desc: "Full functionality without internet. Works in field offices, mobile labs, and remote sites — no cloud dependency required." },
+    { icon: icons.chart, title: "AI-Powered QC", desc: "Machine learning flags out-of-spec results, control chart trends, and holding time violations before they become audit findings." },
+    { icon: icons.flask, title: "Chain of Custody", desc: "Digital COC from field collection to final report. Every handoff logged, timestamped, and audit-ready." },
+    { icon: icons.wrench, title: "EPA Method Tracking", desc: "Built-in method templates for common EPA analyses. Holding times, preservation requirements, and QC limits — preconfigured." },
+    { icon: icons.shield, title: "Self-Healing Systems", desc: "Auto-calibration, daily QC checks, predictive maintenance alerts. The system maintains itself so analysts don't have to." },
     { icon: icons.bolt, title: "Zero IT Footprint", desc: "No servers, no IT department, no configuration sprints. Open the case. Plug in. Power on. It just works." },
   ];
   return (
@@ -287,7 +287,7 @@ function Features() {
           Built for the <span className="gradient-text">Real World</span>
         </h2>
         <p className="text-[#F8F9FA]/60 text-center max-w-2xl mx-auto mb-16">
-          Six core capabilities that make THE LIMS BOX the most advanced portable laboratory ever built.
+          Six core capabilities that make THE LIMS BOX the right LIMS for environmental and water testing labs.
         </p>
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((f) => (
@@ -310,10 +310,10 @@ function Features() {
 
 function UseCases() {
   const cases = [
-    { emoji: "🏥", title: "Rural Clinics", desc: "Full diagnostic capability for clinics 100+ miles from the nearest hospital laboratory." },
-    { emoji: "🚑", title: "Mobile Health Units", desc: "Portable lab infrastructure for disaster response, field hospitals, and community health outreach." },
-    { emoji: "🌍", title: "NGO Deployments", desc: "Turnkey laboratory systems for international health organizations building infrastructure in developing regions." },
-    { emoji: "🩺", title: "Small Practices", desc: "Enterprise-grade LIMS without enterprise-grade IT — perfect for independent labs and small clinics." },
+    { emoji: "🧪", title: "Environmental Testing Labs", desc: "Sample tracking, EPA methods, chain of custody. Built for contract labs running hundreds of samples per week." },
+    { emoji: "💧", title: "Water Quality Labs", desc: "Routine monitoring, compliance reporting, and field sample collection. From intake to final report." },
+    { emoji: "🌾", title: "Agricultural Testing", desc: "Soil, water, and pesticide residue testing. Sample tracking and regulatory compliance for ag labs." },
+    { emoji: "🍽️", title: "Food Safety Labs", desc: "Product testing, shelf-life studies, and compliance. Chain of custody from receiving dock to certificate of analysis." },
   ];
   return (
     <section className="py-24 px-6" id="use-cases">
@@ -322,7 +322,7 @@ function UseCases() {
           Where THE LIMS BOX <span className="gradient-text">Goes to Work</span>
         </h2>
         <p className="text-[#F8F9FA]/60 text-center max-w-2xl mx-auto mb-16">
-          Designed for the places that need it most.
+          Built for labs that test what matters most.
         </p>
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
           {cases.map((c) => (
@@ -349,14 +349,14 @@ function VideoEmbed() {
           See THE LIMS BOX <span className="gradient-text">In Action</span>
         </h2>
         <p className="text-[#F8F9FA]/60 text-center max-w-2xl mx-auto mb-12">
-          Watch how a Pelican case transforms healthcare delivery in underserved communities.
+          Watch how a Pelican case transforms sample management for environmental labs.
         </p>
         <div className="relative w-full overflow-hidden rounded-2xl border border-[#1E3A5F]/30" style={{ paddingBottom: "56.25%" }}>
           {/* TODO: Replace with final commercial YouTube ID when uploaded */}
           <iframe
             className="absolute top-0 left-0 w-full h-full"
             src="https://www.youtube-nocookie.com/embed/2gZf1RnqDWU"
-            title="THE LIMS BOX — Healthcare Infrastructure That Goes Where It's Needed"
+            title="THE LIMS BOX — Lab Informatics for Environmental and Water Testing Labs"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             loading="lazy"
@@ -373,11 +373,11 @@ function VideoEmbed() {
 function Capabilities() {
   const features = [
     { icon: icons.flask, title: "Full Sample Tracking", desc: "Barcode scanning, chain of custody, result reporting. Enterprise-grade capabilities in a portable package." },
-    { icon: icons.shield, title: "Compliance Built In", desc: "21 CFR Part 11, ISO 17025, HIPAA, CLIA/CAP. Audit trails and electronic signatures — baked in, not bolted on." },
-    { icon: icons.chart, title: "AI-Powered Assistance", desc: "Natural language interaction for non-technical users. The AI handles complexity so clinicians can focus on patients." },
-    { icon: icons.server, title: "Fully Offline-Capable", desc: "Works where networks don't exist. No cloud dependency. No internet required. Total data sovereignty." },
-    { icon: icons.bolt, title: "Enterprise-Grade", desc: "Full QC management, inventory tracking, scheduling, result validation, and reporting. Everything a hospital lab has." },
-    { icon: icons.phone, title: "Community Connected", desc: "SMS gateway for patient communications. Results, appointments, and alerts — delivered to the community it serves." },
+    { icon: icons.shield, title: "Compliance Built In", desc: "21 CFR Part 11, ISO 17025, EPA methods, TNI standards. Audit trails and electronic signatures — baked in, not bolted on." },
+    { icon: icons.chart, title: "AI-Powered Assistance", desc: "Natural language interaction for lab staff. The AI handles complexity so analysts can focus on results." },
+    { icon: icons.server, title: "Fully Offline-Capable", desc: "Works in field offices and remote sites. No cloud dependency. No internet required. Total data sovereignty." },
+    { icon: icons.bolt, title: "Enterprise-Grade", desc: "Full QC management, inventory tracking, scheduling, result validation, and reporting. Everything a large lab has — at a fraction of the cost." },
+    { icon: icons.phone, title: "Client Portal", desc: "Automated result delivery to clients. COAs, compliance reports, and status updates — delivered without phone calls." },
   ];
   return (
     <section className="py-24 px-6" id="capabilities">
@@ -386,8 +386,8 @@ function Capabilities() {
           Not Just a Lab. An <span className="gradient-text">AI Partner</span>.
         </h2>
         <p className="text-[#F8F9FA]/60 text-center max-w-2xl mx-auto mb-16">
-          THE LIMS BOX brings full-stack laboratory capabilities to anywhere on Earth.
-          AI augments the clinician. It never replaces them.
+          THE LIMS BOX brings full-stack laboratory capabilities to any lab, anywhere.
+          Starting at a fraction of the cost of QBench ($16.5K/yr) or CloudLIMS ($285/user/mo).
         </p>
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((f) => (
@@ -407,21 +407,21 @@ function Capabilities() {
 
 function Vignettes() {
   const stories = [
-    { emoji: "💑", title: "The Date", capability: "Automated results + scheduling", value: "Privacy, dignity", desc: "A couple on a date receives discreet test results via text. No waiting room. No anxiety. Just a quiet notification that everything's okay." },
-    { emoji: "👵", title: "The Grandmother", capability: "Intelligent cancellation fill", value: "Reduced wait times", desc: "When a cancellation opens, the system automatically contacts the next patient. A grandmother gets her appointment two weeks early." },
-    { emoji: "🔧", title: "The Maintenance Guy", capability: "Predictive equipment monitoring", value: "Cost savings", desc: "Before the analyzer fails, THE LIMS BOX flags the pattern. The maintenance guy replaces a $12 part instead of a $12,000 component." },
-    { emoji: "💊", title: "The Pharmacist", capability: "Historical pattern analysis", value: "Prevent stockouts", desc: "Seasonal flu trends predicted. Supplies pre-ordered. The pharmacist never runs out of what the community needs most." },
-    { emoji: "⚡", title: "Self-Healing Systems", capability: "Automated QC + calibration", value: "Reliability", desc: "Auto-calibration, daily QC checks, backup syncing — all running autonomously. The system maintains itself so clinicians don't have to." },
-    { emoji: "📱", title: "The Community", capability: "SMS gateway + patient comms", value: "Continuity of care", desc: "Phones buzz across the community. Results, reminders, appointments. Each face lighting up. Connected. Cared for." },
+    { emoji: "🧑‍🔬", title: "The Contract Lab Manager", capability: "Sample tracking + COC", value: "Zero lost samples", desc: "500 samples a week, every chain of custody intact. No more hunting for paper logs. The auditor walks in and the data is already waiting." },
+    { emoji: "💧", title: "The Water Utility", capability: "Compliance reporting", value: "Automated CCR", desc: "Daily compliance tests, monthly reports, annual CCRs — generated automatically. The utility manager stops dreading EPA reporting season." },
+    { emoji: "🔧", title: "The Maintenance Tech", capability: "Predictive equipment monitoring", value: "Cost savings", desc: "Before the analyzer fails, THE LIMS BOX flags the pattern. A $12 part gets replaced instead of a $12,000 component." },
+    { emoji: "📋", title: "The QA Director", capability: "Audit trail + e-signatures", value: "ISO 17025 ready", desc: "Every result traceable. Every change logged. The QA director sleeps well before assessment week because the audit trail is airtight." },
+    { emoji: "⚡", title: "Self-Healing Systems", capability: "Automated QC + calibration", value: "Reliability", desc: "Auto-calibration, daily QC checks, backup syncing — all running autonomously. The system maintains itself so analysts don't have to." },
+    { emoji: "🚛", title: "The Field Sampler", capability: "Mobile sample login", value: "Field-to-lab COC", desc: "Samples logged at the collection site. GPS coordinates, timestamps, and preservation checks — captured before the cooler hits the truck." },
   ];
   return (
     <section className="py-24 px-6 bg-[#2C3E50]/10" id="vignettes">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#F8F9FA]">
-          Every Feature Is a <span className="gradient-text">Life Changed</span>
+          Every Feature Is a <span className="gradient-text">Problem Solved</span>
         </h2>
         <p className="text-[#F8F9FA]/60 text-center max-w-2xl mx-auto mb-16">
-          THE LIMS BOX doesn&apos;t just track samples. It transforms how an entire community experiences healthcare.
+          THE LIMS BOX doesn&apos;t just track samples. It eliminates the manual work that slows your lab down.
         </p>
         <div className="grid md:grid-cols-3 gap-6">
           {stories.map((s) => (
@@ -496,8 +496,8 @@ function Founder() {
 
 function BrandExtensions() {
   const extensions = [
-    { name: "THE LIMS BOX MINI", desc: "A single-unit version for school nurse offices, mobile health units, and remote research stations.", status: "Coming 2027" },
-    { name: "THE LIMS BOX FLEET", desc: "Multiple boxes networked across a region, sharing data and resources. Regional healthcare infrastructure.", status: "Roadmap" },
+    { name: "THE LIMS BOX MINI", desc: "A single-unit version for small labs, field offices, and mobile testing operations.", status: "Coming 2027" },
+    { name: "THE LIMS BOX FLEET", desc: "Multiple boxes networked across locations, sharing data and resources. Regional lab infrastructure.", status: "Roadmap" },
     { name: "THE LIMS BOX ACADEMY", desc: "AI-guided training and onboarding that ships with every deployment. Learn while you work.", status: "Included" },
   ];
   return (
@@ -531,15 +531,15 @@ function InvestorCTA() {
           For <span className="gradient-text">Investors</span>
         </h2>
         <p className="text-[#F8F9FA]/60 max-w-2xl mx-auto mb-6 text-lg">
-          47 million Americans live in rural areas with limited healthcare access.
+          Thousands of environmental labs still run on spreadsheets and paper.
         </p>
         <p className="text-[#F8F9FA]/60 max-w-2xl mx-auto mb-12">
           THE LIMS BOX is the first private AI appliance for regulated industries.
-          Healthcare is the beachhead. Legal, accounting, and environmental testing are next.
+          Environmental testing is the beachhead. Water utilities, food safety, and agriculture are next.
         </p>
         <div className="grid md:grid-cols-4 gap-6 mb-12">
           {[
-            { label: "Underserved", value: "47M", sub: "Americans" },
+            { label: "Env Labs", value: "12K+", sub: "in the US" },
             { label: "LIMS Market", value: "$5.19B", sub: "by 2030" },
             { label: "Growth", value: "12.5%", sub: "CAGR" },
             { label: "Deploy time", value: "Minutes", sub: "not months" },
@@ -584,27 +584,27 @@ function EarlyAccess() {
           Early Adopter <span className="gradient-text">Pilot Program</span>
         </h2>
         <p className="text-[#F8F9FA]/60 max-w-2xl mx-auto mb-6 text-lg">
-          Limited spots available for qualified healthcare facilities.
+          Limited spots available for environmental and contract laboratories.
         </p>
         <p className="text-[#F8F9FA]/50 max-w-2xl mx-auto mb-12">
-          We&apos;re selecting a small number of pilot partners to deploy THE LIMS BOX in real clinical environments.
+          We&apos;re selecting a small number of pilot partners to deploy THE LIMS BOX in real lab environments.
           Pilot partners receive founding pricing, direct access to our engineering team, and priority support.
         </p>
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           <div className="bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-xl p-6">
-            <div className="text-2xl mb-3">🏥</div>
-            <h3 className="text-[#F8F9FA] font-semibold mb-2">Rural Clinics</h3>
-            <p className="text-[#F8F9FA]/50 text-sm">Clinics serving communities 50+ miles from the nearest hospital laboratory.</p>
+            <div className="text-2xl mb-3">🧪</div>
+            <h3 className="text-[#F8F9FA] font-semibold mb-2">Contract Labs</h3>
+            <p className="text-[#F8F9FA]/50 text-sm">Environmental testing labs processing 100–1,000+ samples per week.</p>
           </div>
           <div className="bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-xl p-6">
-            <div className="text-2xl mb-3">🚑</div>
-            <h3 className="text-[#F8F9FA] font-semibold mb-2">Mobile Health Units</h3>
-            <p className="text-[#F8F9FA]/50 text-sm">Organizations deploying healthcare to underserved or disaster-affected areas.</p>
+            <div className="text-2xl mb-3">💧</div>
+            <h3 className="text-[#F8F9FA] font-semibold mb-2">Water Utilities</h3>
+            <p className="text-[#F8F9FA]/50 text-sm">Municipal and private water systems running daily compliance testing.</p>
           </div>
           <div className="bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-xl p-6">
-            <div className="text-2xl mb-3">🌍</div>
-            <h3 className="text-[#F8F9FA] font-semibold mb-2">International NGOs</h3>
-            <p className="text-[#F8F9FA]/50 text-sm">Health organizations building laboratory infrastructure in developing regions.</p>
+            <div className="text-2xl mb-3">🌾</div>
+            <h3 className="text-[#F8F9FA] font-semibold mb-2">Ag & Food Labs</h3>
+            <p className="text-[#F8F9FA]/50 text-sm">Agricultural and food safety labs needing affordable, compliant sample tracking.</p>
           </div>
         </div>
         <a
@@ -714,7 +714,7 @@ function Waitlist() {
 
         <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm text-[#F8F9FA]/40">
           <span>🔒 No spam. Ever.</span>
-          <span>🏥 Priority pilot access</span>
+          <span>🧪 Priority pilot access</span>
           <span>💰 Founding partner pricing</span>
         </div>
       </div>
@@ -728,7 +728,7 @@ function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         <div>
           <div className="text-xl font-bold gradient-text mb-1">THE LIMS BOX</div>
-          <div className="text-sm text-[#F8F9FA]/40">Deployable laboratory infrastructure for sites legacy LIMS cannot economically serve.</div>
+          <div className="text-sm text-[#F8F9FA]/40">Modern lab informatics for environmental testing, water quality, and contract labs.</div>
           <div className="text-sm text-[#F8F9FA]/30">A TombStone Dash LLC product</div>
         </div>
         <div className="flex gap-8 text-sm text-[#F8F9FA]/50">
