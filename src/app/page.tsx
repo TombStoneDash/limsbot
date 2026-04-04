@@ -22,14 +22,9 @@ const icons = {
   wrench: "M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l5.653-4.655m5.014-2.024-.001-.002A6.75 6.75 0 0 1 17.06 7.94l.136-.136a6.753 6.753 0 0 0-4.308-1.857",
   users: "M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z",
   globe: "M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418",
+  clock: "M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z",
+  document: "M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z",
 };
-
-/* ────────── color palette from Creative Brief ────────── */
-// Deep Blue #1E3A5F (Trust) — primary/headers
-// Life Green #2E8B57 (Health) — accents/CTAs  
-// Urgent Orange #E67E22 (Action) — highlights/alerts
-// Clean White #F8F9FA (Clarity) — backgrounds
-// Warm Dark #2C3E50 (Grounding) — text/footers
 
 /* ────────── SECTIONS ────────── */
 
@@ -43,7 +38,7 @@ function Hero() {
       <div className="relative z-10 max-w-4xl text-center animate-fade-in-up">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2E8B57]/10 border border-[#2E8B57]/20 mb-8 text-sm text-[#2E8B57]">
           <span className="w-2 h-2 bg-[#2E8B57] rounded-full animate-pulse" />
-          Laboratory informatics for environmental and water testing labs
+          Laboratory informatics for small and mid-size labs
         </div>
 
         <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-[#F8F9FA]">
@@ -53,16 +48,22 @@ function Hero() {
         </h1>
 
         <p className="text-xl text-[#F8F9FA]/60 mb-10 max-w-2xl mx-auto">
-          Modern lab informatics for environmental testing, water quality, and contract labs.
-          Sample tracking, chain of custody, and regulatory compliance — packaged for fast deployment.
+          Modern lab informatics for environmental testing, forensics, cannabis, food safety, and contract labs.
+          Sample tracking, chain of custody, and regulatory compliance — set up in days, not months.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="#waitlist-top"
+            href="/early-access"
             className="px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-xl font-semibold text-lg transition-all text-white animate-pulse-glow"
           >
-            Join the Waitlist
+            Apply for Early Access
+          </a>
+          <a
+            href="mailto:info@lims.bot?subject=LIMS%20BOX%20Demo%20Request"
+            className="px-8 py-4 border border-[#E67E22] hover:border-[#E67E22]/80 hover:bg-[#E67E22]/10 rounded-xl font-semibold text-lg transition-all text-[#E67E22]"
+          >
+            Schedule a Demo
           </a>
           <a
             href="#how-it-works"
@@ -74,7 +75,7 @@ function Hero() {
 
         <div className="mt-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E67E22]/10 border border-[#E67E22]/20 text-sm text-[#E67E22]">
           <span className="w-2 h-2 bg-[#E67E22] rounded-full animate-pulse" />
-          Currently in development. Seeking pilot partners.
+          Currently selecting 5 pilot labs. Apply now.
         </div>
 
         <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-[#F8F9FA]/40">
@@ -82,7 +83,7 @@ function Hero() {
           <span>✓ EPA methods</span>
           <span>✓ AI-powered</span>
           <span>✓ ISO 17025 ready</span>
-          <span>✓ Plug-and-play</span>
+          <span>✓ Under $500/mo</span>
         </div>
       </div>
     </section>
@@ -92,7 +93,7 @@ function Hero() {
 function ProductGallery() {
   const images = [
     { src: "/images/branded-newcase.jpg", alt: "THE LIMS BOX — portable laboratory infrastructure in a rugged Pelican case" },
-    { src: "/images/branded-case-logo.jpg", alt: "THE LIMS BOX with branded case logo — deployable diagnostic system" },
+    { src: "/images/branded-case-logo.jpg", alt: "THE LIMS BOX with branded case logo — deployable lab informatics system" },
     { src: "/images/branded-maclogo.jpg", alt: "THE LIMS BOX powered by Mac Mini — complete lab informatics platform" },
   ];
   return (
@@ -169,7 +170,7 @@ function WaitlistCompact() {
                   <input type="email" name="email" required placeholder="your@email.com" className="flex-1 px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition text-sm" />
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <input type="text" name="organization" placeholder="Organization (optional)" className="flex-1 px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition text-sm" />
+                  <input type="text" name="organization" placeholder="Lab name (optional)" className="flex-1 px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition text-sm" />
                   <input type="text" name="role" placeholder="Your role (optional)" className="flex-1 px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition text-sm" />
                 </div>
                 <button type="submit" disabled={submitting} className="w-full px-6 py-3 bg-[#2E8B57] hover:bg-[#2E8B57]/80 disabled:opacity-50 rounded-lg font-semibold transition-all text-white text-sm">
@@ -215,16 +216,18 @@ function Problem() {
           <span className="gradient-text">Spreadsheets and Paper</span>
         </h2>
         <p className="text-[#F8F9FA]/60 text-center max-w-2xl mx-auto mb-16">
-          Environmental and water testing labs are drowning in manual processes.
-          Sample logs in Excel. Chain of custody on clipboards. EPA audits on prayer.
+          Labs of every type are drowning in manual processes.
+          Sample logs in Excel. Chain of custody on clipboards. Audit prep on prayer.
           THE LIMS BOX was built for exactly this.
         </p>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {[
-            { icon: icons.globe, title: "Spreadsheets don't scale", desc: "Small labs tracking hundreds of samples per week in Excel. One copy-paste error away from an audit finding." },
-            { icon: icons.server, title: "Chain of custody gaps", desc: "Paper-based COC means gaps, missing signatures, and custody disputes. Auditors see it. Clients see it." },
-            { icon: icons.users, title: "EPA compliance outgrows manual processes", desc: "TNI standards, EPA method requirements, and holding time tracking demand real LIMS — not workarounds." },
-            { icon: icons.bolt, title: "Enterprise LIMS is overkill and overpriced", desc: "Labs spending $16–50K/yr on software built for Big Pharma. You need 20% of the features at 10% of the cost." },
+            { icon: icons.clock, title: "40% paperwork, 60% science", desc: "Your analysts spend nearly half their time on data entry, transcription, and documentation — not the analytical work you hired them for." },
+            { icon: icons.document, title: "Audit prep takes weeks", desc: "Records scattered across spreadsheets, email threads, and paper logbooks. When the auditor calls, you scramble — every single time." },
+            { icon: icons.users, title: "Knowledge walks out the door", desc: "Every time a senior tech leaves, institutional knowledge goes with them. SOPs live in someone's head. Method tricks aren't documented." },
+            { icon: icons.server, title: "Chain of custody gaps", desc: "Paper-based COC means gaps, missing signatures, and custody disputes. Whether it's EPA samples or forensic evidence — gaps kill credibility." },
+            { icon: icons.globe, title: "Compliance outgrows manual processes", desc: "ISO 17025, EPA methods, state regulations, and accreditation requirements demand real LIMS — not workaround spreadsheets." },
+            { icon: icons.bolt, title: "Enterprise LIMS is overkill", desc: "You've looked at LabWare and STARLIMS. $50K+ and an 18-month implementation? You need 20% of the features at 10% of the cost." },
           ].map((p) => (
             <div key={p.title} className="card-hover bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-2xl p-8">
               <div className="w-12 h-12 rounded-xl bg-[#E67E22]/10 flex items-center justify-center mb-4 text-[#E67E22]">
@@ -276,7 +279,7 @@ function Features() {
     { icon: icons.server, title: "Offline-Capable", desc: "Full functionality without internet. Works in field offices, mobile labs, and remote sites — no cloud dependency required." },
     { icon: icons.chart, title: "AI-Powered QC", desc: "Machine learning flags out-of-spec results, control chart trends, and holding time violations before they become audit findings." },
     { icon: icons.flask, title: "Chain of Custody", desc: "Digital COC from field collection to final report. Every handoff logged, timestamped, and audit-ready." },
-    { icon: icons.wrench, title: "EPA Method Tracking", desc: "Built-in method templates for common EPA analyses. Holding times, preservation requirements, and QC limits — preconfigured." },
+    { icon: icons.wrench, title: "Method Tracking", desc: "Built-in method templates for EPA, state, and custom analyses. Holding times, preservation requirements, and QC limits — preconfigured." },
     { icon: icons.shield, title: "Self-Healing Systems", desc: "Auto-calibration, daily QC checks, predictive maintenance alerts. The system maintains itself so analysts don't have to." },
     { icon: icons.bolt, title: "Zero IT Footprint", desc: "No servers, no IT department, no configuration sprints. Open the case. Plug in. Power on. It just works." },
   ];
@@ -287,7 +290,7 @@ function Features() {
           Built for the <span className="gradient-text">Real World</span>
         </h2>
         <p className="text-[#F8F9FA]/60 text-center max-w-2xl mx-auto mb-16">
-          Six core capabilities that make THE LIMS BOX the right LIMS for environmental and water testing labs.
+          Six core capabilities that make THE LIMS BOX the right LIMS for labs that need results — not IT projects.
         </p>
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((f) => (
@@ -310,10 +313,12 @@ function Features() {
 
 function UseCases() {
   const cases = [
-    { emoji: "🧪", title: "Environmental Testing Labs", desc: "Sample tracking, EPA methods, chain of custody. Built for contract labs running hundreds of samples per week." },
-    { emoji: "💧", title: "Water Quality Labs", desc: "Routine monitoring, compliance reporting, and field sample collection. From intake to final report." },
-    { emoji: "🌾", title: "Agricultural Testing", desc: "Soil, water, and pesticide residue testing. Sample tracking and regulatory compliance for ag labs." },
-    { emoji: "🍽️", title: "Food Safety Labs", desc: "Product testing, shelf-life studies, and compliance. Chain of custody from receiving dock to certificate of analysis." },
+    { emoji: "🌊", title: "Environmental & Water Testing", desc: "EPA method compliance, sample chain of custody for legal defensibility, high-volume routine testing, and seasonal surge management." },
+    { emoji: "🔬", title: "Crime & Forensic Labs", desc: "Chain of custody critical for court-admissible evidence. Accreditation tracking, backlog management, and analyst workload optimization." },
+    { emoji: "🌿", title: "Cannabis Testing Labs", desc: "State compliance workflows, potency and terpene analysis tracking, rapid turnaround reporting, and regulatory audit trails." },
+    { emoji: "🍽️", title: "Food Safety Labs", desc: "FSMA compliance, pathogen testing workflows, supplier qualification tracking, and certificate of analysis generation." },
+    { emoji: "🧬", title: "Research Labs", desc: "Grant compliance documentation, data integrity and reproducibility, instrument integration, and electronic lab notebooks." },
+    { emoji: "📊", title: "Contract & Commercial Labs", desc: "Multi-client management, automated client reporting, SLA tracking, and branded certificate of analysis delivery." },
   ];
   return (
     <section className="py-24 px-6" id="use-cases">
@@ -322,9 +327,9 @@ function UseCases() {
           Where THE LIMS BOX <span className="gradient-text">Goes to Work</span>
         </h2>
         <p className="text-[#F8F9FA]/60 text-center max-w-2xl mx-auto mb-16">
-          Built for labs that test what matters most.
+          Built for labs that need compliance, traceability, and speed — without the enterprise price tag.
         </p>
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           {cases.map((c) => (
             <div key={c.title} className="card-hover bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-2xl p-6 text-center">
               <div className="text-4xl mb-4">{c.emoji}</div>
@@ -349,14 +354,13 @@ function VideoEmbed() {
           See THE LIMS BOX <span className="gradient-text">In Action</span>
         </h2>
         <p className="text-[#F8F9FA]/60 text-center max-w-2xl mx-auto mb-12">
-          Watch how a Pelican case transforms sample management for environmental labs.
+          Watch how a Pelican case transforms sample management for your lab.
         </p>
         <div className="relative w-full overflow-hidden rounded-2xl border border-[#1E3A5F]/30" style={{ paddingBottom: "56.25%" }}>
-          {/* TODO: Replace with final commercial YouTube ID when uploaded */}
           <iframe
             className="absolute top-0 left-0 w-full h-full"
             src="https://www.youtube-nocookie.com/embed/2gZf1RnqDWU"
-            title="THE LIMS BOX — Lab Informatics for Environmental and Water Testing Labs"
+            title="THE LIMS BOX — Lab Informatics in a Pelican Case"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             loading="lazy"
@@ -494,27 +498,29 @@ function Founder() {
   );
 }
 
-function BrandExtensions() {
-  const extensions = [
-    { name: "THE LIMS BOX MINI", desc: "A single-unit version for small labs, field offices, and mobile testing operations.", status: "Coming 2027" },
-    { name: "THE LIMS BOX FLEET", desc: "Multiple boxes networked across locations, sharing data and resources. Regional lab infrastructure.", status: "Roadmap" },
-    { name: "THE LIMS BOX ACADEMY", desc: "AI-guided training and onboarding that ships with every deployment. Learn while you work.", status: "Included" },
+function WhySmallLabs() {
+  const reasons = [
+    { title: "Set Up in Days, Not Months", desc: "No IT department needed. No 18-month implementation timeline. No consultants billing $250/hour to configure your system. Open the case and start running samples.", icon: icons.bolt },
+    { title: "Under $500/Month", desc: "A fraction of the cost of enterprise LIMS platforms like LabWare or STARLIMS. Full functionality at a price that makes sense for labs with 5–50 staff.", icon: icons.chart },
+    { title: "Audit-Ready from Day One", desc: "ISO 17025, cGMP, and 21 CFR Part 11 compliance built in — not bolted on. Electronic signatures, full audit trails, and chain of custody tracking come standard.", icon: icons.shield },
   ];
   return (
-    <section className="py-24 px-6 bg-[#2C3E50]/10" id="extensions">
+    <section className="py-24 px-6 bg-[#2C3E50]/10" id="why-lims-box">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#F8F9FA]">
-          A <span className="gradient-text">Platform, Not Just a Product</span>
+          Why Small Labs Choose <span className="gradient-text">LIMS BOX</span>
         </h2>
         <p className="text-[#F8F9FA]/60 text-center max-w-2xl mx-auto mb-16">
-          THE LIMS BOX is the foundation. What we build on top of it changes everything.
+          Enterprise capability without the enterprise headache.
         </p>
         <div className="grid md:grid-cols-3 gap-8">
-          {extensions.map((e) => (
-            <div key={e.name} className="card-hover bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-2xl p-8">
-              <div className="text-xs text-[#E67E22] font-medium mb-2">{e.status}</div>
-              <h3 className="text-lg font-semibold mb-2 text-[#F8F9FA]">{e.name}</h3>
-              <p className="text-[#F8F9FA]/60 text-sm">{e.desc}</p>
+          {reasons.map((r) => (
+            <div key={r.title} className="card-hover bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-2xl p-8">
+              <div className="w-12 h-12 rounded-xl bg-[#2E8B57]/10 flex items-center justify-center mb-4 text-[#2E8B57]">
+                <Icon d={r.icon} />
+              </div>
+              <h3 className="text-xl font-semibold mb-2 text-[#F8F9FA]">{r.title}</h3>
+              <p className="text-[#F8F9FA]/60">{r.desc}</p>
             </div>
           ))}
         </div>
@@ -523,19 +529,65 @@ function BrandExtensions() {
   );
 }
 
-function InvestorCTA() {
+function EarlyAccessSection() {
   return (
-    <section className="py-24 px-6" id="investors">
+    <section className="py-24 px-6" id="pilot">
       <div className="max-w-4xl mx-auto text-center">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E67E22]/10 border border-[#E67E22]/20 mb-8 text-sm text-[#E67E22]">
+          <span className="w-2 h-2 bg-[#E67E22] rounded-full animate-pulse" />
+          Now Accepting Applications
+        </div>
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#F8F9FA]">
-          For <span className="gradient-text">Investors</span>
+          Early Adopter <span className="gradient-text">Pilot Program</span>
         </h2>
         <p className="text-[#F8F9FA]/60 max-w-2xl mx-auto mb-6 text-lg">
-          Thousands of environmental labs still run on spreadsheets and paper.
+          5 pilot spots available. Hands-on support from the founder.
         </p>
-        <p className="text-[#F8F9FA]/60 max-w-2xl mx-auto mb-12">
-          THE LIMS BOX is the first private AI appliance for regulated industries.
-          Environmental testing is the beachhead. Water utilities, food safety, and agriculture are next.
+        <p className="text-[#F8F9FA]/50 max-w-2xl mx-auto mb-12">
+          We&apos;re selecting a small number of labs to pilot THE LIMS BOX alongside their current process.
+          Pilot partners receive a free trial period, direct access to our engineering team, and priority feature requests.
+        </p>
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          <div className="bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-xl p-6">
+            <div className="text-2xl mb-3">🧪</div>
+            <h3 className="text-[#F8F9FA] font-semibold mb-2">Environmental & Water Labs</h3>
+            <p className="text-[#F8F9FA]/50 text-sm">EPA methods, chain of custody, and seasonal surge handling.</p>
+          </div>
+          <div className="bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-xl p-6">
+            <div className="text-2xl mb-3">🔬</div>
+            <h3 className="text-[#F8F9FA] font-semibold mb-2">Forensic & Crime Labs</h3>
+            <p className="text-[#F8F9FA]/50 text-sm">Court-admissible chain of custody, accreditation, and backlog management.</p>
+          </div>
+          <div className="bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-xl p-6">
+            <div className="text-2xl mb-3">🍽️</div>
+            <h3 className="text-[#F8F9FA] font-semibold mb-2">Food Safety & Cannabis Labs</h3>
+            <p className="text-[#F8F9FA]/50 text-sm">FSMA compliance, state regulations, and rapid turnaround reporting.</p>
+          </div>
+        </div>
+        <a
+          href="/early-access"
+          className="inline-block px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-xl font-semibold text-lg transition-all text-white"
+        >
+          Apply for the Pilot Program →
+        </a>
+        <p className="mt-4 text-sm text-[#F8F9FA]/30">
+          Questions? <a href="mailto:info@lims.bot" className="text-[#2E8B57] hover:underline">info@lims.bot</a> | (760) 960-4273
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function InvestorCTA() {
+  return (
+    <section className="py-24 px-6 bg-[#2C3E50]/10" id="investors">
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-[#F8F9FA]/70">
+          For Investors
+        </h2>
+        <p className="text-[#F8F9FA]/50 max-w-2xl mx-auto mb-6">
+          Thousands of labs still run on spreadsheets and paper.
+          THE LIMS BOX is the first private AI appliance for regulated laboratories.
         </p>
         <div className="grid md:grid-cols-4 gap-6 mb-12">
           {[
@@ -567,55 +619,6 @@ function InvestorCTA() {
             Download One-Pager (PDF)
           </a>
         </div>
-      </div>
-    </section>
-  );
-}
-
-function EarlyAccess() {
-  return (
-    <section className="py-24 px-6" id="pilot">
-      <div className="max-w-4xl mx-auto text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E67E22]/10 border border-[#E67E22]/20 mb-8 text-sm text-[#E67E22]">
-          <span className="w-2 h-2 bg-[#E67E22] rounded-full animate-pulse" />
-          Now Accepting Applications
-        </div>
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#F8F9FA]">
-          Early Adopter <span className="gradient-text">Pilot Program</span>
-        </h2>
-        <p className="text-[#F8F9FA]/60 max-w-2xl mx-auto mb-6 text-lg">
-          Limited spots available for environmental and contract laboratories.
-        </p>
-        <p className="text-[#F8F9FA]/50 max-w-2xl mx-auto mb-12">
-          We&apos;re selecting a small number of pilot partners to deploy THE LIMS BOX in real lab environments.
-          Pilot partners receive founding pricing, direct access to our engineering team, and priority support.
-        </p>
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          <div className="bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-xl p-6">
-            <div className="text-2xl mb-3">🧪</div>
-            <h3 className="text-[#F8F9FA] font-semibold mb-2">Contract Labs</h3>
-            <p className="text-[#F8F9FA]/50 text-sm">Environmental testing labs processing 100–1,000+ samples per week.</p>
-          </div>
-          <div className="bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-xl p-6">
-            <div className="text-2xl mb-3">💧</div>
-            <h3 className="text-[#F8F9FA] font-semibold mb-2">Water Utilities</h3>
-            <p className="text-[#F8F9FA]/50 text-sm">Municipal and private water systems running daily compliance testing.</p>
-          </div>
-          <div className="bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-xl p-6">
-            <div className="text-2xl mb-3">🌾</div>
-            <h3 className="text-[#F8F9FA] font-semibold mb-2">Ag & Food Labs</h3>
-            <p className="text-[#F8F9FA]/50 text-sm">Agricultural and food safety labs needing affordable, compliant sample tracking.</p>
-          </div>
-        </div>
-        <a
-          href="#waitlist"
-          className="inline-block px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-xl font-semibold text-lg transition-all text-white"
-        >
-          Request Pilot Access →
-        </a>
-        <p className="mt-4 text-sm text-[#F8F9FA]/30">
-          Contact <a href="mailto:info@lims.bot" className="text-[#2E8B57] hover:underline">info@lims.bot</a> for pilot program details
-        </p>
       </div>
     </section>
   );
@@ -654,7 +657,7 @@ function Waitlist() {
   };
 
   return (
-    <section className="py-24 px-6 bg-[#2C3E50]/10" id="waitlist">
+    <section className="py-24 px-6" id="waitlist">
       <div className="max-w-2xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#F8F9FA]">
           <span className="gradient-text">Request Early Access</span>
@@ -692,7 +695,7 @@ function Waitlist() {
               <input
                 type="text"
                 name="organization"
-                placeholder="Organization (optional)"
+                placeholder="Lab name (optional)"
                 className="flex-1 px-6 py-4 bg-[#2C3E50]/50 border border-[#1E3A5F]/50 rounded-xl text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
               />
               <input
@@ -728,14 +731,15 @@ function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         <div>
           <div className="text-xl font-bold gradient-text mb-1">THE LIMS BOX</div>
-          <div className="text-sm text-[#F8F9FA]/40">Modern lab informatics for environmental testing, water quality, and contract labs.</div>
+          <div className="text-sm text-[#F8F9FA]/40">Modern lab informatics for environmental testing, forensics, food safety, and contract labs.</div>
           <div className="text-sm text-[#F8F9FA]/30">A TombStone Dash LLC product</div>
         </div>
         <div className="flex gap-8 text-sm text-[#F8F9FA]/50">
           <a href="#capabilities" className="hover:text-[#2E8B57] transition">Capabilities</a>
           <a href="#vignettes" className="hover:text-[#2E8B57] transition">Stories</a>
           <a href="#founder" className="hover:text-[#2E8B57] transition">Team</a>
-          <a href="#investors" className="hover:text-[#2E8B57] transition">Investors</a>
+          <a href="/early-access" className="hover:text-[#2E8B57] transition">Early Access</a>
+          <a href="/blog" className="hover:text-[#2E8B57] transition">Blog</a>
           <a href="mailto:info@lims.bot" className="hover:text-[#2E8B57] transition">Contact</a>
         </div>
         <div className="text-sm text-[#F8F9FA]/30">
@@ -760,11 +764,11 @@ export default function Home() {
             <a href="#use-cases" className="hover:text-white transition">Use Cases</a>
             <a href="#vignettes" className="hover:text-white transition">Stories</a>
             <a href="#founder" className="hover:text-white transition">Team</a>
-            <a href="#investors" className="hover:text-white transition">Investors</a>
+            <a href="/early-access" className="hover:text-white transition">Early Access</a>
             <a href="/blog" className="hover:text-white transition">Blog</a>
           </div>
-          <a href="#waitlist" className="px-5 py-2 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-lg font-semibold text-sm transition-all text-white">
-            Join Waitlist
+          <a href="/early-access" className="px-5 py-2 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-lg font-semibold text-sm transition-all text-white">
+            Early Access
           </a>
         </div>
       </nav>
@@ -781,8 +785,8 @@ export default function Home() {
       <Capabilities />
       <Vignettes />
       <Founder />
-      <BrandExtensions />
-      <EarlyAccess />
+      <WhySmallLabs />
+      <EarlyAccessSection />
       <InvestorCTA />
       <Waitlist />
       <Footer />

@@ -5,26 +5,30 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "THE LIMS BOX — Healthcare Infrastructure That Goes Where It's Needed",
+  title: "THE LIMS BOX — Lab Informatics That Deploys in Minutes",
   description:
-    "Plug-and-play LIMS system for rural and underserved clinics. AI-powered. Fully offline. Zero IT footprint. Plug in. Power on. Save lives.",
+    "Plug-and-play LIMS for environmental, forensic, cannabis, food safety, and contract labs. AI-powered. Fully offline. ISO 17025 ready. Under $500/month.",
   metadataBase: new URL("https://lims.bot"),
   keywords: [
     "LIMS",
     "laboratory information management",
-    "rural healthcare",
-    "AI healthcare",
-    "portable lab",
+    "environmental testing LIMS",
+    "forensic lab LIMS",
+    "cannabis testing LIMS",
+    "food safety LIMS",
+    "AI LIMS",
+    "portable LIMS",
     "offline LIMS",
-    "healthcare infrastructure",
-    "Pelican case lab",
-    "Mac Studio LIMS",
-    "healthcare desert",
+    "ISO 17025",
+    "chain of custody",
+    "EPA compliance",
+    "small lab LIMS",
+    "affordable LIMS",
   ],
   openGraph: {
-    title: "THE LIMS BOX — Plug in. Power on. Save lives.",
+    title: "THE LIMS BOX — Plug in. Power on. Run your lab.",
     description:
-      "Healthcare infrastructure that goes where it's needed. AI-powered portable laboratory. Fully offline. Zero IT footprint.",
+      "Modern lab informatics for small and mid-size labs. AI-powered. Fully offline. ISO 17025 ready. Set up in days, not months.",
     url: "https://lims.bot",
     siteName: "THE LIMS BOX",
     type: "website",
@@ -32,9 +36,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "THE LIMS BOX — Plug in. Power on. Save lives.",
+    title: "THE LIMS BOX — Plug in. Power on. Run your lab.",
     description:
-      "47 million Americans live in healthcare deserts. THE LIMS BOX brings full diagnostic capabilities in a Pelican case. AI-powered. Fully offline.",
+      "Lab informatics that deploys in minutes. Sample tracking, chain of custody, and regulatory compliance for environmental, forensic, and contract labs.",
   },
   icons: {
     icon: [
