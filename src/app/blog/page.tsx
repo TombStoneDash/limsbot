@@ -17,6 +17,13 @@ interface BlogPostSummary {
 
 const posts: BlogPostSummary[] = [
   {
+    slug: "why-lab-ai-agents-need-domain-expertise",
+    title: "Why Lab AI Agents Need Domain Expertise",
+    date: "April 2026",
+    excerpt: "Generic AI fails in regulated laboratories because compliance isn't optional. A laboratory AI agent must understand validation, audit trails, chain of custody, and regulatory frameworks like ISO 17025 and 21 CFR Part 11.",
+    href: "/blog/why-lab-ai-agents-need-domain-expertise",
+  },
+  {
     slug: "environmental-labs",
     title: "LIMS BOX for Environmental & Water Testing Labs",
     date: "June 2026",
