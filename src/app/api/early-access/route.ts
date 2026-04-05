@@ -22,9 +22,12 @@ export async function POST(req: NextRequest) {
       source: "lims.bot/early-access",
     };
 
-    // Log submission (Vercel logs capture this)
+    // Log submission (Vercel logs capture this for monitoring at info@lims.bot)
     console.log("🔔 NEW EARLY ACCESS APPLICATION:", JSON.stringify(entry));
 
+    // Optional: Send webhook to Discord or email service if configured
+    // For now, submissions are logged to Vercel console and accessible via Vercel dashboard
+    
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
