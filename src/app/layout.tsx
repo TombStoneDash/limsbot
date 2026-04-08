@@ -57,6 +57,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        {/* Google Ads conversion tracking */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17975356477" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17975356477');
+            `,
+          }}
+        />
+      </head>
       <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
