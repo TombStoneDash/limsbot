@@ -17,6 +17,20 @@ interface BlogPostSummary {
 
 const posts: BlogPostSummary[] = [
   {
+    slug: "5-signs-your-lab-has-outgrown-spreadsheets",
+    title: "5 Signs Your Lab Has Outgrown Spreadsheets",
+    date: "April 12, 2026",
+    excerpt: "Still running your lab on Excel? Holding time misses, audit trail gaps, and transcription errors are signs you've outgrown spreadsheets. Here's when it's time for a real LIMS.",
+    href: "/blog/5-signs-your-lab-has-outgrown-spreadsheets",
+  },
+  {
+    slug: "why-small-labs-dont-need-enterprise-lims",
+    title: "Why Small Labs Don't Need Enterprise LIMS",
+    date: "April 12, 2026",
+    excerpt: "Enterprise LIMS platforms are built for pharma giants with 500-seat deployments. If your environmental or water testing lab has under 50 people, you're paying for complexity you'll never use.",
+    href: "/blog/why-small-labs-dont-need-enterprise-lims",
+  },
+  {
     slug: "why-lab-ai-agents-need-domain-expertise",
     title: "Why Lab AI Agents Need Domain Expertise",
     date: "April 2026",
