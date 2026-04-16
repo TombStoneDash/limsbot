@@ -1,31 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { promises as fs } from "fs";
-import path from "path";
-
-const DATA_FILE = path.join(process.cwd(), "data", "waitlist.json");
-
-interface WaitlistEntry {
-  name: string;
-  email: string;
-  organization?: string;
-  role?: string;
-  timestamp: string;
-  source?: string;
-}
-
-async function loadEntries(): Promise<WaitlistEntry[]> {
-  try {
-    const raw = await fs.readFile(DATA_FILE, "utf-8");
-    return JSON.parse(raw);
-  } catch {
-    return [];
-  }
-}
-
-async function saveEntries(entries: WaitlistEntry[]): Promise<void> {
-  await fs.mkdir(path.dirname(DATA_FILE), { recursive: true });
-  await fs.writeFile(DATA_FILE, JSON.stringify(entries, null, 2));
-}
+import { supabase } from "@/lib/supabase";
 
 export async function POST(req: NextRequest) {
   try {
@@ -36,31 +10,35 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Name and email required" }, { status: 400 });
     }
 
-    const entry: WaitlistEntry = {
-      name,
-      email,
-      organization: organization || undefined,
-      role: role || undefined,
-      timestamp: new Date().toISOString(),
-      source: "lims.bot",
-    };
-
     // Log submission (Vercel logs capture this)
-    console.log("🔔 NEW WAITLIST SIGNUP:", JSON.stringify(entry));
+    console.log("🔔 NEW WAITLIST SIGNUP:", JSON.stringify({ name, email, organization, role }));
 
-    // Persist to JSON file (works in dev; on Vercel, logs are the fallback)
-    try {
-      const entries = await loadEntries();
-      entries.push(entry);
-      await saveEntries(entries);
-    } catch (fsErr) {
-      // Vercel serverless has read-only filesystem — log only
-      console.log("📁 File storage unavailable (serverless), entry logged above");
-      console.error(fsErr);
+    // Persist to Supabase
+    const { data, error } = await supabase
+      .from("limsbox_waitlist")
+      .upsert(
+        {
+          name,
+          email,
+          organization: organization || null,
+          role: role || null,
+          source: "lims.bot",
+        },
+        { onConflict: "email" }
+      )
+      .select();
+
+    if (error) {
+      console.error("Supabase error:", error);
+      // Still return success to user - don't expose internal errors
+      // Log will capture the submission regardless
+    } else {
+      console.log("✅ Saved to Supabase:", data);
     }
 
     return NextResponse.json({ ok: true });
-  } catch {
+  } catch (err) {
+    console.error("Request error:", err);
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }
 }

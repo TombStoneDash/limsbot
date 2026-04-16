@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { supabase } from "@/lib/supabase";
 
 export async function POST(req: NextRequest) {
   try {
@@ -9,27 +10,35 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Required fields missing" }, { status: 400 });
     }
 
-    const entry = {
-      labName,
-      labSize,
-      instruments: instruments || undefined,
-      currentLims,
-      painPoint,
-      name,
-      email,
-      phone: phone || undefined,
-      timestamp: new Date().toISOString(),
-      source: "lims.bot/early-access",
-    };
+    // Log submission (Vercel logs capture this)
+    console.log("🔔 NEW EARLY ACCESS APPLICATION:", JSON.stringify({ labName, name, email, painPoint }));
 
-    // Log submission (Vercel logs capture this for monitoring at info@lims.bot)
-    console.log("🔔 NEW EARLY ACCESS APPLICATION:", JSON.stringify(entry));
+    // Persist to Supabase
+    const { data, error } = await supabase
+      .from("limsbox_early_access")
+      .insert({
+        lab_name: labName,
+        lab_size: labSize || null,
+        instruments: instruments || null,
+        current_lims: currentLims || null,
+        pain_point: painPoint,
+        name,
+        email,
+        phone: phone || null,
+        source: "lims.bot/early-access",
+      })
+      .select();
 
-    // Optional: Send webhook to Discord or email service if configured
-    // For now, submissions are logged to Vercel console and accessible via Vercel dashboard
-    
+    if (error) {
+      console.error("Supabase error:", error);
+      // Still return success to user - don't expose internal errors
+    } else {
+      console.log("✅ Saved to Supabase:", data);
+    }
+
     return NextResponse.json({ ok: true });
-  } catch {
+  } catch (err) {
+    console.error("Request error:", err);
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }
 }
