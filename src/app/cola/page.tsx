@@ -110,6 +110,48 @@ export default function ColaPage() {
           </div>
         </div>
       </section>
+      {/* COLA-specific 4-card section */}
+      <section className="py-20 px-6 bg-[#2C3E50]/10">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#F8F9FA]">
+            Built for the labs <span className="gradient-text">COLA accredits.</span>
+          </h2>
+          <p className="text-[#F8F9FA]/60 text-center max-w-2xl mx-auto mb-16">
+            Designed around the realities of physician office labs and the COLA
+            inspection process — not retrofitted for them.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                title: "Physician office labs",
+                body: "Waived through moderate-complexity testing, fully managed in one box. Your CLIA director sleeps at night.",
+              },
+              {
+                title: "All CLIA complexity tiers",
+                body: "Waived. Moderate. High. The same LIMS handles all of it, with role-based access and complete audit trails.",
+              },
+              {
+                title: "Audit-ready in minutes",
+                body: "Every result, every reagent, every QC check — auto-logged with a chain of custody an inspector can follow.",
+              },
+              {
+                title: "No IT department needed",
+                body: "Two machines in a rugged case. Plug in. Power on. The AI assistant handles configuration and troubleshooting.",
+              },
+            ].map((card) => (
+              <div
+                key={card.title}
+                className="card-hover bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-2xl p-8"
+              >
+                <h3 className="text-xl font-semibold mb-3 text-[#F8F9FA]">
+                  {card.title}
+                </h3>
+                <p className="text-[#F8F9FA]/60">{card.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* additional sections appended in subsequent commits */}
 
       {/* footer */}
