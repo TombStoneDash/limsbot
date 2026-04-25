@@ -381,6 +381,30 @@ function VideoEmbed() {
   );
 }
 
+function SenaiteCallout() {
+  return (
+    <section className="py-24 px-6" id="senaite">
+      <div className="max-w-4xl mx-auto">
+        <div className="bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-2xl p-8 md:p-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#F8F9FA]">
+            Built on SENAITE.{" "}
+            <span className="gradient-text">With its founder.</span>
+          </h2>
+          <p className="text-[#F8F9FA]/70 text-lg leading-relaxed">
+            THE LIMS BOX is built on SENAITE, the leading open-source Laboratory
+            Information Management System, in active technical collaboration with
+            its founder Ramon Bartl. We ship hardware, packaging, AI, and
+            go-to-market — SENAITE provides the battle-tested LIMS core that runs
+            labs around the world. The result is enterprise-grade laboratory
+            infrastructure delivered in a rugged case for a fraction of the cost
+            of conventional deployments.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Capabilities() {
   const features = [
     { icon: icons.flask, title: "Full Sample Tracking", desc: "Barcode scanning, chain of custody, result reporting. Enterprise-grade capabilities in a portable package." },
@@ -796,6 +820,7 @@ export default function Home() {
       <Features />
       <UseCases />
       <VideoEmbed />
+      <SenaiteCallout />
       <Capabilities />
       <Vignettes />
       <Founder />
