@@ -1,0 +1,107 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "THE LIMS BOX at COLA Forum 2026 — Nashville, May 6–8",
+  description:
+    "Meet the team building the LIMS purpose-built for COLA-accredited labs. Book 15 minutes at the COLA Annual Laboratory Enrichment Forum, Sheraton Music City, May 6–8.",
+  alternates: { canonical: "https://lims.bot/cola" },
+  openGraph: {
+    title: "THE LIMS BOX at COLA Forum 2026 — Nashville, May 6–8",
+    description:
+      "The LIMS purpose-built for COLA-accredited labs. Book 15 minutes in Nashville.",
+    url: "https://lims.bot/cola",
+    siteName: "THE LIMS BOX",
+    type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+};
+
+export default function ColaPage() {
+  return (
+    <main>
+      {/* nav — matches site nav */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0f1a]/80 backdrop-blur-lg border-b border-[#1E3A5F]/30">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+          <a href="/" className="text-xl font-bold gradient-text">
+            THE LIMS BOX
+          </a>
+          <div className="hidden md:flex gap-6 text-sm text-[#F8F9FA]/50">
+            <a href="/#features" className="hover:text-white transition">
+              Features
+            </a>
+            <a href="/#use-cases" className="hover:text-white transition">
+              Use Cases
+            </a>
+            <a href="/#founder" className="hover:text-white transition">
+              Team
+            </a>
+            <a href="/early-access" className="hover:text-white transition">
+              Early Access
+            </a>
+            <a href="/blog" className="hover:text-white transition">
+              Blog
+            </a>
+          </div>
+          <a
+            href="/early-access"
+            className="px-5 py-2 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-lg font-semibold text-sm transition-all text-white"
+          >
+            Early Access
+          </a>
+        </div>
+      </nav>
+
+      {/* Back to lims.bot link */}
+      <div className="pt-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <a
+            href="/"
+            className="inline-flex items-center gap-1 text-sm text-[#F8F9FA]/40 hover:text-[#2E8B57] transition-colors"
+          >
+            ← Back to lims.bot
+          </a>
+        </div>
+      </div>
+
+      {/* content sections appended in subsequent commits */}
+
+      {/* footer */}
+      <footer className="mt-24 py-12 px-6 border-t border-[#1E3A5F]/30">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+          <div>
+            <a href="/" className="text-xl font-bold gradient-text mb-1 block">
+              THE LIMS BOX
+            </a>
+            <div className="text-sm text-[#F8F9FA]/40">
+              Modern lab informatics for environmental testing, forensics, food
+              safety, and contract labs.
+            </div>
+            <div className="text-sm text-[#F8F9FA]/30">
+              A TombStone Dash LLC product
+            </div>
+          </div>
+          <div className="flex gap-8 text-sm text-[#F8F9FA]/50">
+            <a href="/" className="hover:text-[#2E8B57] transition">
+              Home
+            </a>
+            <a href="/early-access" className="hover:text-[#2E8B57] transition">
+              Early Access
+            </a>
+            <a href="/blog" className="hover:text-[#2E8B57] transition">
+              Blog
+            </a>
+            <a
+              href="mailto:info@lims.bot"
+              className="hover:text-[#2E8B57] transition"
+            >
+              Contact
+            </a>
+          </div>
+          <div className="text-sm text-[#F8F9FA]/30">
+            © {new Date().getFullYear()} THE LIMS BOX. All rights reserved.
+          </div>
+        </div>
+      </footer>
+    </main>
+  );
+}
