@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import VideoSection from "@/components/VideoSection";
 
 const CALENDLY_BASE =
   process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/hudtaylor/30min";
@@ -152,6 +153,13 @@ export default function ColaPage() {
           </div>
         </div>
       </section>
+      <VideoSection
+        videoId="2gZf1RnqDWU"
+        heading="Watch the film."
+        subheading="Two minutes, forty-five seconds. The whole story."
+        caption="From the rural-clinic deployment scenario."
+        sectionId="film"
+      />
       {/* additional sections appended in subsequent commits */}
 
       {/* footer */}
