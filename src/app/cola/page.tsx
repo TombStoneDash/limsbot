@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 
+const CALENDLY_BASE =
+  process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/hudtaylor/30min";
+
+const CALENDLY_COLA = `${CALENDLY_BASE}${
+  CALENDLY_BASE.includes("?") ? "&" : "?"
+}utm_source=cola2026`;
+
 export const metadata: Metadata = {
   title: "THE LIMS BOX at COLA Forum 2026 — Nashville, May 6–8",
   description:
@@ -63,7 +70,47 @@ export default function ColaPage() {
         </div>
       </div>
 
-      {/* content sections appended in subsequent commits */}
+      {/* hero */}
+      <section className="relative px-6 pt-12 pb-24 overflow-hidden">
+        <div className="absolute top-10 left-10 w-72 h-72 bg-[#E67E22]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#1E3A5F]/20 rounded-full blur-3xl" />
+
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E67E22]/10 border border-[#E67E22]/30 mb-8 text-sm text-[#E67E22]">
+            <span className="w-2 h-2 bg-[#E67E22] rounded-full animate-pulse" />
+            COLA Forum 2026 · Nashville · May 6–8
+          </div>
+
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-[#F8F9FA]">
+            The LIMS purpose-built for{" "}
+            <span className="gradient-text">COLA-accredited labs.</span>
+          </h1>
+
+          <p className="text-xl text-[#F8F9FA]/60 mb-10 max-w-2xl mx-auto">
+            Offline-capable. Audit-ready in minutes. Pass your next COLA
+            inspection without spreadsheets, paper logs, or a vendor who won&apos;t
+            return your call.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href={CALENDLY_COLA}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-[#E67E22] hover:bg-[#E67E22]/80 rounded-xl font-semibold text-lg transition-all text-white"
+            >
+              Book 15 minutes at COLA Forum
+            </a>
+            <a
+              href="/#pilot"
+              className="px-8 py-4 border border-[#1E3A5F] hover:border-[#2E8B57] rounded-xl font-semibold text-lg transition-all text-[#F8F9FA]"
+            >
+              See the demo
+            </a>
+          </div>
+        </div>
+      </section>
+      {/* additional sections appended in subsequent commits */}
 
       {/* footer */}
       <footer className="mt-24 py-12 px-6 border-t border-[#1E3A5F]/30">
