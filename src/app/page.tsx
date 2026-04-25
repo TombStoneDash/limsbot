@@ -36,6 +36,12 @@ function Hero() {
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#1E3A5F]/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "3s" }} />
 
       <div className="relative z-10 max-w-4xl text-center animate-fade-in-up">
+        <a
+          href="/cola"
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1E3A5F]/15 border border-[#1E3A5F]/40 mb-4 text-xs text-[#F8F9FA]/70 hover:text-[#F8F9FA] hover:border-[#E67E22]/50 transition-colors"
+        >
+          Meet us at COLA Forum — Nashville, May 6–8 →
+        </a>
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2E8B57]/10 border border-[#2E8B57]/20 mb-8 text-sm text-[#2E8B57]">
           <span className="w-2 h-2 bg-[#2E8B57] rounded-full animate-pulse" />
           Laboratory informatics for small and mid-size labs
