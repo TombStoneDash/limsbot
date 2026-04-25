@@ -160,6 +160,26 @@ export default function ColaPage() {
         caption="From the rural-clinic deployment scenario."
         sectionId="film"
       />
+      {/* trust signals */}
+      <section className="py-16 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              "ISO 17025 Ready",
+              "21 CFR Part 11 Compatible",
+              "CLIA Compliant",
+              "EPA Reporting Built In",
+            ].map((label) => (
+              <div
+                key={label}
+                className="text-center px-4 py-5 rounded-xl bg-[#1E3A5F]/15 border border-[#1E3A5F]/40 text-sm font-semibold text-[#F8F9FA]/80"
+              >
+                {label}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* additional sections appended in subsequent commits */}
 
       {/* footer */}
