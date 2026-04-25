@@ -180,7 +180,35 @@ export default function ColaPage() {
           </div>
         </div>
       </section>
-      {/* additional sections appended in subsequent commits */}
+      {/* final CTA */}
+      <section className="py-24 px-6 bg-[#2C3E50]/10">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#F8F9FA]">
+            Find us in <span className="gradient-text">Nashville.</span>
+          </h2>
+          <p className="text-lg text-[#F8F9FA]/70 mb-10 max-w-2xl mx-auto">
+            May 6–8 at the COLA Annual Laboratory Enrichment Forum. Sheraton
+            Music City. Book a meeting and we&apos;ll come find you.
+          </p>
+          <a
+            href={CALENDLY_COLA}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-8 py-4 bg-[#E67E22] hover:bg-[#E67E22]/80 rounded-xl font-semibold text-lg transition-all text-white"
+          >
+            Book 15 minutes
+          </a>
+          <p className="mt-6 text-sm text-[#F8F9FA]/40">
+            Questions?{" "}
+            <a
+              href="mailto:info@lims.bot"
+              className="text-[#2E8B57] hover:underline"
+            >
+              info@lims.bot
+            </a>
+          </p>
+        </div>
+      </section>
 
       {/* footer */}
       <footer className="mt-24 py-12 px-6 border-t border-[#1E3A5F]/30">
