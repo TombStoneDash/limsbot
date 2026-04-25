@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import VideoSection from "@/components/VideoSection";
 
 /* ────────── tiny inline icons (Heroicons-style) ────────── */
 const Icon = ({ d, className = "w-6 h-6" }: { d: string; className?: string }) => (
@@ -780,6 +781,13 @@ export default function Home() {
       </nav>
 
       <Hero />
+      <VideoSection
+        videoId="2gZf1RnqDWU"
+        heading="Watch the film."
+        subheading="Two minutes, forty-five seconds. The whole story."
+        caption="From the rural-clinic deployment scenario."
+        sectionId="film"
+      />
       <ProductGallery />
       <WaitlistCompact />
       <HeroQuote />
