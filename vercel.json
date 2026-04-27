@@ -1,1 +1,9 @@
-{"git":{"deploymentEnabled":false}}
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://lims.bot/$1",
+      "permanent": true
+    }
+  ]
+}
