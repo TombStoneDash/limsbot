@@ -32,7 +32,10 @@ export const metadata: Metadata = {
     url: "https://lims.bot",
     siteName: "LIMS BOX",
     type: "website",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [
+      { url: "/brand/lims-box-social.svg", width: 1254, height: 1254, type: "image/svg+xml" },
+      { url: "/og-image.png", width: 1200, height: 630, type: "image/png" },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -42,11 +45,15 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
       { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
     ],
-    apple: "/apple-touch-icon.png",
+    apple: [
+      { url: "/brand/lims-box-icon.svg", type: "image/svg+xml" },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
 };
 
