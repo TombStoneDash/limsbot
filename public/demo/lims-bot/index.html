@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+  <meta name="robots" content="noindex">
+  <title>LIMS BOT — Reference Support</title>
+  <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+  <header class="banner">
+    🔒 LIMS BOT — reference support only. Not clinical, legal, or regulatory authority.
+  </header>
+  <main class="shell">
+    <section class="intro" aria-labelledby="title">
+      <p class="eyebrow">LIMS BOX local demo</p>
+      <h1 id="title">LIMS BOT reference support</h1>
+      <p>Ask from the curated demo set: CLIA, QC, chain of custody, audit trail, sample lifecycle, SENAITE, HL7 v2, or ASTM E1394.</p>
+    </section>
+    <section id="chat-log" class="chat-log" aria-live="polite" aria-label="Chat transcript">
+      <article class="message bot">
+        <div class="avatar">LB</div>
+        <div class="bubble">
+          <p>I am running offline from local canned reference files. No PHI. No live model. No external network.</p>
+          <p class="badge">⚠ Human verification required</p>
+        </div>
+      </article>
+    </section>
+    <form id="chat-form" class="chat-form">
+      <label class="sr-only" for="chat-input">Ask LIMS BOT</label>
+      <input type="text" id="chat-input" autocomplete="off" placeholder="Ask about CLIA, QC, chain of custody...">
+      <button type="submit">Ask</button>
+    </form>
+  </main>
+  <footer class="disclaimer">
+    No PHI. No compliance guarantees. Human review required for every regulated decision.
+  </footer>
+  <script src="canned-router.js"></script>
+  <script src="chat.js"></script>
+</body>
+</html>

@@ -39,7 +39,7 @@ export default function EarlyAdopterPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0f1a]/80 backdrop-blur-lg border-b border-[#1E3A5F]/30">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <a href="/" className="text-xl font-bold bg-gradient-to-r from-[#2E8B57] to-[#1E3A5F] bg-clip-text text-transparent">
-            THE LIMS BOX
+            LIMS BOX
           </a>
           <div className="hidden md:flex gap-6 text-sm text-[#F8F9FA]/50">
             <a href="/" className="hover:text-white transition">Home</a>
@@ -66,7 +66,7 @@ export default function EarlyAdopterPage() {
             </span>
           </h1>
           <p className="text-xl text-[#F8F9FA]/60 max-w-2xl mx-auto">
-            Be one of 5 labs to deploy THE LIMS BOX before general release.
+            Be one of 5 labs to deploy LIMS BOX before general release.
           </p>
         </div>
       </div>
@@ -74,12 +74,12 @@ export default function EarlyAdopterPage() {
       {/* What You Get / What We Need */}
       <div className="px-6 pb-12">
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-          <div className="bg-[#2C3E50]/30 border border-[#2E8B57]/30 rounded-2xl p-8">
+          <div className="bg-[#2C3E50]/30 border border-[#2E8B57]/30 rounded-lg p-8">
             <h2 className="text-xl font-bold text-[#2E8B57] mb-4">What You Get</h2>
             <ul className="space-y-3 text-[#F8F9FA]/70">
               <li className="flex items-start gap-3">
                 <span className="text-[#2E8B57] mt-0.5">✓</span>
-                <span><strong className="text-[#F8F9FA]">Hardware at pilot pricing</strong> — Significant discount on the LIMS BOX unit during the pilot period</span>
+                <span><strong className="text-[#F8F9FA]">Hardware at pilot pricing</strong> — Significant discount on LIMS BOX unit during the pilot period</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-[#2E8B57] mt-0.5">✓</span>
@@ -103,7 +103,7 @@ export default function EarlyAdopterPage() {
               </li>
             </ul>
           </div>
-          <div className="bg-[#2C3E50]/30 border border-[#E67E22]/30 rounded-2xl p-8">
+          <div className="bg-[#2C3E50]/30 border border-[#E67E22]/30 rounded-lg p-8">
             <h2 className="text-xl font-bold text-[#E67E22] mb-4">What We Ask</h2>
             <ul className="space-y-3 text-[#F8F9FA]/70">
               <li className="flex items-start gap-3">
@@ -131,11 +131,11 @@ export default function EarlyAdopterPage() {
       <div className="px-6 pb-24">
         <div className="max-w-2xl mx-auto">
           {submitted ? (
-            <div className="bg-[#2E8B57]/10 border border-[#2E8B57]/30 rounded-2xl p-12 text-center">
+            <div className="bg-[#2E8B57]/10 border border-[#2E8B57]/30 rounded-lg p-12 text-center">
               <div className="text-4xl mb-4">🧪</div>
               <div className="text-[#2E8B57] text-2xl font-bold mb-2">Application Received</div>
               <p className="text-[#F8F9FA]/60 mb-4">
-                Thank you for your interest in the LIMS BOX Early-Adopter Pilot Program.
+                Thank you for your interest in LIMS BOX Early-Adopter Pilot Program.
                 We&apos;ll review your application and reach out within 48 hours.
               </p>
               <p className="text-sm text-[#F8F9FA]/40">
@@ -143,7 +143,7 @@ export default function EarlyAdopterPage() {
               </p>
             </div>
           ) : (
-            <div className="bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-2xl p-8 md:p-12">
+            <div className="bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-lg p-8 md:p-12">
               <h2 className="text-2xl font-bold text-[#F8F9FA] mb-2 text-center">Apply for the Pilot</h2>
               <p className="text-[#F8F9FA]/50 text-center mb-8">Takes about 2 minutes. We&apos;ll follow up within 48 hours.</p>
 
@@ -232,7 +232,7 @@ export default function EarlyAdopterPage() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 disabled:opacity-50 rounded-xl font-semibold text-lg transition-all text-white"
+                  className="w-full px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 disabled:opacity-50 rounded-lg font-semibold text-lg transition-all text-white"
                 >
                   {submitting ? "Submitting..." : "Apply for the Pilot →"}
                 </button>
@@ -253,7 +253,7 @@ export default function EarlyAdopterPage() {
       <footer className="py-12 px-6 border-t border-[#1E3A5F]/30">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
-            <div className="text-xl font-bold bg-gradient-to-r from-[#2E8B57] to-[#1E3A5F] bg-clip-text text-transparent mb-1">THE LIMS BOX</div>
+            <div className="text-xl font-bold bg-gradient-to-r from-[#2E8B57] to-[#1E3A5F] bg-clip-text text-transparent mb-1">LIMS BOX</div>
             <div className="text-sm text-[#F8F9FA]/40">Modern lab informatics for small and mid-size labs.</div>
           </div>
           <div className="flex gap-8 text-sm text-[#F8F9FA]/50">
@@ -262,7 +262,7 @@ export default function EarlyAdopterPage() {
             <a href="mailto:info@lims.bot" className="hover:text-[#2E8B57] transition">Contact</a>
           </div>
           <div className="text-sm text-[#F8F9FA]/30">
-            © {new Date().getFullYear()} THE LIMS BOX. All rights reserved.
+            © {new Date().getFullYear()} LIMS BOX. All rights reserved.
           </div>
         </div>
       </footer>

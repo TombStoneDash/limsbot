@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "5 Signs Your Lab Has Outgrown Spreadsheets — THE LIMS BOX",
+  title: "5 Signs Your Lab Has Outgrown Spreadsheets — LIMS BOX",
   description: "Still running your lab on Excel? Holding time misses, audit trail gaps, and transcription errors are signs you've outgrown spreadsheets. Here's when it's time for a real LIMS.",
   keywords: ["lab Excel alternative", "lab spreadsheet problems", "LIMS vs Excel", "lab data management", "when to get a LIMS", "spreadsheet lab management", "laboratory Excel replacement", "small lab software", "environmental lab data", "water testing spreadsheet"],
   openGraph: {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: "Still running your lab on Excel? Holding time misses, audit trail gaps, and transcription errors are signs you've outgrown spreadsheets. Here's when it's time for a real LIMS.",
     type: "article",
     url: "https://lims.bot/blog/5-signs-your-lab-has-outgrown-spreadsheets",
-    siteName: "THE LIMS BOX",
+    siteName: "LIMS BOX",
     publishedTime: "2026-04-12",
     modifiedTime: "2026-04-12",
     authors: ["Hudson Taylor"],
@@ -45,11 +45,11 @@ const articleJsonLd = {
   author: {
     "@type": "Person",
     name: "Hudson Taylor",
-    jobTitle: "Founder, THE LIMS BOX",
+    jobTitle: "Founder, LIMS BOX",
   },
   publisher: {
     "@type": "Organization",
-    name: "THE LIMS BOX",
+    name: "LIMS BOX",
     url: "https://lims.bot",
   },
   mainEntityOfPage: {
@@ -87,7 +87,7 @@ export default function FiveSignsOutgrownSpreadsheets() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0f1a]/80 backdrop-blur-lg border-b border-[#1E3A5F]/30">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <a href="/" className="text-xl font-bold bg-gradient-to-r from-[#2E8B57] to-[#1E3A5F] bg-clip-text text-transparent">
-            THE LIMS BOX
+            LIMS BOX
           </a>
           <div className="hidden md:flex gap-6 text-sm text-[#F8F9FA]/50">
             <a href="/" className="hover:text-white transition">Home</a>
@@ -363,16 +363,16 @@ export default function FiveSignsOutgrownSpreadsheets() {
             </p>
 
             {/* CTA */}
-            <div className="mt-12 p-8 bg-[#2C3E50]/30 border border-[#2E8B57]/30 rounded-2xl text-center">
+            <div className="mt-12 p-8 bg-[#2C3E50]/30 border border-[#2E8B57]/30 rounded-lg text-center">
               <h3 className="text-xl font-bold text-[#F8F9FA] mb-2">Ready to Replace the Spreadsheets?</h3>
               <p className="text-[#F8F9FA]/60 mb-6">
-                THE LIMS BOX is designed for the exact moment your lab outgrows Excel. Real sample tracking,
+                LIMS BOX is designed for the exact moment your lab outgrows Excel. Real sample tracking,
                 audit trails, and instrument integration &mdash; without the enterprise price tag or the 18-month
                 implementation timeline.
               </p>
               <a
                 href="/early-access"
-                className="inline-block px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-xl font-semibold text-lg transition-all text-white"
+                className="inline-block px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-lg font-semibold text-lg transition-all text-white"
               >
                 Apply for Early Access &rarr;
               </a>
@@ -384,7 +384,7 @@ export default function FiveSignsOutgrownSpreadsheets() {
             {/* Author */}
             <div className="mt-8 pt-8 border-t border-[#1E3A5F]/30 text-sm text-[#F8F9FA]/50">
               <p>
-                <strong className="text-[#F8F9FA]">Hudson Taylor</strong> is the founder of THE LIMS BOX. 15 years of
+                <strong className="text-[#F8F9FA]">Hudson Taylor</strong> is the founder of LIMS BOX. 15 years of
                 LIMS implementation experience in regulated laboratories. MS Biochemistry, UC San Diego / Salk Institute.
               </p>
               <p className="mt-2">
@@ -400,7 +400,7 @@ export default function FiveSignsOutgrownSpreadsheets() {
       <footer className="py-12 px-6 border-t border-[#1E3A5F]/30">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
-            <div className="text-xl font-bold bg-gradient-to-r from-[#2E8B57] to-[#1E3A5F] bg-clip-text text-transparent mb-1">THE LIMS BOX</div>
+            <div className="text-xl font-bold bg-gradient-to-r from-[#2E8B57] to-[#1E3A5F] bg-clip-text text-transparent mb-1">LIMS BOX</div>
             <div className="text-sm text-[#F8F9FA]/40">Modern lab informatics for small and mid-size labs.</div>
           </div>
           <div className="flex gap-8 text-sm text-[#F8F9FA]/50">
@@ -410,7 +410,7 @@ export default function FiveSignsOutgrownSpreadsheets() {
             <a href="mailto:info@lims.bot" className="hover:text-[#2E8B57] transition">Contact</a>
           </div>
           <div className="text-sm text-[#F8F9FA]/30">
-            &copy; {new Date().getFullYear()} THE LIMS BOX. All rights reserved.
+            &copy; {new Date().getFullYear()} LIMS BOX. All rights reserved.
           </div>
         </div>
       </footer>
