@@ -145,7 +145,7 @@ export default async function FieldScoutPage() {
               </span>
               <div>
                 <strong>Tap NTAG215 (or scan QR fallback).</strong> Field tech
-                taps the tag with their phone or a Flipper Zero. The tag holds an
+                taps the tag with an authorized phone. The tag holds an
                 NDEF text record encoding an asset_id like <code className="font-mono text-[#E67E22]">LIMSBOX-DEMO-ASSET-001</code>.
               </div>
             </li>
