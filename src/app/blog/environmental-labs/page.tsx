@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "LIMS BOX for Environmental & Water Testing Labs — THE LIMS BOX",
+  title: "LIMS BOX for Environmental & Water Testing Labs — LIMS BOX",
   description: "How LIMS BOX handles EPA method compliance, chain of custody, seasonal surges, and audit prep for environmental and water testing laboratories.",
 };
 
@@ -12,7 +12,7 @@ export default function EnvironmentalLabsBlog() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0f1a]/80 backdrop-blur-lg border-b border-[#1E3A5F]/30">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <a href="/" className="text-xl font-bold bg-gradient-to-r from-[#2E8B57] to-[#1E3A5F] bg-clip-text text-transparent">
-            THE LIMS BOX
+            LIMS BOX
           </a>
           <div className="hidden md:flex gap-6 text-sm text-[#F8F9FA]/50">
             <a href="/" className="hover:text-white transition">Home</a>
@@ -56,7 +56,7 @@ export default function EnvironmentalLabsBlog() {
             </p>
 
             <p>
-              The LIMS BOX was built specifically for labs like yours — labs that need real compliance infrastructure
+              LIMS BOX was built specifically for labs like yours — labs that need real compliance infrastructure
               but can&apos;t justify the $50,000+ price tag and 18-month implementation timeline of enterprise LIMS platforms.
             </p>
 
@@ -224,7 +224,7 @@ export default function EnvironmentalLabsBlog() {
             </h2>
 
             <p>
-              THE LIMS BOX was designed by someone who spent 15 years implementing LIMS in environmental,
+              LIMS BOX was designed by someone who spent 15 years implementing LIMS in environmental,
               public health, and clinical laboratories. The founder managed instruments, wrote data parsers,
               configured compliance rules, and watched labs struggle with the same problems year after year:
               too much paperwork, not enough automation, and enterprise software that costs more than the
@@ -241,15 +241,15 @@ export default function EnvironmentalLabsBlog() {
             </p>
 
             {/* CTA */}
-            <div className="mt-12 p-8 bg-[#2C3E50]/30 border border-[#2E8B57]/30 rounded-2xl text-center">
+            <div className="mt-12 p-8 bg-[#2C3E50]/30 border border-[#2E8B57]/30 rounded-lg text-center">
               <h3 className="text-xl font-bold text-[#F8F9FA] mb-2">Join the Early Adopter Program</h3>
               <p className="text-[#F8F9FA]/60 mb-6">
-                We&apos;re selecting 5 labs for the LIMS BOX pilot program. Free trial period, direct access to
+                We&apos;re selecting 5 labs for LIMS BOX pilot program. Free trial period, direct access to
                 the founder, and custom configuration for your methods and instruments.
               </p>
               <a
                 href="/early-access"
-                className="inline-block px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-xl font-semibold text-lg transition-all text-white"
+                className="inline-block px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-lg font-semibold text-lg transition-all text-white"
               >
                 Apply for Early Access →
               </a>
@@ -261,7 +261,7 @@ export default function EnvironmentalLabsBlog() {
             {/* Author */}
             <div className="mt-8 pt-8 border-t border-[#1E3A5F]/30 text-sm text-[#F8F9FA]/50">
               <p>
-                <strong className="text-[#F8F9FA]">Hudson Taylor</strong> is the founder of THE LIMS BOX. 15 years of
+                <strong className="text-[#F8F9FA]">Hudson Taylor</strong> is the founder of LIMS BOX. 15 years of
                 LIMS implementation experience across environmental, public health, and clinical laboratories.
                 MS Biochemistry, UC San Diego / Salk Institute.
               </p>
@@ -278,7 +278,7 @@ export default function EnvironmentalLabsBlog() {
       <footer className="py-12 px-6 border-t border-[#1E3A5F]/30">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
-            <div className="text-xl font-bold bg-gradient-to-r from-[#2E8B57] to-[#1E3A5F] bg-clip-text text-transparent mb-1">THE LIMS BOX</div>
+            <div className="text-xl font-bold bg-gradient-to-r from-[#2E8B57] to-[#1E3A5F] bg-clip-text text-transparent mb-1">LIMS BOX</div>
             <div className="text-sm text-[#F8F9FA]/40">Modern lab informatics for small and mid-size labs.</div>
           </div>
           <div className="flex gap-8 text-sm text-[#F8F9FA]/50">
@@ -287,7 +287,7 @@ export default function EnvironmentalLabsBlog() {
             <a href="mailto:info@lims.bot" className="hover:text-[#2E8B57] transition">Contact</a>
           </div>
           <div className="text-sm text-[#F8F9FA]/30">
-            © {new Date().getFullYear()} THE LIMS BOX. All rights reserved.
+            © {new Date().getFullYear()} LIMS BOX. All rights reserved.
           </div>
         </div>
       </footer>

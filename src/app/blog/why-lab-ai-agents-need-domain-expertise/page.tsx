@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Why Lab AI Agents Need Domain Expertise — THE LIMS BOX",
+  title: "Why Lab AI Agents Need Domain Expertise — LIMS BOX",
   description: "Generic AI fails in regulated laboratories. Learn why LIMS AI requires domain expertise in validation, chain of custody, audit trails, and regulatory compliance like ISO 17025 and 21 CFR Part 11.",
 };
 
@@ -12,7 +12,7 @@ export default function LabAIAgentsBlog() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0f1a]/80 backdrop-blur-lg border-b border-[#1E3A5F]/30">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <a href="/" className="text-xl font-bold bg-gradient-to-r from-[#2E8B57] to-[#1E3A5F] bg-clip-text text-transparent">
-            THE LIMS BOX
+            LIMS BOX
           </a>
           <div className="hidden md:flex gap-6 text-sm text-[#F8F9FA]/50">
             <a href="/" className="hover:text-white transition">Home</a>
@@ -77,7 +77,7 @@ export default function LabAIAgentsBlog() {
 
             <p>
               The problem gets worse when you consider the consequences. An analytical result that doesn&apos;t meet validation
-              requirements isn't just wrong — it invalidates the entire batch. A missing QC check means the regulatory body
+              requirements isn&apos;t just wrong — it invalidates the entire batch. A missing QC check means the regulatory body
               rejects the data. A broken chain of custody in a forensic lab can get evidence thrown out of court.
             </p>
 
@@ -100,7 +100,7 @@ export default function LabAIAgentsBlog() {
               <li><strong className="text-[#F8F9FA]">Method validation:</strong> Every analytical method must be validated for your lab&apos;s specific matrix, instruments, and environment. You can&apos;t just adopt a published EPA method — you must demonstrate that it works under your conditions.</li>
               <li><strong className="text-[#F8F9FA]">Equipment qualification:</strong> Instruments must be qualified (IQ/OQ/PQ), calibrated, and maintained. The AI agent must track calibration dates, due dates, and flagged instruments that are out of service.</li>
               <li><strong className="text-[#F8F9FA]">Quality control:</strong> Every batch of analytical work must include QC checks — blanks, standards, duplicates, spikes. The AI agent must automatically verify that QC acceptance criteria are met before results are reported.</li>
-              <li><strong className="text-[#F8F9FA]">Data integrity:</strong> Results must be traceable, unambiguous, and complete. Electronic records must include the analyst's identity, timestamp, method, instrument, and any changes or approvals.</li>
+              <li><strong className="text-[#F8F9FA]">Data integrity:</strong> Results must be traceable, unambiguous, and complete. Electronic records must include the analyst&apos;s identity, timestamp, method, instrument, and any changes or approvals.</li>
               <li><strong className="text-[#F8F9FA]">Competency:</strong> The lab must maintain training records for every analyst. The AI agent should track analyst certifications, training dates, and competency demonstrations.</li>
             </ul>
 
@@ -225,11 +225,11 @@ export default function LabAIAgentsBlog() {
             </ul>
 
             <h2 className="text-2xl font-bold text-[#2E8B57] mt-10 mb-4">
-              The LIMS BOX Difference
+              LIMS BOX Difference
             </h2>
 
             <p>
-              THE LIMS BOX was built by someone who spent 15 years implementing laboratory information management systems
+              LIMS BOX was built by someone who spent 15 years implementing laboratory information management systems
               in accredited environmental, public health, and clinical labs. The founder wrote data parsers, configured
               compliance rules, and debugged audit findings. The product isn&apos;t a generic AI chatbot adapted for labs — it&apos;s
               a laboratory AI agent built from the ground up to understand validation, compliance, and regulatory requirements.
@@ -254,15 +254,15 @@ export default function LabAIAgentsBlog() {
             </p>
 
             {/* CTA */}
-            <div className="mt-12 p-8 bg-[#2C3E50]/30 border border-[#2E8B57]/30 rounded-2xl text-center">
+            <div className="mt-12 p-8 bg-[#2C3E50]/30 border border-[#2E8B57]/30 rounded-lg text-center">
               <h3 className="text-xl font-bold text-[#F8F9FA] mb-2">Is Your Lab Ready for Domain-Expert AI?</h3>
               <p className="text-[#F8F9FA]/60 mb-6">
-                Join the LIMS BOX early adopter program and experience a laboratory AI agent built by someone who
+                Join LIMS BOX early adopter program and experience a laboratory AI agent built by someone who
                 actually ran a lab.
               </p>
               <a
                 href="/early-access"
-                className="inline-block px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-xl font-semibold text-lg transition-all text-white"
+                className="inline-block px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-lg font-semibold text-lg transition-all text-white"
               >
                 Apply for Early Access →
               </a>
@@ -274,7 +274,7 @@ export default function LabAIAgentsBlog() {
             {/* Author */}
             <div className="mt-8 pt-8 border-t border-[#1E3A5F]/30 text-sm text-[#F8F9FA]/50">
               <p>
-                <strong className="text-[#F8F9FA]">Hudson Taylor</strong> is the founder of THE LIMS BOX. 15 years of
+                <strong className="text-[#F8F9FA]">Hudson Taylor</strong> is the founder of LIMS BOX. 15 years of
                 LIMS implementation experience in regulated laboratories. MS Biochemistry, UC San Diego / Salk Institute.
               </p>
               <p className="mt-2">
@@ -290,7 +290,7 @@ export default function LabAIAgentsBlog() {
       <footer className="py-12 px-6 border-t border-[#1E3A5F]/30">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
-            <div className="text-xl font-bold bg-gradient-to-r from-[#2E8B57] to-[#1E3A5F] bg-clip-text text-transparent mb-1">THE LIMS BOX</div>
+            <div className="text-xl font-bold bg-gradient-to-r from-[#2E8B57] to-[#1E3A5F] bg-clip-text text-transparent mb-1">LIMS BOX</div>
             <div className="text-sm text-[#F8F9FA]/40">Modern lab informatics for small and mid-size labs.</div>
           </div>
           <div className="flex gap-8 text-sm text-[#F8F9FA]/50">
@@ -299,7 +299,7 @@ export default function LabAIAgentsBlog() {
             <a href="mailto:info@lims.bot" className="hover:text-[#2E8B57] transition">Contact</a>
           </div>
           <div className="text-sm text-[#F8F9FA]/30">
-            © {new Date().getFullYear()} THE LIMS BOX. All rights reserved.
+            © {new Date().getFullYear()} LIMS BOX. All rights reserved.
           </div>
         </div>
       </footer>

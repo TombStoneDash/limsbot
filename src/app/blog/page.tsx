@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Blog — THE LIMS BOX",
+  title: "Blog — LIMS BOX",
   description: "News and insights on laboratory informatics, compliance, and AI-powered lab management for environmental, forensic, cannabis, food safety, and contract labs.",
 };
 
@@ -52,11 +52,11 @@ const posts: BlogPostSummary[] = [
     href: "/blog/crime-labs",
   },
   {
-    slug: "nvidia-just-validated-the-lims-box-stack",
-    title: "NVIDIA Just Validated the LIMS BOX Stack",
+    slug: "nvidia-connect-isv-registration",
+    title: "LIMS BOX NVIDIA Connect ISV Registration",
     date: "March 17, 2026",
-    excerpt: "At GTC 2026, Jensen Huang announced NemoClaw and DGX Spark — and accidentally described our entire architecture. How NVIDIA's edge AI strategy validates the LIMS BOX approach.",
-    href: "/blog/nvidia-just-validated-the-lims-box-stack",
+    excerpt: "A factual note on NVIDIA Connect ISV registration and why local edge AI matters for lab workflows.",
+    href: "/blog/nvidia-connect-isv-registration",
   },
 ];
 
@@ -65,7 +65,7 @@ const posts: BlogPostSummary[] = [
 function BlogPostCard({ post }: { post: BlogPostSummary }) {
   return (
     <Link href={post.href} className="block group">
-      <article className="bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-2xl p-8 md:p-10 transition-all group-hover:border-[#2E8B57]/30 group-hover:shadow-lg group-hover:shadow-[#2E8B57]/5">
+      <article className="bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-lg p-8 md:p-10 transition-all group-hover:border-[#2E8B57]/30 group-hover:shadow-lg group-hover:shadow-[#2E8B57]/5">
         <div className="text-sm text-[#2E8B57] font-medium mb-2">{post.date}</div>
         <h2 className="text-xl md:text-2xl font-bold text-[#F8F9FA] mb-3 group-hover:text-[#2E8B57] transition-colors">{post.title}</h2>
         <p className="text-[#F8F9FA]/60 mb-4">{post.excerpt}</p>
@@ -83,7 +83,7 @@ export default function BlogPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0f1a]/80 backdrop-blur-lg border-b border-[#1E3A5F]/30">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <a href="/" className="text-xl font-bold bg-gradient-to-r from-[#2E8B57] to-[#1E3A5F] bg-clip-text text-transparent">
-            THE LIMS BOX
+            LIMS BOX
           </a>
           <div className="hidden md:flex gap-6 text-sm text-[#F8F9FA]/50">
             <a href="/" className="hover:text-white transition">Home</a>
@@ -119,7 +119,7 @@ export default function BlogPage() {
       <footer className="py-12 px-6 border-t border-[#1E3A5F]/30">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
-            <div className="text-xl font-bold bg-gradient-to-r from-[#2E8B57] to-[#1E3A5F] bg-clip-text text-transparent mb-1">THE LIMS BOX</div>
+            <div className="text-xl font-bold bg-gradient-to-r from-[#2E8B57] to-[#1E3A5F] bg-clip-text text-transparent mb-1">LIMS BOX</div>
             <div className="text-sm text-[#F8F9FA]/40">Modern lab informatics for small and mid-size labs.</div>
           </div>
           <div className="flex gap-8 text-sm text-[#F8F9FA]/50">
@@ -129,7 +129,7 @@ export default function BlogPage() {
             <a href="mailto:info@lims.bot" className="hover:text-[#2E8B57] transition">Contact</a>
           </div>
           <div className="text-sm text-[#F8F9FA]/30">
-            © {new Date().getFullYear()} THE LIMS BOX. All rights reserved.
+            © {new Date().getFullYear()} LIMS BOX. All rights reserved.
           </div>
         </div>
       </footer>

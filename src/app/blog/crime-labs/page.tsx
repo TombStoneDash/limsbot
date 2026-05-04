@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "LIMS BOX for Crime Labs & Forensic Science — THE LIMS BOX",
+  title: "LIMS BOX for Crime Labs & Forensic Science — LIMS BOX",
   description: "How LIMS BOX handles chain of custody for court-admissible evidence, accreditation compliance, backlog management, and documentation burden for forensic laboratories.",
 };
 
@@ -12,7 +12,7 @@ export default function CrimeLabsBlog() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0f1a]/80 backdrop-blur-lg border-b border-[#1E3A5F]/30">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <a href="/" className="text-xl font-bold bg-gradient-to-r from-[#2E8B57] to-[#1E3A5F] bg-clip-text text-transparent">
-            THE LIMS BOX
+            LIMS BOX
           </a>
           <div className="hidden md:flex gap-6 text-sm text-[#F8F9FA]/50">
             <a href="/" className="hover:text-white transition">Home</a>
@@ -58,7 +58,7 @@ export default function CrimeLabsBlog() {
             </p>
 
             <p>
-              THE LIMS BOX was built to bring enterprise-grade laboratory informatics to labs that need it
+              LIMS BOX was built to bring enterprise-grade laboratory informatics to labs that need it
               most — including forensic and crime labs that can&apos;t afford six-figure LIMS implementations
               but absolutely cannot afford chain of custody failures.
             </p>
@@ -226,7 +226,7 @@ export default function CrimeLabsBlog() {
             </h2>
 
             <p>
-              THE LIMS BOX was designed by someone who spent 15 years implementing laboratory information
+              LIMS BOX was designed by someone who spent 15 years implementing laboratory information
               systems across public health, environmental, and clinical laboratories — environments where
               regulatory compliance, chain of custody, and data integrity are not optional features but
               fundamental requirements.
@@ -245,15 +245,15 @@ export default function CrimeLabsBlog() {
             </p>
 
             {/* CTA */}
-            <div className="mt-12 p-8 bg-[#2C3E50]/30 border border-[#2E8B57]/30 rounded-2xl text-center">
+            <div className="mt-12 p-8 bg-[#2C3E50]/30 border border-[#2E8B57]/30 rounded-lg text-center">
               <h3 className="text-xl font-bold text-[#F8F9FA] mb-2">Join the Early Adopter Program</h3>
               <p className="text-[#F8F9FA]/60 mb-6">
-                We&apos;re selecting 5 labs for the LIMS BOX pilot program. Free trial period, direct access to
+                We&apos;re selecting 5 labs for LIMS BOX pilot program. Free trial period, direct access to
                 the founder, and custom configuration for your lab&apos;s specific disciplines and workflows.
               </p>
               <a
                 href="/early-access"
-                className="inline-block px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-xl font-semibold text-lg transition-all text-white"
+                className="inline-block px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-lg font-semibold text-lg transition-all text-white"
               >
                 Apply for Early Access →
               </a>
@@ -265,7 +265,7 @@ export default function CrimeLabsBlog() {
             {/* Author */}
             <div className="mt-8 pt-8 border-t border-[#1E3A5F]/30 text-sm text-[#F8F9FA]/50">
               <p>
-                <strong className="text-[#F8F9FA]">Hudson Taylor</strong> is the founder of THE LIMS BOX. 15 years of
+                <strong className="text-[#F8F9FA]">Hudson Taylor</strong> is the founder of LIMS BOX. 15 years of
                 LIMS implementation experience across public health, environmental, and clinical laboratories.
                 MS Biochemistry, UC San Diego / Salk Institute.
               </p>
@@ -282,7 +282,7 @@ export default function CrimeLabsBlog() {
       <footer className="py-12 px-6 border-t border-[#1E3A5F]/30">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
-            <div className="text-xl font-bold bg-gradient-to-r from-[#2E8B57] to-[#1E3A5F] bg-clip-text text-transparent mb-1">THE LIMS BOX</div>
+            <div className="text-xl font-bold bg-gradient-to-r from-[#2E8B57] to-[#1E3A5F] bg-clip-text text-transparent mb-1">LIMS BOX</div>
             <div className="text-sm text-[#F8F9FA]/40">Modern lab informatics for small and mid-size labs.</div>
           </div>
           <div className="flex gap-8 text-sm text-[#F8F9FA]/50">
@@ -291,7 +291,7 @@ export default function CrimeLabsBlog() {
             <a href="mailto:info@lims.bot" className="hover:text-[#2E8B57] transition">Contact</a>
           </div>
           <div className="text-sm text-[#F8F9FA]/30">
-            © {new Date().getFullYear()} THE LIMS BOX. All rights reserved.
+            © {new Date().getFullYear()} LIMS BOX. All rights reserved.
           </div>
         </div>
       </footer>

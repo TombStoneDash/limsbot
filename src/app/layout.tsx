@@ -5,9 +5,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "THE LIMS BOX — Lab Informatics That Deploys in Minutes",
+  title: "LIMS BOX — Local AI for Lab Workflows",
   description:
-    "Plug-and-play LIMS for environmental, forensic, cannabis, food safety, and contract labs. AI-powered. Fully offline. ISO 17025 ready. Under $500/month.",
+    "Offline-capable lab intelligence for environmental, forensic, cannabis, food safety, and contract labs. SENAITE-based. COLA-aligned. Setup in days, validation per customer.",
   metadataBase: new URL("https://lims.bot"),
   keywords: [
     "LIMS",
@@ -26,19 +26,19 @@ export const metadata: Metadata = {
     "affordable LIMS",
   ],
   openGraph: {
-    title: "THE LIMS BOX — Plug in. Power on. Run your lab.",
+    title: "LIMS BOX — Plug in. Power on. Run your lab.",
     description:
-      "Modern lab informatics for small and mid-size labs. AI-powered. Fully offline. ISO 17025 ready. Set up in days, not months.",
+      "Local AI for lab workflows. Offline-capable, SENAITE-based, and built for customer-specific validation.",
     url: "https://lims.bot",
-    siteName: "THE LIMS BOX",
+    siteName: "LIMS BOX",
     type: "website",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "THE LIMS BOX — Plug in. Power on. Run your lab.",
+    title: "LIMS BOX — Plug in. Power on. Run your lab.",
     description:
-      "Lab informatics that deploys in minutes. Sample tracking, chain of custody, and regulatory compliance for environmental, forensic, and contract labs.",
+      "Local AI for sample tracking, chain of custody, and lab workflow support.",
   },
   icons: {
     icon: [
