@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       { url: "/brand/lims-box-social.svg", width: 1254, height: 1254, type: "image/svg+xml" },
-      { url: "/og-image.png", width: 1200, height: 630, type: "image/png" },
+      { url: "/og-image.png", width: 1200, height: 1200, type: "image/png" },
     ],
   },
   twitter: {

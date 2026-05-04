@@ -45,9 +45,9 @@ function Hero() {
         <Image
           src="/brand/lims-box-hero.svg"
           alt="LIMS BOX logo"
-          width={360}
-          height={160}
-          className="mx-auto mb-8 max-h-[120px] w-auto"
+          width={460}
+          height={460}
+          className="mx-auto mb-8 max-h-[180px] w-auto"
           priority
         />
 
@@ -825,8 +825,7 @@ function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div>
             <a href="/" className="inline-flex items-center gap-3 mb-2" aria-label="LIMS BOX home">
-              <Image src="/brand/lims-box-mark.svg" alt="" width={42} height={42} className="h-10 w-10" />
-              <span className="text-xl font-bold text-[#F8F9FA]">LIMS BOX</span>
+              <Image src="/brand/lims-box-mark.svg" alt="" width={160} height={160} className="h-12 w-auto" />
             </a>
             <div className="text-sm text-[#F8F9FA]/50">Local AI for Lab Workflows</div>
             <div className="text-sm text-[#F8F9FA]/30">A TombStone Dash LLC product</div>
@@ -863,8 +862,7 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0f1a]/80 backdrop-blur-lg border-b border-[#1E3A5F]/30">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <a href="/" className="flex items-center gap-3" aria-label="LIMS BOX home">
-            <Image src="/brand/lims-box-mark.svg" alt="" width={38} height={38} className="h-9 w-9" priority />
-            <span className="text-xl font-bold text-[#F8F9FA]">LIMS BOX</span>
+            <Image src="/brand/lims-box-mark.svg" alt="" width={128} height={128} className="h-10 w-auto" priority />
           </a>
           <div className="hidden md:flex gap-6 text-sm text-[#F8F9FA]/50">
             <a href="#features" className="hover:text-white transition">Features</a>
