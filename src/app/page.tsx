@@ -169,7 +169,7 @@ function FieldScoutTeaser() {
             ))}
           </div>
           <a
-            href="#demo"
+            href="/field-scout"
             className="inline-flex items-center justify-center px-6 py-3 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-lg font-semibold transition-all text-white"
           >
             See Field Scout in action
