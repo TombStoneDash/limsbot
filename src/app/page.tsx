@@ -106,7 +106,7 @@ function Hero() {
 
 function ProductGallery() {
   const images = [
-    { src: "/images/branded-newcase.jpg", alt: "LIMS BOX portable laboratory infrastructure in a rugged Pelican case" },
+    { src: "/images/branded-newcase.jpg", alt: "LIMS BOX portable laboratory infrastructure in a rugged field case" },
     { src: "/images/branded-case-logo.jpg", alt: "LIMS BOX branded case logo on deployable lab informatics hardware" },
     { src: "/images/branded-maclogo.jpg", alt: "LIMS BOX powered by Mac Mini lab informatics hardware" },
   ];
@@ -338,7 +338,7 @@ function Problem() {
 
 function HowItWorks() {
   const steps = [
-    { num: "01", title: "Ship a Pelican case", desc: "Pre-configured with two Mac Studios, daisy-chained. AI assistant + full LIMS database. Ready to deploy anywhere." },
+    { num: "01", title: "Ship a rugged field case", desc: "Pre-configured with two Mac Studios, daisy-chained. AI assistant + full LIMS database. Ready to deploy anywhere." },
     { num: "02", title: "Open the case", desc: "A laminated setup card sits on top: 'Step 1: Plug in. Step 2: Power on. Step 3: Say hello.'" },
     { num: "03", title: "AI comes alive", desc: "Natural language interaction for lab staff. The AI handles complexity so analysts can focus on samples." },
     { num: "04", title: "Start tracking samples", desc: "Sample tracking, chain of custody, QC, result reporting, and validation-support workflows ready for review." },
@@ -447,13 +447,13 @@ function VideoEmbed() {
           See LIMS BOX <span className="gradient-text">In Action</span>
         </h2>
         <p className="text-[#F8F9FA]/60 text-center max-w-2xl mx-auto mb-12">
-          Watch how a Pelican case transforms sample management for your lab.
+          Watch how a rugged field case transforms sample management for your lab.
         </p>
         <div className="relative w-full overflow-hidden rounded-lg border border-[#1E3A5F]/30" style={{ paddingBottom: "56.25%" }}>
           <iframe
             className="absolute top-0 left-0 w-full h-full"
             src="https://www.youtube-nocookie.com/embed/2gZf1RnqDWU"
-            title="LIMS BOX — Lab Informatics in a Pelican Case"
+            title="LIMS BOX — Lab Informatics in a Rugged Field Case"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             loading="lazy"
@@ -582,7 +582,7 @@ function Founder() {
             </div>
             <div className="mt-6 p-4 bg-[#2E8B57]/5 border border-[#2E8B57]/20 rounded-lg text-[#2E8B57] italic">
               &quot;I wrote the parsers, built the schemas, implemented the compliance rules, and managed the instruments.
-              Now I&apos;m building the AI that does all of it — and fits in a Pelican case.&quot;
+              Now I&apos;m building the AI that does all of it — and fits in a rugged field case.&quot;
             </div>
           </div>
         </div>
