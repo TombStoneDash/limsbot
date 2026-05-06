@@ -1,0 +1,141 @@
+{
+  "schema": "limsbox.field_scout.authorized_discovery.v1",
+  "generated_at": "2026-05-06T14:15:00-07:00",
+  "generated_by": "Daisy",
+  "data_classification": "demo-mock-only",
+  "phi_present": false,
+  "production_data_present": false,
+  "scope_statement": "Discovery is scoped to authorized lab environments. LIMS BOX turns approved local signals into an asset registry and integration checklist.",
+  "authorization_environment": "owner-controlled lab bench / pilot lab only",
+  "discovered_assets": [
+    {
+      "asset_id": "DISCO-001",
+      "discovered_label": "MacBook Air (display client)",
+      "protocol_source": "mDNS · _airplay._tcp",
+      "confidence": "high",
+      "asset_type_guess": "display / dashboard client",
+      "lims_workflow_relevance": "Bench-side dashboard surface for run sheets and instrument status. Eligible to receive read-only LIMS BOT views.",
+      "human_approval_required": true,
+      "authorized": true,
+      "owner": "demo-lab",
+      "notes": "Owner-confirmed display client. No control plane access. Read-only role only."
+    },
+    {
+      "asset_id": "DISCO-002",
+      "discovered_label": "Flipper Zero (USB serial)",
+      "protocol_source": "USB CDC · /dev/tty.usbmodem-FLIP",
+      "confidence": "high",
+      "asset_type_guess": "NFC reader for owner-supplied lab asset tags",
+      "lims_workflow_relevance": "Reads NTAG215 tags applied by the lab to instruments and consumables. Triggers Field Scout asset look-up.",
+      "human_approval_required": true,
+      "authorized": true,
+      "owner": "demo-lab",
+      "notes": "Used only against blank tags written by the lab. No badge, key, or access-control reads."
+    },
+    {
+      "asset_id": "DISCO-003",
+      "discovered_label": "Raspberry Pi (field node)",
+      "protocol_source": "mDNS · _ssh._tcp · hostname raspberrypi.local",
+      "confidence": "high",
+      "asset_type_guess": "edge compute / field collection node",
+      "lims_workflow_relevance": "Local sample-intake terminal at remote bench. Sync candidate for end-of-shift batch upload.",
+      "human_approval_required": true,
+      "authorized": true,
+      "owner": "demo-lab",
+      "notes": "Pre-imaged node. Pairing requires operator approval inside LIMS BOX."
+    },
+    {
+      "asset_id": "DISCO-004",
+      "discovered_label": "Brother QL-820NWB (label printer)",
+      "protocol_source": "mDNS · _ipp._tcp",
+      "confidence": "high",
+      "asset_type_guess": "barcode/label printer",
+      "lims_workflow_relevance": "Print sample / asset / chain-of-custody labels. Eligible for Field Scout label print workflow.",
+      "human_approval_required": true,
+      "authorized": true,
+      "owner": "demo-lab",
+      "notes": "On lab subnet. Print queue scoped to LIMS BOX user."
+    },
+    {
+      "asset_id": "DISCO-005",
+      "discovered_label": "Bench Workstation (Win 11)",
+      "protocol_source": "SMB · workgroup announce",
+      "confidence": "medium",
+      "asset_type_guess": "instrument-attached workstation",
+      "lims_workflow_relevance": "Likely host for vendor instrument software. Candidate for file-drop or shared-folder integration pattern.",
+      "human_approval_required": true,
+      "authorized": true,
+      "owner": "demo-lab",
+      "notes": "Owner-confirmed bench PC. Integration path is a watched folder, not direct control."
+    },
+    {
+      "asset_id": "DISCO-006",
+      "discovered_label": "Mock Cyclone NGS Sequencer",
+      "protocol_source": "owner-declared · vendor manifest YAML",
+      "confidence": "declared",
+      "asset_type_guess": "sequencing instrument (mock for demo)",
+      "lims_workflow_relevance": "Flagged for run sheet generation, sample-to-flowcell mapping, and result file ingestion via vendor export folder.",
+      "human_approval_required": true,
+      "authorized": true,
+      "owner": "demo-lab",
+      "notes": "Mock instrument for demo. Real integrations require vendor-supplied interface spec."
+    },
+    {
+      "asset_id": "DISCO-007",
+      "discovered_label": "Mock Analytical Balance (Mettler-style)",
+      "protocol_source": "RS-232 · serial passthrough",
+      "confidence": "declared",
+      "asset_type_guess": "analytical balance",
+      "lims_workflow_relevance": "Captures weight readings into sample prep step. Eligible for direct-capture workflow with operator confirm.",
+      "human_approval_required": true,
+      "authorized": true,
+      "owner": "demo-lab",
+      "notes": "Mock for demo. Real balances integrate via RS-232 or USB serial."
+    },
+    {
+      "asset_id": "DISCO-008",
+      "discovered_label": "Mock Thermocycler",
+      "protocol_source": "owner-declared · vendor manifest YAML",
+      "confidence": "declared",
+      "asset_type_guess": "PCR thermocycler",
+      "lims_workflow_relevance": "Eligible for protocol selection, run-start logging, and post-run result attachment.",
+      "human_approval_required": true,
+      "authorized": true,
+      "owner": "demo-lab",
+      "notes": "Mock for demo. Real integration depends on vendor export format."
+    },
+    {
+      "asset_id": "DISCO-009",
+      "discovered_label": "Mock Barcode Scanner (USB-HID)",
+      "protocol_source": "USB HID · keyboard wedge",
+      "confidence": "high",
+      "asset_type_guess": "1D/2D barcode scanner",
+      "lims_workflow_relevance": "Drives sample log-in, asset lookup, and chain-of-custody scan steps.",
+      "human_approval_required": true,
+      "authorized": true,
+      "owner": "demo-lab",
+      "notes": "Standard HID scanner. No driver install required for demo."
+    },
+    {
+      "asset_id": "DISCO-010",
+      "discovered_label": "Mock Network Printer",
+      "protocol_source": "mDNS · _ipp._tcp",
+      "confidence": "medium",
+      "asset_type_guess": "office/report printer",
+      "lims_workflow_relevance": "Eligible for compliance report and audit packet print routing.",
+      "human_approval_required": true,
+      "authorized": true,
+      "owner": "demo-lab",
+      "notes": "Print queue gated by LIMS BOX user role."
+    }
+  ],
+  "explicitly_excluded_from_discovery": [
+    "hotel devices",
+    "guest networks",
+    "badge / access-control systems",
+    "NFC credentials",
+    "Wi-Fi attack scenarios",
+    "Marauder / BadUSB payloads",
+    "vulnerability scanning of unauthorized infrastructure"
+  ]
+}

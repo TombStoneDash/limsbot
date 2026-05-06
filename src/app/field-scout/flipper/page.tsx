@@ -3,6 +3,43 @@ import Link from "next/link";
 import { promises as fs } from "fs";
 import path from "path";
 
+interface DiscoveredAsset {
+  asset_id: string;
+  discovered_label: string;
+  protocol_source: string;
+  confidence: string;
+  asset_type_guess: string;
+  lims_workflow_relevance: string;
+  human_approval_required: boolean;
+  authorized: boolean;
+  owner: string;
+  notes: string;
+}
+
+interface AuthorizedDiscoveryRegistry {
+  schema: string;
+  generated_at: string;
+  generated_by: string;
+  data_classification: string;
+  phi_present: boolean;
+  production_data_present: boolean;
+  scope_statement: string;
+  authorization_environment: string;
+  discovered_assets: DiscoveredAsset[];
+  explicitly_excluded_from_discovery: string[];
+}
+
+async function loadAuthorizedDiscovery(): Promise<AuthorizedDiscoveryRegistry> {
+  const file = path.join(
+    process.cwd(),
+    "public",
+    "data",
+    "authorized_discovery_demo.json"
+  );
+  const raw = await fs.readFile(file, "utf-8");
+  return JSON.parse(raw) as AuthorizedDiscoveryRegistry;
+}
+
 export const metadata: Metadata = {
   title: "Flipper × Field Scout — LIMS BOX",
   description:
@@ -48,6 +85,7 @@ async function loadDemoRegistry(): Promise<DemoRegistry> {
 
 export default async function FlipperDashboardPage() {
   const registry = await loadDemoRegistry();
+  const discovery = await loadAuthorizedDiscovery();
   // Pick first asset as the "latest demo scan event" for static demo mode
   const latest = registry.assets[0];
   const limsBotDraft = `Asset ${latest.asset_id} (${latest.asset_name}) scanned at ${latest.location}. Last calibration check on file: ${new Date(
@@ -225,6 +263,104 @@ export default async function FlipperDashboardPage() {
               policy.
             </div>
           </article>
+        </div>
+      </section>
+
+      {/* Authorized Discovery Mode */}
+      <section className="px-6 py-16 border-t border-[#1E3A5F]/40" id="authorized-discovery">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-4">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2E8B57]/10 border border-[#2E8B57]/30 mb-3 text-sm text-[#2E8B57]">
+                ● Authorized Discovery Mode
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-2">
+                Approved lab assets, mapped to real LIMS workflows
+              </h2>
+            </div>
+            <div className="text-xs px-3 py-2 rounded-md bg-[#E67E22]/10 border border-[#E67E22]/40 text-[#E67E22] max-w-sm">
+              ⚠ Authorized environment only — owner-controlled lab bench.
+              No hotel devices. No guest networks. No access-control or
+              badge systems.
+            </div>
+          </div>
+
+          <p className="text-[#F8F9FA]/75 max-w-3xl mb-6">
+            {discovery.scope_statement}
+          </p>
+
+          <div className="overflow-x-auto rounded-lg border border-[#1E3A5F]/40">
+            <table className="w-full text-sm">
+              <thead className="bg-[#1E3A5F]/30 text-[#F8F9FA]/80">
+                <tr>
+                  <th className="text-left px-4 py-3 font-semibold">Discovered asset</th>
+                  <th className="text-left px-4 py-3 font-semibold">Protocol / source</th>
+                  <th className="text-left px-4 py-3 font-semibold">Confidence</th>
+                  <th className="text-left px-4 py-3 font-semibold">Asset type guess</th>
+                  <th className="text-left px-4 py-3 font-semibold">LIMS workflow relevance</th>
+                  <th className="text-left px-4 py-3 font-semibold">Human approval</th>
+                </tr>
+              </thead>
+              <tbody>
+                {discovery.discovered_assets.map((a) => (
+                  <tr key={a.asset_id} className="border-t border-[#1E3A5F]/30 align-top">
+                    <td className="px-4 py-3">
+                      <div className="font-semibold text-[#F8F9FA]">{a.discovered_label}</div>
+                      <div className="text-xs text-[#F8F9FA]/50 font-mono">{a.asset_id}</div>
+                    </td>
+                    <td className="px-4 py-3 font-mono text-xs text-[#E67E22]">{a.protocol_source}</td>
+                    <td className="px-4 py-3">
+                      <span className={
+                        a.confidence === "high"
+                          ? "text-xs px-2 py-0.5 rounded bg-[#2E8B57]/15 text-[#2E8B57] border border-[#2E8B57]/30"
+                          : a.confidence === "medium"
+                          ? "text-xs px-2 py-0.5 rounded bg-[#E67E22]/15 text-[#E67E22] border border-[#E67E22]/30"
+                          : "text-xs px-2 py-0.5 rounded bg-[#1E3A5F]/40 text-[#F8F9FA]/70 border border-[#1E3A5F]/40"
+                      }>
+                        {a.confidence}
+                      </span>
+                    </td>
+                    <td className="px-4 py-3 text-[#F8F9FA]/85">{a.asset_type_guess}</td>
+                    <td className="px-4 py-3 text-[#F8F9FA]/75 text-xs leading-relaxed">{a.lims_workflow_relevance}</td>
+                    <td className="px-4 py-3">
+                      <span className="text-xs px-2 py-0.5 rounded bg-[#E67E22]/15 text-[#E67E22] border border-[#E67E22]/30">
+                        Required
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-6 grid md:grid-cols-2 gap-4">
+            <div className="rounded-lg border border-[#2E8B57]/30 bg-[#2E8B57]/5 p-5">
+              <div className="text-xs uppercase tracking-wide text-[#2E8B57]/80 mb-2">In scope</div>
+              <ul className="space-y-1.5 text-sm text-[#F8F9FA]/85 list-disc list-inside">
+                <li>Owner-controlled instruments and bench hardware</li>
+                <li>Lab subnet protocols (mDNS, IPP, USB serial, USB-HID, RS-232)</li>
+                <li>Owner-declared mock instruments via vendor manifest</li>
+                <li>Tagged consumables on the lab&apos;s own NTAG inventory</li>
+              </ul>
+            </div>
+            <div className="rounded-lg border border-[#E67E22]/40 bg-[#E67E22]/5 p-5">
+              <div className="text-xs uppercase tracking-wide text-[#E67E22]/90 mb-2">Explicitly excluded</div>
+              <ul className="space-y-1.5 text-sm text-[#F8F9FA]/85 list-disc list-inside">
+                {discovery.explicitly_excluded_from_discovery.map((x) => (
+                  <li key={x}>{x}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-6 text-xs text-[#F8F9FA]/55 max-w-3xl">
+            Source registry:{" "}
+            <span className="font-mono">authorized_discovery_demo.json</span> ·
+            classification:{" "}
+            <span className="text-[#E67E22]">{discovery.data_classification}</span> ·
+            environment: {discovery.authorization_environment} ·
+            generated by {discovery.generated_by}
+          </div>
         </div>
       </section>
 
