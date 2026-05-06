@@ -594,7 +594,7 @@ function Founder() {
 function WhySmallLabs() {
   const reasons = [
     { title: "Set Up in Days, Not Months", desc: "No IT department needed. No 18-month implementation timeline. No consultants billing $250/hour to configure your system. Open the case and start running samples.", icon: icons.bolt },
-    { title: "Under $500/Month", desc: "A fraction of the cost of enterprise LIMS platforms like LabWare or STARLIMS. Full functionality at a price that makes sense for labs with 5–50 staff.", icon: icons.chart },
+    { title: "Priced for Real Labs", desc: "A fraction of the cost of enterprise LIMS platforms like LabWare or STARLIMS. Pilot deployments start at $5,000, with support plans from $500/month — sized for labs with 5–50 staff.", icon: icons.chart },
     { title: "Audit Workflows from Day One", desc: "ISO 17025, cGMP, and 21 CFR Part 11-aligned workflow controls can support customer-specific validation, electronic signatures, audit trails, and chain of custody tracking.", icon: icons.shield },
   ];
   return (
@@ -616,6 +616,85 @@ function WhySmallLabs() {
               <p className="text-[#F8F9FA]/60">{r.desc}</p>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Pricing() {
+  const tiers = [
+    {
+      name: "Design-Partner Pilot",
+      price: "Starts around $5,000",
+      desc: "Scoped engagement with a single workflow, hands-on configuration, and direct access to the founder. Built to produce real ROI data for your internal business case.",
+      accent: "#E67E22",
+      featured: true,
+    },
+    {
+      name: "Starter Deployment",
+      price: "$7,500–$12,500",
+      desc: "Single-site lab deployment with workflow configuration, on-box LIMS BOT, and Field Scout asset tracking. Onboarding and training included.",
+      accent: "#2E8B57",
+    },
+    {
+      name: "Pro Deployment",
+      price: "$15,000–$25,000",
+      desc: "Multi-instrument, multi-workflow deployment. Includes deeper configuration, expanded reporting, and extended onboarding.",
+      accent: "#2E8B57",
+    },
+    {
+      name: "Support Plans",
+      price: "$500–$2,000/month",
+      desc: "Ongoing updates, monitoring, and human support. Tier scales with lab size and response-time requirements.",
+      accent: "#1E3A5F",
+    },
+  ];
+  return (
+    <section className="py-24 px-6" id="pricing">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#F8F9FA]">
+          <span className="gradient-text">Pricing</span>
+        </h2>
+        <p className="text-[#F8F9FA]/70 text-center max-w-3xl mx-auto mb-4 text-lg">
+          Pilot deployments start at $5,000.
+        </p>
+        <p className="text-[#F8F9FA]/55 text-center max-w-3xl mx-auto mb-12">
+          Production pricing depends on lab size, number of instruments, offline requirements, workflow configuration, and support level. LIMS BOX is priced as a deployment appliance and support model — not as a license fee for open-source software.
+        </p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {tiers.map((t) => (
+            <div
+              key={t.name}
+              className={`bg-[#2C3E50]/30 border rounded-lg p-6 flex flex-col ${
+                t.featured ? "border-[#E67E22]/50" : "border-[#1E3A5F]/30"
+              }`}
+            >
+              <h3 className="text-lg font-semibold text-[#F8F9FA] mb-2">{t.name}</h3>
+              <p className="text-[#F8F9FA] text-xl font-bold mb-3" style={{ color: t.accent }}>{t.price}</p>
+              <p className="text-[#F8F9FA]/60 text-sm flex-1">{t.desc}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-[#F8F9FA]/50 text-center max-w-3xl mx-auto mb-10 text-sm">
+          Instrument interface work quoted separately. Travel and on-site installation, where required, billed at cost.
+        </p>
+        <div className="max-w-3xl mx-auto bg-[#1E3A5F]/20 border border-[#1E3A5F]/40 rounded-lg p-6 mb-12">
+          <h3 className="text-[#F8F9FA] font-semibold mb-2">A note on SENAITE</h3>
+          <p className="text-[#F8F9FA]/65 text-sm leading-relaxed">
+            LIMS BOX does not sell SENAITE as software. The package includes hardware, local/offline operation, workflow configuration, LIMS BOT, support, and deployment services around an open-source LIMS foundation.
+          </p>
+        </div>
+        <div className="text-center">
+          <a
+            href="/early-access"
+            className="inline-block px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-lg font-semibold text-lg transition-all text-white"
+          >
+            Request pilot pricing →
+          </a>
+          <p className="mt-4 text-sm text-[#F8F9FA]/40">
+            Questions? <a href="mailto:info@lims.bot" className="text-[#2E8B57] hover:underline">info@lims.bot</a>
+          </p>
         </div>
       </div>
     </section>
@@ -869,6 +948,7 @@ export default function Home() {
             <a href="#field-scout" className="hover:text-white transition">Field Scout</a>
             <a href="#lims-bot" className="hover:text-white transition">LIMS BOT</a>
             <a href="#use-cases" className="hover:text-white transition">Use Cases</a>
+            <a href="#pricing" className="hover:text-white transition">Pricing</a>
             <a href="/early-access" className="hover:text-white transition">Early Access</a>
             <a href="/blog" className="hover:text-white transition">Blog</a>
           </div>
@@ -893,6 +973,7 @@ export default function Home() {
       <Vignettes />
       <Founder />
       <WhySmallLabs />
+      <Pricing />
       <EarlyAccessSection />
       <InvestorCTA />
       <Waitlist />
