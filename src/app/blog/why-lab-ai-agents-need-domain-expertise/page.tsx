@@ -69,7 +69,7 @@ export default function LabAIAgentsBlog() {
             </p>
 
             <ul className="list-disc list-inside space-y-2 ml-4">
-              <li><strong className="text-[#F8F9FA]">Assume reversibility:</strong> It treats data entry and corrections as casual modifications. In regulated labs, every change must be logged with the date, time, user ID, and reason. Erasure is not an option.</li>
+              <li><strong className="text-[#F8F9FA]">Assume reversibility:</strong> It handles data entry and corrections as casual modifications. In regulated labs, every change must be logged with the date, time, user ID, and reason. Erasure is not an option.</li>
               <li><strong className="text-[#F8F9FA]">Miss traceability requirements:</strong> It doesn&apos;t know that a single analytical result must link back to the analyst, the instrument used, the calibration date, the method, the QC batch it belongs to, and the sample&apos;s chain of custody chain. Without these links, the result is useless to an auditor.</li>
               <li><strong className="text-[#F8F9FA]">Ignore method requirements:</strong> EPA methods, ISO standards, and cGMP procedures specify exact QC structures — method blanks, laboratory control samples, matrix spikes, duplicate analyses. Generic AI doesn&apos;t know when a batch violates these requirements.</li>
               <li><strong className="text-[#F8F9FA]">Fail on compliance:</strong> 21 CFR Part 11 (electronic records in FDA-regulated laboratories), ISO 17025 (accreditation standard), and NELAC/TNI (environmental lab standards) have specific requirements for data integrity, electronic signatures, and audit trails. A generic AI won&apos;t enforce them.</li>

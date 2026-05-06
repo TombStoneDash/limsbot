@@ -92,13 +92,16 @@ function Hero() {
           Currently selecting 5 pilot labs. Apply now.
         </div>
 
-        <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-[#F8F9FA]/40">
-          <span>✓ Chain of custody</span>
-          <span>✓ EPA methods</span>
-          <span>✓ AI-powered</span>
-          <span>✓ ISO 17025-aligned</span>
-          <span>✓ Under $500/mo</span>
+        <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm">
+          <a href="/roadmap/compliance" className="text-[#2E8B57]/80 hover:text-[#2E8B57] transition">✓ CLIA-aware workflows →</a>
+          <a href="/roadmap/compliance" className="text-[#2E8B57]/80 hover:text-[#2E8B57] transition">✓ ISO 17025-aligned →</a>
+          <a href="/roadmap/compliance" className="text-[#2E8B57]/80 hover:text-[#2E8B57] transition">✓ Part 11-compatible support →</a>
+          <a href="/roadmap/regulatory" className="text-[#F8F9FA]/40 hover:text-[#F8F9FA]/60 transition">✓ Human approval required</a>
+          <span className="text-[#F8F9FA]/40">✓ Local/offline-first</span>
         </div>
+        <p className="mt-3 text-xs text-[#F8F9FA]/30">
+          <a href="/roadmap/compliance" className="hover:text-[#2E8B57] transition underline underline-offset-2">Learn how we get there →</a>
+        </p>
       </div>
     </section>
   );
@@ -914,6 +917,9 @@ function Footer() {
             <a href="#field-scout" className="hover:text-[#2E8B57] transition">Field Scout</a>
             <a href="#lims-bot" className="hover:text-[#2E8B57] transition">LIMS BOT</a>
             <a href="/early-access" className="hover:text-[#2E8B57] transition">Early Access</a>
+            <a href="/partners" className="hover:text-[#2E8B57] transition">Partners</a>
+            <a href="/roadmap/compliance" className="hover:text-[#2E8B57] transition">Compliance</a>
+            <a href="/roadmap/senaite" className="hover:text-[#2E8B57] transition">SENAITE</a>
             <a href="/blog" className="hover:text-[#2E8B57] transition">Blog</a>
             <a href="/LIMS_BOX_SELL_SHEET_v5.pdf" className="hover:text-[#2E8B57] transition">Sell Sheet</a>
             <a href="mailto:info@lims.bot" className="hover:text-[#2E8B57] transition">info@lims.bot</a>
@@ -925,7 +931,8 @@ function Footer() {
         <p className="mt-8 max-w-5xl text-xs leading-relaxed text-[#F8F9FA]/35">
           LIMS BOX is designed to support regulated lab workflows. Customer-specific validation, deployment review,
           and human approval are required for any specific compliance regime (CLIA, HIPAA, ISO 17025/15189,
-          21 CFR Part 11). LIMS BOX does not constitute a medical device and does not provide diagnosis.
+          21 CFR Part 11). LIMS BOX is not a regulated device under FDA authority and does not provide clinical
+          interpretation of laboratory results. See <a href="/roadmap/regulatory" className="hover:text-[#2E8B57] transition">our regulatory boundary page</a> for details.
         </p>
       </div>
     </footer>

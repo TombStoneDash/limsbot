@@ -256,8 +256,8 @@ export default async function FlipperDashboardPage() {
               tooling.
             </li>
             <li>
-              <strong>Is not:</strong> a medical device, a diagnostic
-              instrument, or an FDA-regulated workflow.
+              <strong>Is not:</strong> a regulated device under FDA authority
+              or a clinical interpretation system.
             </li>
             <li>
               <strong>Is not:</strong> a path to PHI, production patient data,
