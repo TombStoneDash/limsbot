@@ -931,7 +931,8 @@ function Footer() {
         <p className="mt-8 max-w-5xl text-xs leading-relaxed text-[#F8F9FA]/35">
           LIMS BOX is designed to support regulated lab workflows. Customer-specific validation, deployment review,
           and human approval are required for any specific compliance regime (CLIA, HIPAA, ISO 17025/15189,
-          21 CFR Part 11). LIMS BOX does not constitute a medical device and does not provide diagnosis.
+          21 CFR Part 11). LIMS BOX is not a regulated device under FDA authority and does not provide clinical
+          interpretation of laboratory results. See <a href="/roadmap/regulatory" className="hover:text-[#2E8B57] transition">our regulatory boundary page</a> for details.
         </p>
       </div>
     </footer>

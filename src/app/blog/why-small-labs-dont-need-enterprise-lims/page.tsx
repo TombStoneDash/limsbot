@@ -219,7 +219,7 @@ export default function WhySmallLabsDontNeedEnterpriseLIMS() {
             <p>
               <strong className="text-[#F8F9FA]">QA/QC built into the workflow.</strong> Method blanks, duplicates,
               matrix spikes, LCS/LCSD &mdash; these aren&apos;t afterthoughts. They&apos;re part of every batch. Your LIMS
-              should treat them that way. Calculate RPDs and recoveries automatically. Flag exceedances before
+              should regard them that way. Calculate RPDs and recoveries automatically. Flag exceedances before
               results go out the door.
             </p>
 

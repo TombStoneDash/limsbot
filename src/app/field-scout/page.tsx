@@ -204,7 +204,7 @@ export default async function FieldScoutPage() {
             <li>No PHI is collected, transmitted, or stored.</li>
             <li>No production data is included in this preview.</li>
             <li>Human approval is required for every scan event before it enters any record system.</li>
-            <li>LIMS BOX does not constitute a medical device and does not provide diagnosis.</li>
+            <li>LIMS BOX is not a regulated device under FDA authority and does not provide clinical interpretation of laboratory results.</li>
           </ul>
         </div>
       </section>
