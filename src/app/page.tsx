@@ -505,7 +505,7 @@ function Capabilities() {
 function Vignettes() {
   const stories = [
     { emoji: "🧑‍🔬", title: "The Contract Lab Manager", capability: "Sample tracking + COC", value: "Zero lost samples", desc: "500 samples a week, every chain of custody intact. No more hunting for paper logs. The auditor walks in and the data is already waiting." },
-    { emoji: "💧", title: "The Water Utility", capability: "Compliance reporting", value: "Automated CCR", desc: "Daily compliance tests, monthly reports, annual CCRs — generated automatically. The utility manager stops dreading EPA reporting season." },
+    { emoji: "💧", title: "The Water Utility", capability: "Compliance reporting", value: "Environmental workflow support", desc: "Daily compliance tests, monthly reports, and annual CCRs — captured with workflow support designed for environmental labs. The utility manager has structured tooling for environmental reporting cycles." },
     { emoji: "🔧", title: "The Maintenance Tech", capability: "Predictive equipment monitoring", value: "Cost savings", desc: "Before the analyzer fails, LIMS BOX flags the pattern. A $12 part gets replaced instead of a $12,000 component." },
     { emoji: "📋", title: "The QA Director", capability: "Audit trail + e-signatures", value: "ISO 17025-aligned", desc: "Every result traceable. Every change logged. The QA director has a cleaner audit trail to review before assessment week." },
     { emoji: "⚡", title: "Self-Healing Systems", capability: "Automated QC + calibration", value: "Reliability", desc: "Auto-calibration, daily QC checks, backup syncing — all running autonomously. The system maintains itself so analysts don't have to." },
@@ -572,7 +572,7 @@ function Founder() {
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-[#2E8B57] mt-0.5">▸</span>
-                  <span><strong>Compliance:</strong> 21 CFR Part 11, ISO 17025, HIPAA, GxP, EPA, CLIA/CAP</span>
+                  <span><strong>Compliance experience:</strong> 21 CFR Part 11, ISO 17025, HIPAA, GxP, EPA, CLIA/CAP</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-[#2E8B57] mt-0.5">▸</span>
