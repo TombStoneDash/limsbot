@@ -453,13 +453,14 @@ function VideoEmbed() {
           Watch how a rugged field case transforms sample management for your lab.
         </p>
         <div className="relative w-full overflow-hidden rounded-lg border border-[#1E3A5F]/30" style={{ paddingBottom: "56.25%" }}>
-          <iframe
-            className="absolute top-0 left-0 w-full h-full"
-            src="https://www.youtube-nocookie.com/embed/2gZf1RnqDWU"
-            title="LIMS BOX — Lab Informatics in a Rugged Field Case"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            loading="lazy"
+          <video
+            className="absolute top-0 left-0 w-full h-full bg-[#0a0f1a]"
+            src="/videos/lims-box-product-demo.mp4"
+            poster="/images/branded-newcase.jpg"
+            controls
+            playsInline
+            preload="metadata"
+            aria-label="LIMS BOX — Lab Informatics in a Rugged Field Case (84-second product demo)"
           />
         </div>
         <p className="text-center mt-6 text-sm text-[#F8F9FA]/40">
