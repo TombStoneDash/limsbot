@@ -464,8 +464,40 @@ function VideoEmbed() {
           />
         </div>
         <p className="text-center mt-6 text-sm text-[#F8F9FA]/40">
-          Questions? <a href="mailto:info@lims.bot" className="text-[#2E8B57] hover:underline">info@lims.bot</a>
+          84-second product demo · Questions? <a href="mailto:info@lims.bot" className="text-[#2E8B57] hover:underline">info@lims.bot</a>
         </p>
+
+        <div className="mt-16">
+          <h3 className="text-2xl md:text-3xl font-bold text-center mb-3 text-[#F8F9FA]">
+            The <span className="gradient-text">Ripple Effect</span>
+          </h3>
+          <p className="text-[#F8F9FA]/60 text-center max-w-2xl mx-auto mb-8 text-sm">
+            Why getting lab data right at the point of capture matters — for the
+            sample, the record, and everything downstream.
+          </p>
+          <div className="relative w-full overflow-hidden rounded-lg border border-[#1E3A5F]/30" style={{ paddingBottom: "56.25%" }}>
+            <iframe
+              className="absolute top-0 left-0 w-full h-full"
+              src="https://www.youtube-nocookie.com/embed/D3cW20SbU3Y"
+              title="The Ripple Effect — LIMS BOX"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              loading="lazy"
+            />
+          </div>
+          <p className="text-center mt-4 text-xs text-[#F8F9FA]/40">
+            Hosted on YouTube ·{" "}
+            <a
+              href="https://www.youtube.com/watch?v=D3cW20SbU3Y"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#2E8B57] hover:underline"
+            >
+              Watch on YouTube
+            </a>
+          </p>
+        </div>
       </div>
     </section>
   );
