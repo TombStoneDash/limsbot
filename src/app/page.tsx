@@ -471,6 +471,48 @@ function VideoEmbed() {
   );
 }
 
+function AIReadyModule() {
+  return (
+    <section className="py-20 px-6 border-t border-[#1E3A5F]/30" id="ai-ready">
+      <div className="max-w-5xl mx-auto">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2E8B57]/10 border border-[#2E8B57]/30 mb-6 text-sm text-[#2E8B57]">
+          AI in Pathology &amp; Healthcare
+        </div>
+        <h2 className="text-3xl md:text-5xl font-bold mb-4 text-[#F8F9FA] leading-tight">
+          AI-ready lab data{" "}
+          <span className="gradient-text">starts before the result.</span>
+        </h2>
+        <p className="text-lg text-[#F8F9FA]/70 max-w-3xl mb-6 leading-relaxed">
+          Most AI conversations focus on models. LIMS BOX focuses on the
+          data layer: scan events, sample movement, reagent context, asset
+          state, field collection notes, and human-approved documentation.
+          Better inputs create better audit trails, better analytics, and
+          safer AI workflows.
+        </p>
+        <p className="text-sm text-[#F8F9FA]/50 max-w-3xl mb-8">
+          LIS/LIMS-agnostic. Local-first. Human approval required. LIMS BOX
+          is not a diagnostic AI system — it is the AI-ready lab data
+          capture layer.
+        </p>
+        <div className="flex flex-wrap gap-4">
+          <a
+            href="/ai-pathology"
+            className="inline-flex items-center justify-center px-6 py-3 bg-[#2E8B57] hover:bg-[#2E8B57]/80 rounded-lg font-semibold transition-all text-white"
+          >
+            Explore AI-ready lab workflows
+          </a>
+          <a
+            href="/field-scout/flipper"
+            className="inline-flex items-center justify-center px-6 py-3 border border-[#1E3A5F]/60 hover:border-[#2E8B57]/60 rounded-lg font-semibold transition-all text-[#F8F9FA]"
+          >
+            See Authorized Discovery
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Capabilities() {
   const features = [
     { icon: icons.flask, title: "Full Sample Tracking", desc: "Barcode scanning, chain of custody, result reporting. Enterprise-grade capabilities in a portable package." },
@@ -977,6 +1019,7 @@ export default function Home() {
       <Features />
       <UseCases />
       <VideoEmbed />
+      <AIReadyModule />
       <Capabilities />
       <Vignettes />
       <Founder />
