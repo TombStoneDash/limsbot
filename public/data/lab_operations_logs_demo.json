@@ -1,0 +1,176 @@
+{
+  "schema": "limsbox.lab_operations_logs.v1",
+  "generated_at": "2026-05-06T18:30:00-07:00",
+  "generated_by": "Daisy",
+  "data_classification": "demo-mock-only",
+  "phi_present": false,
+  "production_data_present": false,
+  "scope_statement": "Mock lab operations log data. Authorized environment only. No PHI, no production records. Designed to support audit workflows, not to replace them.",
+  "instruments": [
+    {
+      "instrument_id": "INSTR-001",
+      "name": "Sciclone G3 NGSx Workstation",
+      "category": "automation / NGS prep",
+      "location": "Lab Bay 1",
+      "last_qualification": "2026-02-12",
+      "next_pm_due": "2026-08-12",
+      "owner": "demo-lab",
+      "notes": "Owner-declared mock instrument for demo. Real integrations require vendor interface spec."
+    },
+    {
+      "instrument_id": "INSTR-002",
+      "name": "Bench Centrifuge (Eppendorf 5424)",
+      "category": "general lab",
+      "location": "Lab Bay 1",
+      "last_qualification": "2026-04-01",
+      "next_pm_due": "2026-05-08",
+      "owner": "demo-lab",
+      "notes": "Weekly inspection due in 2 days."
+    },
+    {
+      "instrument_id": "INSTR-003",
+      "name": "Brother QL-820NWB Label Printer",
+      "category": "labeling",
+      "location": "Lab Bay 2",
+      "last_qualification": "2026-03-15",
+      "next_pm_due": "2026-09-15",
+      "owner": "demo-lab",
+      "notes": "Calibration completed 2026-05-04 (service event SVC-001)."
+    }
+  ],
+  "reagent_lots": [
+    {
+      "lot_id": "LOT-BUFA-2026-04-12",
+      "name": "Buffer A",
+      "expiry": "2026-05-19",
+      "days_to_expiry": 13,
+      "status": "expiring-soon",
+      "location": "Cold Room",
+      "owner": "demo-lab",
+      "notes": "Flagged in widget. Rotate before next batch run."
+    },
+    {
+      "lot_id": "LOT-BUFB-2026-04-22",
+      "name": "Buffer B",
+      "expiry": "2026-08-22",
+      "days_to_expiry": 108,
+      "status": "ok",
+      "location": "Cold Room",
+      "owner": "demo-lab",
+      "notes": null
+    }
+  ],
+  "qc_tasks": [
+    {
+      "qc_id": "QC-TEMP-DAILY",
+      "name": "Daily Temperature Check",
+      "frequency": "daily",
+      "last_completed": "2026-05-05",
+      "next_due": "2026-05-06",
+      "status": "due-today",
+      "owner_role": "lab-tech",
+      "approval_required": true,
+      "notes": "Operator reads temp, LIMS BOT drafts the log entry, qualified operator approves."
+    },
+    {
+      "qc_id": "QC-TEMP-DAILY-MISS",
+      "name": "Daily Temperature Check (yesterday)",
+      "frequency": "daily",
+      "last_completed": "2026-05-03",
+      "next_due": "2026-05-04",
+      "status": "missed",
+      "owner_role": "lab-tech",
+      "approval_required": true,
+      "notes": "Non-compliance item NC-001. Requires supervisor signoff to close out."
+    }
+  ],
+  "maintenance_tasks": [
+    {
+      "task_id": "MAINT-001",
+      "name": "Weekly Centrifuge Inspection",
+      "instrument_id": "INSTR-002",
+      "frequency": "weekly",
+      "last_completed": "2026-05-01",
+      "next_due": "2026-05-08",
+      "status": "due-soon",
+      "approval_required": true
+    }
+  ],
+  "service_events": [
+    {
+      "event_id": "SVC-001",
+      "instrument_id": "INSTR-003",
+      "name": "Printer Calibration",
+      "performed_at": "2026-05-04T10:30:00-07:00",
+      "performed_by": "demo-tech",
+      "result": "passed",
+      "approval_state": "signed",
+      "approver_role": "lab-supervisor"
+    }
+  ],
+  "non_compliance_items": [
+    {
+      "nc_id": "NC-001",
+      "name": "Missed QC Entry — Daily Temp 2026-05-04",
+      "linked_qc_id": "QC-TEMP-DAILY-MISS",
+      "severity": "minor",
+      "status": "open",
+      "opened_at": "2026-05-04T08:00:00-07:00",
+      "approval_required": true,
+      "notes": "AI-assisted documentation drafted; awaiting human-reviewed signoff."
+    }
+  ],
+  "reports": [
+    {
+      "report_id": "RPT-2026-04",
+      "name": "Monthly Maintenance Summary — April 2026",
+      "period_start": "2026-04-01",
+      "period_end": "2026-04-30",
+      "generated_at": "2026-05-02T09:00:00-07:00",
+      "approval_state": "signed",
+      "approver_role": "lab-supervisor",
+      "approver_signed_at": "2026-05-02T15:42:00-07:00"
+    }
+  ],
+  "scan_events": [
+    {
+      "scan_id": "SCAN-001",
+      "tag_type": "NTAG215",
+      "asset_id": "INSTR-002",
+      "asset_name": "Bench Centrifuge",
+      "scanned_at": "2026-05-06T08:14:00-07:00",
+      "operator_role": "lab-tech"
+    },
+    {
+      "scan_id": "SCAN-002",
+      "tag_type": "NTAG215",
+      "asset_id": "LOT-BUFA-2026-04-12",
+      "asset_name": "Buffer A lot",
+      "scanned_at": "2026-05-06T09:02:00-07:00",
+      "operator_role": "lab-tech"
+    }
+  ],
+  "pending_limsbot_drafts": [
+    {
+      "draft_id": "DRAFT-001",
+      "subject": "Close NC-001 (missed daily temp)",
+      "draft_text": "Daily temperature check missed on 2026-05-04. Recovery: extra read taken 2026-05-04 16:10. Awaiting human-reviewed signoff.",
+      "drafted_by": "limsbot-local",
+      "approval_required": true
+    },
+    {
+      "draft_id": "DRAFT-002",
+      "subject": "Buffer A reagent rotation reminder",
+      "draft_text": "Buffer A lot expires 2026-05-19. Recommend swapping to next lot before run on 2026-05-15.",
+      "drafted_by": "limsbot-local",
+      "approval_required": true
+    }
+  ],
+  "offline_sync": {
+    "mode": "offline-first",
+    "last_authorized_sync": "2026-05-06T07:50:00-07:00",
+    "pending_outbound": 2,
+    "pending_inbound": 0,
+    "notes": "Offline field mode. All writes queued locally and replayed on authorized sync."
+  }
+}
