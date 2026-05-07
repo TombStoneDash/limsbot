@@ -553,13 +553,13 @@ function LimsBotCTA() {
           New · LIMS BOT v0
         </div>
         <h2 className="text-2xl md:text-4xl font-bold mb-3 text-[#F8F9FA] leading-tight">
-          LIMS BOT now drafts lab records{" "}
+          LIMS BOT drafts lab records{" "}
           <span className="gradient-text">for review.</span>
         </h2>
         <p className="text-[#F8F9FA]/70 max-w-2xl mb-6">
           Try a mock scan, generate a documentation draft, edit it, and approve
-          it into the demo audit log. Human approval required. No diagnostic
-          interpretation. Demo uses mock data.
+          it into the demo audit log. No diagnostic interpretation. No
+          automatic commit.
         </p>
         <div className="flex flex-wrap gap-3">
           <a

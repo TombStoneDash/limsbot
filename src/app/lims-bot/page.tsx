@@ -231,6 +231,28 @@ export default function LimsBotPage() {
         </div>
       </header>
 
+      <section className="max-w-6xl mx-auto px-6 pt-6">
+        <ol className="flex flex-wrap gap-2 text-xs text-[#F8F9FA]/70">
+          {[
+            "Choose a workflow",
+            "Generate a draft",
+            "Edit if needed",
+            "Approve or reject",
+            "Review the audit log",
+          ].map((step, i) => (
+            <li
+              key={step}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#1E3A5F]/40 bg-[#1E3A5F]/10"
+            >
+              <span className="w-5 h-5 rounded-full bg-[#2DBDB6]/20 border border-[#2DBDB6]/50 text-[#2DBDB6] flex items-center justify-center font-semibold">
+                {i + 1}
+              </span>
+              <span>{step}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
+
       <section className="max-w-6xl mx-auto px-6 py-8 grid lg:grid-cols-3 gap-6">
         {/* LEFT: workflow + scan + chat */}
         <div className="lg:col-span-2 space-y-5">
