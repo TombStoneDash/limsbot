@@ -80,8 +80,15 @@ export default async function LabOpsLogsHub() {
               <span className="text-[#2E8B57]">✓</span> Offline-first / field-ready
             </div>
           </div>
-          <p className="text-xs text-[#F8F9FA]/45 max-w-3xl">
+          <p className="text-xs text-[#F8F9FA]/45 max-w-3xl mb-3">
             Mock demo data. Authorized environment only. No PHI, no production records.
+          </p>
+          <p className="text-sm text-[#2DBDB6]">
+            →{" "}
+            <Link href="/lims-bot" className="underline hover:no-underline">
+              Try LIMS BOT
+            </Link>{" "}
+            to draft an instrument, QC, reagent, or maintenance record live.
           </p>
         </div>
       </section>

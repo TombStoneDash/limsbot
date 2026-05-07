@@ -545,6 +545,41 @@ function AIReadyModule() {
   );
 }
 
+function LimsBotCTA() {
+  return (
+    <section className="py-16 px-6 border-t border-[#1E3A5F]/30" id="lims-bot-cta">
+      <div className="max-w-5xl mx-auto rounded-xl border border-[#2DBDB6]/30 bg-gradient-to-br from-[#2DBDB6]/10 to-[#1E3A5F]/10 p-8 md:p-10">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2DBDB6]/15 border border-[#2DBDB6]/40 mb-4 text-xs text-[#2DBDB6]">
+          New · LIMS BOT v0
+        </div>
+        <h2 className="text-2xl md:text-4xl font-bold mb-3 text-[#F8F9FA] leading-tight">
+          LIMS BOT now drafts lab records{" "}
+          <span className="gradient-text">for review.</span>
+        </h2>
+        <p className="text-[#F8F9FA]/70 max-w-2xl mb-6">
+          Try a mock scan, generate a documentation draft, edit it, and approve
+          it into the demo audit log. Human approval required. No diagnostic
+          interpretation. Demo uses mock data.
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <a
+            href="/lims-bot"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded bg-[#2DBDB6] hover:bg-[#2DBDB6]/90 text-[#0a0f1a] font-semibold text-sm"
+          >
+            Try LIMS BOT →
+          </a>
+          <a
+            href="/ai-pathology"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded border border-[#1E3A5F]/60 hover:border-[#2DBDB6]/60 text-sm text-[#F8F9FA]/80"
+          >
+            Why this matters
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Capabilities() {
   const features = [
     { icon: icons.flask, title: "Full Sample Tracking", desc: "Barcode scanning, chain of custody, result reporting. Enterprise-grade capabilities in a portable package." },
@@ -1052,6 +1087,7 @@ export default function Home() {
       <UseCases />
       <VideoEmbed />
       <AIReadyModule />
+      <LimsBotCTA />
       <Capabilities />
       <Vignettes />
       <Founder />

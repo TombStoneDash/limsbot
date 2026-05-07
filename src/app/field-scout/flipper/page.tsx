@@ -110,6 +110,13 @@ export default async function FlipperDashboardPage() {
             are shown here. No access-control cards, no security-theater, no
             PHI, no production data.
           </p>
+          <p className="text-sm text-[#2DBDB6] mb-6">
+            →{" "}
+            <Link href="/lims-bot" className="underline hover:no-underline">
+              Open LIMS BOT
+            </Link>{" "}
+            to draft a record from one of these mock scans.
+          </p>
           <div className="grid sm:grid-cols-3 gap-3 max-w-3xl">
             <div className="border border-[#1E3A5F]/40 bg-[#0a0f1a]/50 rounded-lg p-4 text-sm text-[#F8F9FA]/70">
               <span className="text-[#2E8B57]">✓</span> Flipper connected (demo)
