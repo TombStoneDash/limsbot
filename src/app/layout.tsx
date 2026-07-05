@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import AssistantWidget from "@/components/AssistantWidget";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -71,7 +72,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${inter.className} antialiased`}>
+        {children}
+        {/* Renders nothing unless NEXT_PUBLIC_ASSISTANT_ENABLED=1 (prototype, off by default) */}
+        <AssistantWidget />
+      </body>
     </html>
   );
 }
