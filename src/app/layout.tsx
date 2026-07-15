@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "LIMS BOX — Local AI for Lab Workflows",
   description:
-    "Offline-capable lab intelligence for environmental, forensic, cannabis, food safety, and contract labs. SENAITE-based. COLA-aligned. Setup in days, validation per customer.",
+    "Offline-capable lab intelligence for environmental, forensic, cannabis, food safety, and contract labs. SENAITE-based. COLA-aligned. Designed to set up in days; validation is customer-specific.",
   metadataBase: new URL("https://lims.bot"),
   keywords: [
     "LIMS",

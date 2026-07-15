@@ -147,7 +147,7 @@ export default function NvidiaBlog() {
             </h2>
 
             <p>
-              We have pilot applications coming in from environmental labs, forensic facilities, and contract
+              We&apos;re inviting pilot applications from environmental labs, forensic facilities, and contract
               testing operations. We are also tracking a broader edge AI ecosystem moving in the same local-first
               direction.
             </p>

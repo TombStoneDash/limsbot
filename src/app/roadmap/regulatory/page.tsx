@@ -129,7 +129,7 @@ export default function RegulatoryPage() {
           </p>
           <div className="grid md:grid-cols-3 gap-4">
             {[
-              { title: "Immutable Audit Logs", desc: "Every action logged with user, timestamp, and before/after state. Cannot be edited or deleted." },
+              { title: "Audit Logs Designed to Be Immutable", desc: "Every action logged with user, timestamp, and before/after state. Not intended to be edited or deleted." },
               { title: "Electronic Signatures", desc: "Configurable e-signature steps for result approval, QC acceptance, and chain of custody handoffs." },
               { title: "Record Retention", desc: "Configurable retention policies with local backup and export support." },
             ].map((item) => (

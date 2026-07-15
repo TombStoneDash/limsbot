@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "LIMS BOX for Environmental & Water Testing Labs — LIMS BOX",
-  description: "How LIMS BOX handles EPA method compliance, chain of custody, seasonal surges, and audit prep for environmental and water testing laboratories.",
+  description: "How LIMS BOX supports EPA method compliance, chain of custody, seasonal surges, and audit prep for environmental and water testing laboratories.",
 };
 
 export default function EnvironmentalLabsBlog() {
@@ -35,7 +35,7 @@ export default function EnvironmentalLabsBlog() {
               LIMS BOX for Environmental & Water Testing Labs
             </h1>
             <p className="text-xl text-[#F8F9FA]/60 italic">
-              EPA compliance, chain of custody, and seasonal surges — handled by a system that deploys in days, not months.
+              EPA compliance support, chain of custody, and seasonal surges — handled by a system designed to deploy in days, not months.
             </p>
           </div>
 
@@ -109,7 +109,7 @@ export default function EnvironmentalLabsBlog() {
               <strong className="text-[#F8F9FA]">How LIMS BOX handles it:</strong> Digital chain of custody from
               the moment samples arrive at your lab. Barcode scanning for sample login, electronic signatures for
               custody transfers, automated temperature logging at receipt, and a complete audit trail for every
-              handoff. Every action is timestamped, attributed to a specific user, and immutable. When your
+              handoff. Every action is timestamped, attributed to a specific user, and designed to be immutable. When your
               assessor asks to see the custody record for sample 2024-0847, you pull it up in seconds — not
               by digging through a filing cabinet.
             </p>
@@ -161,8 +161,9 @@ export default function EnvironmentalLabsBlog() {
               <strong className="text-[#F8F9FA]">How LIMS BOX handles it:</strong> Direct instrument integration
               via standard data formats. The LIMS reads results directly from instrument output files —
               CSV, XML, or proprietary formats. The AI layer can also parse non-standard output and map results
-              to the correct samples and analytes. Zero manual transcription. Zero transposition errors. Your
-              analyst reviews and approves results instead of typing them.
+              to the correct samples and analytes — designed to eliminate manual transcription and the
+              transposition errors that come with it. Your analyst reviews and approves results instead of
+              typing them.
             </p>
 
             <h2 className="text-2xl font-bold text-[#2E8B57] mt-10 mb-4">
@@ -185,12 +186,12 @@ export default function EnvironmentalLabsBlog() {
             </p>
 
             <p>
-              <strong className="text-[#F8F9FA]">How LIMS BOX handles it:</strong> Audit-ready from day one.
-              Every result links back to the analyst who performed it, the instrument used, the calibration
-              status at the time of analysis, the QC batch it belongs to, and the chain of custody record
-              for the sample. 21 CFR Part 11-compliant electronic signatures ensure data integrity. ISO 17025
-              document control is built into the workflow. When your assessor arrives, you don&apos;t prepare —
-              the system is already prepared.
+              <strong className="text-[#F8F9FA]">How LIMS BOX handles it:</strong> Built for audit readiness
+              from day one. Every result links back to the analyst who performed it, the instrument used, the
+              calibration status at the time of analysis, the QC batch it belongs to, and the chain of custody
+              record for the sample. Electronic signatures are designed to support 21 CFR Part 11 data-integrity
+              requirements, and document control follows ISO 17025 structure. When your assessor arrives, you
+              don&apos;t prepare from scratch — the system already has the records organized.
             </p>
 
             <h2 className="text-2xl font-bold text-[#2E8B57] mt-10 mb-4">
@@ -234,10 +235,10 @@ export default function EnvironmentalLabsBlog() {
 
             <p>
               LIMS BOX delivers enterprise-grade sample tracking, chain of custody, QC management, instrument
-              integration, automated reporting, and compliance workflows — all for under $500/month. No IT department
-              required. No 18-month implementation timeline. No consultant fees. Set up in days and start running
-              samples immediately. Environmental labs like yours shouldn&apos;t have to choose between comprehensive
-              compliance infrastructure and budget reality.
+              integration, automated reporting, and compliance-support workflows — all for under $500/month. No IT
+              department required. No 18-month implementation timeline. No consultant fees. Designed to set up in
+              days so you can start running samples quickly. Environmental labs like yours shouldn&apos;t have to
+              choose between comprehensive compliance infrastructure and budget reality.
             </p>
 
             {/* CTA */}

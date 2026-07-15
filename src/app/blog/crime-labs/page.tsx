@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "LIMS BOX for Crime Labs & Forensic Science — LIMS BOX",
-  description: "How LIMS BOX handles chain of custody for court-admissible evidence, accreditation compliance, backlog management, and documentation burden for forensic laboratories.",
+  description: "How LIMS BOX supports chain of custody for court-admissible evidence, accreditation requirements, backlog management, and documentation burden for forensic laboratories.",
 };
 
 export default function CrimeLabsBlog() {
@@ -96,9 +96,9 @@ export default function CrimeLabsBlog() {
               a digital chain of custody record from the moment it enters the lab. Barcode scanning tracks
               physical movement. Electronic signatures document every custody transfer. The system logs
               when evidence is accessed, by whom, for what purpose, and when it was returned to secure
-              storage. The audit trail is immutable — once logged, records cannot be altered or deleted.
-              When a defense attorney challenges the chain of custody, you don&apos;t hope your paper records
-              are complete. You know your digital records are.
+              storage. The audit trail is designed to be immutable — once logged, records are not intended to be
+              altered or deleted. When a defense attorney challenges the chain of custody, digital records are
+              built to give you a documented answer instead of a hope that the paper trail is complete.
             </p>
 
             <h2 className="text-2xl font-bold text-[#2E8B57] mt-10 mb-4">
@@ -123,8 +123,8 @@ export default function CrimeLabsBlog() {
             </p>
 
             <p>
-              <strong className="text-[#F8F9FA]">How LIMS BOX handles it:</strong> Accreditation compliance
-              is built into the daily workflow, not bolted on as an afterthought. Every analysis links to the
+              <strong className="text-[#F8F9FA]">How LIMS BOX handles it:</strong> Accreditation-support workflows
+              are designed into daily operations, not bolted on as an afterthought. Every analysis links to the
               analyst&apos;s training record and competency documentation. Proficiency test results are tracked
               alongside casework. Corrective and preventive actions (CAPA) are documented in the system with
               root cause analysis, corrective measures, and verification of effectiveness. When your assessor
@@ -218,7 +218,7 @@ export default function CrimeLabsBlog() {
               instrument data, QC results, and chain of custody records are already linked to the case.
               Report templates auto-populate with reviewed data. Technical review is streamlined because
               the reviewer sees the complete data package in one view — no paper shuffling. Electronic
-              signatures meet 21 CFR Part 11 requirements for data integrity and non-repudiation.
+              signatures are designed to meet 21 CFR Part 11 requirements for data integrity and non-repudiation.
             </p>
 
             <h2 className="text-2xl font-bold text-[#2E8B57] mt-10 mb-4">
@@ -234,9 +234,9 @@ export default function CrimeLabsBlog() {
 
             <p>
               For crime labs and forensic science laboratories, LIMS BOX delivers enterprise-grade evidence
-              tracking, chain of custody, analyst workload management, accreditation compliance, and
+              tracking, chain of custody, analyst workload management, accreditation-support workflows, and
               court-ready reporting — at under $500/month. No IT department required. No 18-month
-              implementation. Deploy in days and start processing cases.
+              implementation. Designed to deploy in days so you can start processing cases quickly.
             </p>
 
             <p>

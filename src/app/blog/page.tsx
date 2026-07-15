@@ -41,7 +41,7 @@ const posts: BlogPostSummary[] = [
     slug: "environmental-labs",
     title: "LIMS BOX for Environmental & Water Testing Labs",
     date: "June 2026",
-    excerpt: "EPA compliance, chain of custody, and seasonal surges — handled by a system that deploys in days, not months. How LIMS BOX addresses the five biggest pain points for environmental testing laboratories.",
+    excerpt: "EPA compliance support, chain of custody, and seasonal surges — handled by a system designed to deploy in days, not months. How LIMS BOX addresses the five biggest pain points for environmental testing laboratories.",
     href: "/blog/environmental-labs",
   },
   {
