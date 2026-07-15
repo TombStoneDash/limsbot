@@ -198,7 +198,7 @@ export default function LabAIAgentsBlog() {
 
             <ul className="list-disc list-inside space-y-2 ml-4">
               <li>Automatically enforce method requirements and QC structure. The analyst doesn&apos;t have to remember the rules — the system enforces them.</li>
-              <li>Maintain immutable audit trails. Every action is logged, timestamped, and attributed. Changes are tracked as new entries, not overwrites.</li>
+              <li>Maintain audit trails designed to be immutable. Every action is logged, timestamped, and attributed. Changes are tracked as new entries, not overwrites.</li>
               <li>Track chain of custody from collection to report. Sample condition, custody transfers, holding times — all documented.</li>
               <li>Integrate validation data into every result. When a result is reported, the system confirms that the instrument is qualified, the method is validated, and QC checks have passed.</li>
               <li>Support regulatory compliance by design. ISO 17025 traceability, 21 CFR Part 11 data integrity, electronic signatures — these aren&apos;t features bolted on. They&apos;re baked into the foundation.</li>
@@ -243,8 +243,8 @@ export default function LabAIAgentsBlog() {
               <li>Method templates preconfigured for EPA, state, and ISO standards.</li>
               <li>Automatic QC enforcement — the system prevents reporting results that don&apos;t meet QC criteria.</li>
               <li>Digital chain of custody from collection to report — every handoff documented and timestamped.</li>
-              <li>Immutable audit trails for 21 CFR Part 11 compliance.</li>
-              <li>Electronic signatures that satisfy regulatory requirements.</li>
+              <li>Audit trails designed to be immutable and to support 21 CFR Part 11 recordkeeping requirements.</li>
+              <li>Electronic signatures designed to satisfy regulatory requirements.</li>
               <li>Instrument integration that eliminates manual transcription and its associated errors.</li>
             </ul>
 

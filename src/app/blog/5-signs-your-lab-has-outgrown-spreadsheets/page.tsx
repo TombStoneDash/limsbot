@@ -248,8 +248,8 @@ export default function FiveSignsOutgrownSpreadsheets() {
               <strong className="text-[#F8F9FA]">What a LIMS does differently:</strong> Direct instrument
               integration. Results flow from your ICP-MS, GC-MS, IC, or any instrument that exports data
               into the LIMS automatically. The system maps analyte results to the correct samples using
-              sample IDs from the sequence. Zero typing. Zero transposition errors. The analyst reviews
-              and approves &mdash; they don&apos;t transcribe.
+              sample IDs from the sequence — designed to eliminate manual typing and the transposition errors
+              that come with it. The analyst reviews and approves &mdash; they don&apos;t transcribe.
             </p>
 
             <h2 className="text-2xl font-bold text-[#2E8B57] mt-10 mb-4">

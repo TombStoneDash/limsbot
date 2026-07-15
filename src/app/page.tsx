@@ -63,7 +63,7 @@ function Hero() {
         </h1>
 
         <p className="text-xl text-[#F8F9FA]/60 mb-10 max-w-2xl mx-auto">
-          Offline-capable lab intelligence. SENAITE-based. COLA-aligned. Setup in days, validation per customer.
+          Offline-capable lab intelligence. SENAITE-based. COLA-aligned. Designed to set up in days; validation is customer-specific.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -286,6 +286,9 @@ function HeroQuote() {
   return (
     <section className="py-16 px-6">
       <div className="max-w-4xl mx-auto text-center">
+        <p className="text-xs uppercase tracking-wider text-[#F8F9FA]/30 mb-6">
+          Illustrative examples — not verified customer quotes
+        </p>
         <div className="grid md:grid-cols-3 gap-8 text-[#F8F9FA]/60">
           <div className="p-6 rounded-lg bg-[#1E3A5F]/10 border border-[#1E3A5F]/20">
             <p className="italic text-lg mb-2">&ldquo;You run the analysis. I handle the paperwork.&rdquo;</p>
@@ -350,7 +353,7 @@ function HowItWorks() {
     <section className="py-24 px-6 bg-[#2C3E50]/10" id="how-it-works">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#F8F9FA]">
-          Deploy in <span className="gradient-text">Minutes, Not Months</span>
+          Designed to Deploy in <span className="gradient-text">Minutes, Not Months</span>
         </h2>
         <p className="text-[#F8F9FA]/60 text-center max-w-2xl mx-auto mb-16">
           No implementation team. No configuration sprints. No IT department.
@@ -630,8 +633,11 @@ function Vignettes() {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#F8F9FA]">
           Every Feature Is a <span className="gradient-text">Problem Solved</span>
         </h2>
-        <p className="text-[#F8F9FA]/60 text-center max-w-2xl mx-auto mb-16">
+        <p className="text-[#F8F9FA]/60 text-center max-w-2xl mx-auto mb-4">
           LIMS BOX doesn&apos;t just track samples. It reduces the manual work that slows your lab down.
+        </p>
+        <p className="text-xs uppercase tracking-wider text-[#F8F9FA]/30 text-center mb-16">
+          Illustrative scenarios based on target use cases — not actual customer results
         </p>
         <div className="grid md:grid-cols-3 gap-6">
           {stories.map((s) => (
@@ -706,7 +712,7 @@ function Founder() {
 
 function WhySmallLabs() {
   const reasons = [
-    { title: "Set Up in Days, Not Months", desc: "No IT department needed. No 18-month implementation timeline. No consultants billing $250/hour to configure your system. Open the case and start running samples.", icon: icons.bolt },
+    { title: "Designed to Set Up in Days, Not Months", desc: "No IT department needed. No 18-month implementation timeline. No consultants billing $250/hour to configure your system. Open the case and start running samples.", icon: icons.bolt },
     { title: "Priced for Real Labs", desc: "A fraction of the cost of enterprise LIMS platforms like LabWare or STARLIMS. Pilot deployments start at $5,000, with support plans from $500/month — sized for labs with 5–50 staff.", icon: icons.chart },
     { title: "Audit Workflows from Day One", desc: "ISO 17025, cGMP, and 21 CFR Part 11-aligned workflow controls can support customer-specific validation, electronic signatures, audit trails, and chain of custody tracking.", icon: icons.shield },
   ];
@@ -872,14 +878,14 @@ function InvestorCTA() {
         </h2>
         <p className="text-[#F8F9FA]/50 max-w-2xl mx-auto mb-6">
           Thousands of labs still run on spreadsheets and paper.
-          LIMS BOX is the first private AI appliance for regulated laboratories.
+          LIMS BOX is designed to be one of the first private AI appliances built for regulated laboratories.
         </p>
-        <div className="grid md:grid-cols-4 gap-6 mb-12">
+        <div className="grid md:grid-cols-4 gap-6 mb-4">
           {[
             { label: "Env Labs", value: "12K+", sub: "in the US" },
             { label: "LIMS Market", value: "$5.19B", sub: "by 2030" },
             { label: "Growth", value: "12.5%", sub: "CAGR" },
-            { label: "Deploy time", value: "Minutes", sub: "not months" },
+            { label: "Deploy time target", value: "Minutes", sub: "by design, not months" },
           ].map((s) => (
             <div key={s.label} className="bg-[#2C3E50]/30 border border-[#1E3A5F]/30 rounded-lg p-6">
               <div className="text-sm text-[#F8F9FA]/40 mb-1">{s.label}</div>
@@ -888,6 +894,9 @@ function InvestorCTA() {
             </div>
           ))}
         </div>
+        <p className="text-xs text-[#F8F9FA]/30 text-center mb-12">
+          Env Labs, LIMS Market, and Growth figures are third-party market estimates. Deploy time is a design target based on the hardware setup steps, not a measured average across customer deployments.
+        </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="mailto:info@lims.bot"
