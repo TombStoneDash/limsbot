@@ -112,6 +112,29 @@ const WORKFLOWS: { id: Workflow; label: string; helper: string }[] = [
   },
 ];
 
+const ONBOARDING_STEPS = [
+  {
+    title: "Set up the mock scenario",
+    detail:
+      "Choose a workflow and asset, then try the optional mock scan.",
+  },
+  {
+    title: "Generate a documentation draft",
+    detail:
+      "Add an optional operator note and generate from the mock context.",
+  },
+  {
+    title: "Review and make the human decision",
+    detail:
+      "Inspect or edit the draft, then explicitly approve or reject it.",
+  },
+  {
+    title: "Verify the demo audit event",
+    detail:
+      "Confirm the decision and draft mode in this session's demo audit log.",
+  },
+] as const;
+
 function shortId() {
   return Math.random().toString(36).slice(2, 8);
 }
@@ -135,6 +158,27 @@ export default function LimsBotPage() {
     (e) => e.status === "approved" || e.status === "edited-approved"
   ).length;
   const rejectedCount = audit.filter((e) => e.status === "rejected").length;
+  const onboardingComplete = audit.length > 0;
+  const currentOnboardingStep = onboardingComplete
+    ? ONBOARDING_STEPS.length
+    : draft
+      ? 3
+      : scanned
+        ? 2
+        : 1;
+  const completedOnboardingSteps = onboardingComplete
+    ? ONBOARDING_STEPS.length
+    : currentOnboardingStep - 1;
+  const onboardingProgress = Math.round(
+    (completedOnboardingSteps / ONBOARDING_STEPS.length) * 100
+  );
+  const onboardingStatus = onboardingComplete
+    ? "Demo journey complete. Review the event in the demo audit log."
+    : draft
+      ? "Current: review or edit the draft, then approve or reject it."
+      : scanned
+        ? "Current: add an optional operator note and generate a draft."
+        : "Current: choose a workflow and asset, then try the mock scan.";
 
   async function generateDraft() {
     setError("");
@@ -231,26 +275,108 @@ export default function LimsBotPage() {
         </div>
       </header>
 
-      <section className="max-w-6xl mx-auto px-6 pt-6">
-        <ol className="flex flex-wrap gap-2 text-xs text-[#F8F9FA]/70">
-          {[
-            "Choose a workflow",
-            "Generate a draft",
-            "Edit if needed",
-            "Approve or reject",
-            "Review the audit log",
-          ].map((step, i) => (
-            <li
-              key={step}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#1E3A5F]/40 bg-[#1E3A5F]/10"
-            >
-              <span className="w-5 h-5 rounded-full bg-[#2DBDB6]/20 border border-[#2DBDB6]/50 text-[#2DBDB6] flex items-center justify-center font-semibold">
-                {i + 1}
-              </span>
-              <span>{step}</span>
-            </li>
-          ))}
-        </ol>
+      <section
+        className="max-w-6xl mx-auto px-6 pt-6"
+        aria-labelledby="demo-onboarding-title"
+      >
+        <div className="rounded-lg border border-[#1E3A5F]/50 bg-[#1E3A5F]/10 p-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-[#2DBDB6]">
+                First-time demo
+              </p>
+              <h2
+                id="demo-onboarding-title"
+                className="mt-1 text-base font-semibold text-[#F8F9FA]"
+              >
+                Follow the safe demo journey
+              </h2>
+              <p
+                className="mt-1 text-xs text-[#F8F9FA]/60"
+                aria-live="polite"
+              >
+                {onboardingStatus}
+              </p>
+            </div>
+            <p className="shrink-0 text-xs text-[#F8F9FA]/60">
+              <strong className="text-[#F8F9FA]">
+                {completedOnboardingSteps} of {ONBOARDING_STEPS.length}
+              </strong>{" "}
+              steps complete
+            </p>
+          </div>
+
+          <div
+            className="mt-3 h-1.5 overflow-hidden rounded-full bg-[#0a0f1a]"
+            role="progressbar"
+            aria-label="Safe demo journey progress"
+            aria-valuemin={0}
+            aria-valuemax={ONBOARDING_STEPS.length}
+            aria-valuenow={completedOnboardingSteps}
+            aria-valuetext={`${completedOnboardingSteps} of ${ONBOARDING_STEPS.length} steps complete`}
+          >
+            <div
+              className="h-full rounded-full bg-[#2DBDB6] transition-[width]"
+              style={{ width: `${onboardingProgress}%` }}
+            />
+          </div>
+
+          <ol className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+            {ONBOARDING_STEPS.map((step, index) => {
+              const stepNumber = index + 1;
+              const isComplete = stepNumber <= completedOnboardingSteps;
+              const isCurrent =
+                !onboardingComplete && stepNumber === currentOnboardingStep;
+
+              return (
+                <li
+                  key={step.title}
+                  aria-current={isCurrent ? "step" : undefined}
+                  className={`rounded border px-3 py-2 text-xs ${
+                    isCurrent
+                      ? "border-[#2DBDB6] bg-[#2DBDB6]/10"
+                      : isComplete
+                        ? "border-[#2E8B57]/50 bg-[#2E8B57]/10"
+                        : "border-[#1E3A5F]/40 bg-[#0a0f1a]/30"
+                  }`}
+                >
+                  <div className="flex items-center gap-2">
+                    <span
+                      className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border font-semibold ${
+                        isComplete
+                          ? "border-[#2E8B57] text-[#2E8B57]"
+                          : isCurrent
+                            ? "border-[#2DBDB6] text-[#2DBDB6]"
+                            : "border-[#1E3A5F] text-[#F8F9FA]/50"
+                      }`}
+                      aria-hidden="true"
+                    >
+                      {isComplete ? "✓" : stepNumber}
+                    </span>
+                    <span className="font-medium text-[#F8F9FA]">
+                      {step.title}
+                    </span>
+                  </div>
+                  <p className="mt-1.5 text-[#F8F9FA]/50">{step.detail}</p>
+                  <span className="mt-1.5 block font-medium text-[#F8F9FA]/70">
+                    {isComplete
+                      ? "Complete"
+                      : isCurrent
+                        ? "Current step"
+                        : "Up next"}
+                  </span>
+                </li>
+              );
+            })}
+          </ol>
+
+          <p className="mt-3 border-t border-[#1E3A5F]/40 pt-3 text-xs leading-relaxed text-[#F8F9FA]/60">
+            <strong className="text-[#F8F9FA]/80">Demo boundary:</strong>{" "}
+            This demo uses mock data only. Generated output is a draft: a
+            person must review and explicitly approve or reject it. Nothing is
+            written to a live LIMS or production record.
+          </p>
+        </div>
       </section>
 
       <section className="max-w-6xl mx-auto px-6 py-8 grid lg:grid-cols-3 gap-6">
