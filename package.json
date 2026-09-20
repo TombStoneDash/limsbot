@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest run"
+    "test": "node --test tests/waitlist.test.ts && vitest run --exclude tests/waitlist.test.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.103.3",
