@@ -1,13 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import { waitlistOutcome, waitlistErrorMessage } from "@/lib/waitlist-submit";
 
 export function WaitlistCompact() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrorMessage("");
     setSubmitting(true);
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -22,9 +25,14 @@ export function WaitlistCompact() {
           role: data.get("role"),
         }),
       });
-      if (res.ok) setSubmitted(true);
+      const outcome = waitlistOutcome(res);
+      if (outcome === "joined") {
+        setSubmitted(true);
+      } else {
+        setErrorMessage(waitlistErrorMessage(outcome));
+      }
     } catch {
-      setSubmitted(true);
+      setErrorMessage(waitlistErrorMessage(waitlistOutcome("network-error")));
     } finally {
       setSubmitting(false);
     }
@@ -46,16 +54,17 @@ export function WaitlistCompact() {
               <p className="text-sm text-[#F8F9FA]/50 text-center mb-6">Be first in line for LIMS BOX pilot program.</p>
               <form onSubmit={handleSubmit} className="space-y-3">
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <input type="text" name="name" required placeholder="Your name" className="flex-1 px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition text-sm" />
-                  <input type="email" name="email" required placeholder="your@email.com" className="flex-1 px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition text-sm" />
+                  <input type="text" name="name" required placeholder="Your name" aria-label="Your name" className="flex-1 px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition text-sm" />
+                  <input type="email" name="email" required placeholder="your@email.com" aria-label="your@email.com" className="flex-1 px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition text-sm" />
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <input type="text" name="organization" placeholder="Lab name (optional)" className="flex-1 px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition text-sm" />
-                  <input type="text" name="role" placeholder="Your role (optional)" className="flex-1 px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition text-sm" />
+                  <input type="text" name="organization" placeholder="Lab name (optional)" aria-label="Lab name (optional)" className="flex-1 px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition text-sm" />
+                  <input type="text" name="role" placeholder="Your role (optional)" aria-label="Your role (optional)" className="flex-1 px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition text-sm" />
                 </div>
                 <button type="submit" disabled={submitting} className="w-full px-6 py-3 bg-[#2E8B57] hover:bg-[#2E8B57]/80 disabled:opacity-50 rounded-lg font-semibold transition-all text-white text-sm">
                   {submitting ? "Joining..." : "Join the Waitlist →"}
                 </button>
+                {errorMessage && <p role="alert" className="text-sm text-red-300">{errorMessage}</p>}
               </form>
               <p className="text-xs text-[#F8F9FA]/30 text-center mt-3">🔒 No spam. Priority pilot access. Founding partner pricing.</p>
             </>
@@ -69,9 +78,11 @@ export function WaitlistCompact() {
 export function Waitlist() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrorMessage("");
     setSubmitting(true);
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -87,12 +98,14 @@ export function Waitlist() {
           role: data.get("role"),
         }),
       });
-      if (res.ok) {
+      const outcome = waitlistOutcome(res);
+      if (outcome === "joined") {
         setSubmitted(true);
+      } else {
+        setErrorMessage(waitlistErrorMessage(outcome));
       }
     } catch {
-      // fallback — still show success to not block UX
-      setSubmitted(true);
+      setErrorMessage(waitlistErrorMessage(waitlistOutcome("network-error")));
     } finally {
       setSubmitting(false);
     }
@@ -123,6 +136,7 @@ export function Waitlist() {
                 name="name"
                 required
                 placeholder="Your name"
+                aria-label="Your name"
                 className="flex-1 px-6 py-4 bg-[#2C3E50]/50 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
               />
               <input
@@ -130,6 +144,7 @@ export function Waitlist() {
                 name="email"
                 required
                 placeholder="your@email.com"
+                aria-label="your@email.com"
                 className="flex-1 px-6 py-4 bg-[#2C3E50]/50 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
               />
             </div>
@@ -138,12 +153,14 @@ export function Waitlist() {
                 type="text"
                 name="organization"
                 placeholder="Lab name (optional)"
+                aria-label="Lab name (optional)"
                 className="flex-1 px-6 py-4 bg-[#2C3E50]/50 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
               />
               <input
                 type="text"
                 name="role"
                 placeholder="Your role (optional)"
+                aria-label="Your role (optional)"
                 className="flex-1 px-6 py-4 bg-[#2C3E50]/50 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
               />
             </div>
@@ -154,6 +171,7 @@ export function Waitlist() {
             >
               {submitting ? "Submitting..." : "Request Early Access"}
             </button>
+            {errorMessage && <p role="alert" className="text-sm text-red-300">{errorMessage}</p>}
           </form>
         )}
 
