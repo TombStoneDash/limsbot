@@ -1,3 +1,4 @@
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_HREF } from "@/lib/contact";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -267,7 +268,7 @@ export default function LabAIAgentsBlog() {
                 Apply for Early Access →
               </a>
               <p className="mt-4 text-sm text-[#F8F9FA]/40">
-                Questions? <a href="mailto:info@lims.bot" className="text-[#2E8B57] hover:underline">info@lims.bot</a> | (760) 960-4273
+                Questions? <a href="mailto:info@lims.bot" className="text-[#2E8B57] hover:underline">info@lims.bot</a> | <a href={BUSINESS_PHONE_HREF} className="text-[#2E8B57] hover:underline">{BUSINESS_PHONE_DISPLAY}</a>
               </p>
             </div>
 

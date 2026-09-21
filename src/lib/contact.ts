@@ -1,0 +1,2 @@
+export const BUSINESS_PHONE_DISPLAY = "(858) 305-8744";
+export const BUSINESS_PHONE_HREF = "tel:+18583058744";

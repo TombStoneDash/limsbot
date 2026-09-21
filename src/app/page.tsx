@@ -1,3 +1,4 @@
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_HREF } from "@/lib/contact";
 import { Waitlist, WaitlistCompact } from "./waitlist-forms";
 import Image from "next/image";
 
@@ -796,7 +797,7 @@ function EarlyAccessSection() {
           Apply for the Pilot Program →
         </a>
         <p className="mt-4 text-sm text-[#F8F9FA]/30">
-          Questions? <a href="mailto:info@lims.bot" className="text-[#2E8B57] hover:underline">info@lims.bot</a> | (760) 960-4273
+          Questions? <a href="mailto:info@lims.bot" className="text-[#2E8B57] hover:underline">info@lims.bot</a> | <a href={BUSINESS_PHONE_HREF} className="text-[#2E8B57] hover:underline">{BUSINESS_PHONE_DISPLAY}</a>
         </p>
       </div>
     </section>
