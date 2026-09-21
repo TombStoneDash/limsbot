@@ -55,7 +55,7 @@ export function WaitlistCompact() {
               <form onSubmit={handleSubmit} className="space-y-3">
                 <div className="flex flex-col sm:flex-row gap-3">
                   <input type="text" name="name" required placeholder="Your name" aria-label="Your name" className="flex-1 px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition text-sm" />
-                  <input type="email" name="email" required placeholder="your@email.com" aria-label="your@email.com" className="flex-1 px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition text-sm" />
+                  <input type="email" name="email" required placeholder="your@email.com" aria-label="Email address" className="flex-1 px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition text-sm" />
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <input type="text" name="organization" placeholder="Lab name (optional)" aria-label="Lab name (optional)" className="flex-1 px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition text-sm" />
@@ -144,7 +144,7 @@ export function Waitlist() {
                 name="email"
                 required
                 placeholder="your@email.com"
-                aria-label="your@email.com"
+                aria-label="Email address"
                 className="flex-1 px-6 py-4 bg-[#2C3E50]/50 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
               />
             </div>
