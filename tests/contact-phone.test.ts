@@ -12,6 +12,7 @@ const CONTACT_PAGES = [
   "src/app/page.tsx",
   "src/app/blog/crime-labs/page.tsx",
   "src/app/blog/environmental-labs/page.tsx",
+  "src/app/blog/nvidia-connect-isv-registration/page.tsx",
   "src/app/blog/why-lab-ai-agents-need-domain-expertise/page.tsx",
   "src/app/blog/why-small-labs-dont-need-enterprise-lims/page.tsx",
 ];

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_HREF } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "LIMS BOX NVIDIA Connect ISV Registration — LIMS BOX",
@@ -189,7 +190,7 @@ export default function NvidiaBlog() {
               </p>
               <p className="mt-2">
                 Learn more at <a href="https://lims.bot" className="text-[#2E8B57] hover:underline">lims.bot</a> or
-                contact <a href="mailto:info@lims.bot" className="text-[#2E8B57] hover:underline">info@lims.bot</a>.
+                contact <a href="mailto:info@lims.bot" className="text-[#2E8B57] hover:underline">info@lims.bot</a> or <a href={BUSINESS_PHONE_HREF} className="text-[#2E8B57] hover:underline">{BUSINESS_PHONE_DISPLAY}</a>.
               </p>
             </div>
           </div>
