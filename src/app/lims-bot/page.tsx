@@ -206,7 +206,11 @@ export default function LimsBotPage() {
         }),
       });
       if (!r.ok) {
-        setError(`API error: ${r.status}`);
+        setError(
+          r.status === 429
+            ? "The demo is busy. Please wait a moment and try again."
+            : "The demo could not create a draft just now. Please try again."
+        );
         setLoading(false);
         return;
       }
@@ -214,7 +218,7 @@ export default function LimsBotPage() {
       setDraft(data);
       setEditedRecord(data.draftRecord);
     } catch (e) {
-      setError("Network error generating draft.");
+      setError("We could not reach the demo. Check your connection and try again.");
     } finally {
       setLoading(false);
     }
@@ -390,6 +394,7 @@ export default function LimsBotPage() {
               {WORKFLOWS.map((w) => (
                 <button
                   key={w.id}
+                  aria-pressed={workflow === w.id}
                   onClick={() => {
                     setWorkflow(w.id);
                     setDraft(null);
@@ -428,6 +433,7 @@ export default function LimsBotPage() {
               {MOCK_ASSETS.map((a) => (
                 <button
                   key={a.id}
+                  aria-pressed={selectedAsset.id === a.id}
                   onClick={() => setSelectedAsset(a)}
                   className={`text-left px-3 py-2 rounded border text-sm transition ${
                     selectedAsset.id === a.id
@@ -450,6 +456,7 @@ export default function LimsBotPage() {
             </h2>
             <textarea
               value={userMessage}
+              aria-label="Operator note (optional)"
               onChange={(e) => setUserMessage(e.target.value)}
               placeholder="e.g., Routine field collection, conditions nominal."
               rows={3}
@@ -457,14 +464,18 @@ export default function LimsBotPage() {
             />
             <button
               disabled={loading}
+              aria-busy={loading}
               onClick={generateDraft}
               className="mt-3 px-5 py-2 rounded bg-[#2DBDB6] hover:bg-[#2DBDB6]/90 text-[#0a0f1a] text-sm font-semibold disabled:opacity-50"
             >
               {loading ? "Drafting…" : "Generate draft"}
             </button>
             {error && (
-              <p className="mt-2 text-xs text-[#E85D3B]">{error}</p>
+              <p role="alert" className="mt-2 text-sm text-[#FFB4A2]">{error}</p>
             )}
+            <p role="status" className="sr-only">
+              {draft ? "Draft ready for review." : ""}
+            </p>
           </div>
 
           {draft && (
@@ -488,6 +499,7 @@ export default function LimsBotPage() {
               <div className="text-base font-semibold mb-2">{draft.draftTitle}</div>
               <textarea
                 value={editedRecord}
+                aria-label="Draft record (editable)"
                 onChange={(e) => setEditedRecord(e.target.value)}
                 rows={Math.min(14, Math.max(8, editedRecord.split("\n").length + 1))}
                 className="w-full bg-[#0a0f1a] border border-[#1E3A5F]/60 rounded px-3 py-2 text-sm font-mono text-[#F8F9FA] focus:border-[#2DBDB6] focus:outline-none"
