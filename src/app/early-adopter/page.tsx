@@ -5,9 +5,11 @@ import { useState } from "react";
 export default function EarlyAdopterPage() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError(null);
     setSubmitting(true);
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -25,9 +27,13 @@ export default function EarlyAdopterPage() {
           painPoint: data.get("painPoint"),
         }),
       });
-      if (res.ok) setSubmitted(true);
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError("We couldn't submit your application. Please try again.");
+      }
     } catch {
-      setSubmitted(true);
+      setError("We couldn't connect to the server. Please check your network connection and try again.");
     } finally {
       setSubmitting(false);
     }
@@ -228,6 +234,12 @@ export default function EarlyAdopterPage() {
                     className="w-full px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition resize-none"
                   />
                 </div>
+
+                {error && (
+                  <p role="alert" className="text-sm text-red-400">
+                    {error}
+                  </p>
+                )}
 
                 <button
                   type="submit"
