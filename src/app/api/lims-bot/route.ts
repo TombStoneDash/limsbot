@@ -131,7 +131,20 @@ function templateDraft(
         mode: "template",
       };
 
-    case "reagent_lot":
+    case "reagent_lot": {
+      const expiry = typeof lot === "string"
+        ? lot.match(/\bExp (\d{4}-\d{2}-\d{2})\s*$/)?.[1]
+        : undefined;
+      const expiryTime = expiry ? Date.parse(`${expiry}T00:00:00.000Z`) : NaN;
+      const validExpiry = Number.isFinite(expiryTime) &&
+        new Date(expiryTime).toISOString().slice(0, 10) === expiry;
+      const daysToExpiry = validExpiry
+        ? expiryTime / 86_400_000 - Math.floor(Date.now() / 86_400_000)
+        : undefined;
+      const countdown = daysToExpiry === undefined
+        ? "Expiry needs confirmation."
+        : `${daysToExpiry} (${daysToExpiry < 0 ? "expired; " : ""}calculated from lot expiry vs today).`;
+
       return {
         draftTitle: `Reagent Lot Check — ${lot}`,
         draftRecord:
@@ -139,13 +152,13 @@ function templateDraft(
           `Verified: ${ts()}\n` +
           `Visual inspection: Clear, no precipitate, seal intact.\n` +
           `Storage: 4 °C — within range.\n` +
-          `Days to expiry: 100 (calculated from lot expiry vs today).\n` +
+          `Days to expiry: ${countdown}\n` +
           `Operator note: ${userMessage || "Routine lot verification."}\n` +
           `Status: Drafted — pending human approval.`,
         structuredFields: {
           reagent: "Buffer A",
           lot: "LOT-2026-001",
-          expiry: "2026-08-15",
+          expiry: validExpiry ? expiry! : "Expiry needs confirmation",
           storage_c: 4,
           condition_ok: true,
         },
@@ -154,6 +167,7 @@ function templateDraft(
         suggestedNextAction: NEXT_ACTION,
         mode: "template",
       };
+    }
 
     case "asset_scan":
       return {
