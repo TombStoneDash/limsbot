@@ -5,9 +5,11 @@ import { useState } from "react";
 export default function EarlyAdopterPage() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError("");
     setSubmitting(true);
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -25,9 +27,13 @@ export default function EarlyAdopterPage() {
           painPoint: data.get("painPoint"),
         }),
       });
-      if (res.ok) setSubmitted(true);
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError("We could not submit your application. Please try again.");
+      }
     } catch {
-      setSubmitted(true);
+      setError("We could not submit your application. Please try again.");
     } finally {
       setSubmitting(false);
     }
@@ -236,6 +242,7 @@ export default function EarlyAdopterPage() {
                 >
                   {submitting ? "Submitting..." : "Apply for the Pilot →"}
                 </button>
+                {error && <p role="alert" className="text-red-400 text-sm">{error}</p>}
               </form>
 
               <p className="text-xs text-[#F8F9FA]/30 text-center mt-4">🔒 Your information is confidential and will only be used to evaluate your application.</p>
