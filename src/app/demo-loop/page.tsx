@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import DemoLoopVideo from "./demo-loop-video";
 
 export const metadata: Metadata = {
   title: "LIMS BOX Demo Loop",
@@ -14,7 +15,7 @@ export default function DemoLoopPage() {
         <div className="flex items-center gap-3">
           <Link
             href="/"
-            className="text-xs text-[#F8F9FA]/40 hover:text-[#F8F9FA]/70"
+            className="text-xs text-[#F8F9FA]/70 hover:text-[#F8F9FA]/70"
           >
             ← lims.bot
           </Link>
@@ -34,26 +35,10 @@ export default function DemoLoopPage() {
 
       <section className="flex-1 flex flex-col items-center justify-center px-4 py-6">
         <div className="w-full max-w-6xl">
-          <div
-            className="relative w-full overflow-hidden rounded-lg border border-[#1E3A5F]/30 bg-black"
-            style={{ paddingBottom: "56.25%" }}
-          >
-            <video
-              className="absolute top-0 left-0 w-full h-full"
-              src="/videos/lims-box-product-demo.mp4"
-              poster="/images/branded-newcase.jpg"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
-              controls
-              aria-label="LIMS BOX 84-second product demo (loop)"
-            />
-          </div>
-          <p className="text-center mt-3 text-xs text-[#F8F9FA]/40">
-            84-second loop · muted autoplay · click anywhere on the video to
-            toggle controls. Press <kbd className="px-1 py-0.5 rounded bg-[#1E3A5F]/40">F</kbd> for full screen.
+          <DemoLoopVideo />
+          <p className="text-center mt-3 text-sm text-[#F8F9FA]/70">
+            84-second loop · muted · click the video to pause or play. Press{" "}
+            <kbd className="px-1 py-0.5 rounded bg-[#1E3A5F]/40">F</kbd> or use the Full screen button for full screen.
           </p>
         </div>
 
@@ -96,7 +81,7 @@ export default function DemoLoopPage() {
           </Link>
         </div>
 
-        <p className="mt-8 text-xs text-[#F8F9FA]/40 max-w-2xl text-center">
+        <p className="mt-8 text-sm text-[#F8F9FA]/70 max-w-2xl text-center">
           Self-hosted · no third-party embed · no analytics on this loop. Booth
           and conference safe. Pilot deployments start around $5,000.
         </p>
