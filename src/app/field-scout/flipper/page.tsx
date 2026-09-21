@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { promises as fs } from "fs";
 import path from "path";
+import { pickLatestAsset, type DemoAsset } from "@/lib/field-scout-latest";
 
 interface DiscoveredAsset {
   asset_id: string;
@@ -46,22 +47,6 @@ export const metadata: Metadata = {
     "Flipper Zero scan dashboard for LIMS BOX Field Scout. Demo mode only. Mock lab assets. Human approval required. No PHI, no production data, no access-control or security-theater scenarios.",
 };
 
-interface DemoAsset {
-  asset_id: string;
-  asset_name: string;
-  asset_type: string;
-  tag_type: string;
-  tag_uid_redacted: string;
-  source: string;
-  location: string;
-  owner: string;
-  authorization_scope: string;
-  captured_by: string;
-  captured_at: string;
-  notes: string;
-  lims_bot_summary: string;
-}
-
 interface DemoRegistry {
   schema: string;
   generated_at: string;
@@ -86,8 +71,8 @@ async function loadDemoRegistry(): Promise<DemoRegistry> {
 export default async function FlipperDashboardPage() {
   const registry = await loadDemoRegistry();
   const discovery = await loadAuthorizedDiscovery();
-  // Pick first asset as the "latest demo scan event" for static demo mode
-  const latest = registry.assets[0];
+  // Pick the most recently captured demo scan event.
+  const latest = pickLatestAsset(registry.assets);
   const limsBotDraft = `Asset ${latest.asset_id} (${latest.asset_name}) scanned at ${latest.location}. Last calibration check on file: ${new Date(
     latest.captured_at
   ).toLocaleDateString()}. Suggested next workflow step: schedule operator verification, log scan event in maintenance ledger, attach to today's run sheet. Awaiting human approval before any record is written.`;
