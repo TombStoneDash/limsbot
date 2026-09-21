@@ -5,6 +5,10 @@
   const input = document.getElementById("chat-input");
   const log = document.getElementById("chat-log");
   const accessDate = "2026-05-03";
+  const suggestedTopics = [
+    "CLIA basics", "QC workflow", "chain of custody", "audit trail",
+    "specimen lifecycle", "SENAITE", "HL7 v2", "ASTM E1394"
+  ];
 
   function escapeHtml(value) {
     return String(value)
@@ -46,7 +50,7 @@
   function responseShell(answerHtml, sourcePath) {
     return `
       ${answerHtml}
-      <p class="source">Source: ${escapeHtml(sourcePath)} · Access date: ${accessDate}</p>
+      ${sourcePath ? `<p class="source">Source: ${escapeHtml(sourcePath)} · Access date: ${escapeHtml(accessDate)}</p>` : ""}
       <p class="badge">⚠ Human verification required</p>
     `;
   }
@@ -54,7 +58,10 @@
   async function answer(query) {
     const rule = window.LimsBotRouter.route(query);
     if (!rule) {
-      return responseShell(renderMarkdown(window.LimsBotRouter.unknown), "canned-router.js");
+      const suggestions = suggestedTopics.map(topic =>
+        `<li><button type="button" data-question="${escapeHtml(topic)}">${escapeHtml(topic)}</button></li>`
+      ).join("");
+      return responseShell(`${renderMarkdown(window.LimsBotRouter.unknown)}<p>Try asking about:</p><ul>${suggestions}</ul>`);
     }
 
     try {
@@ -63,9 +70,16 @@
       const markdown = await response.text();
       return responseShell(renderMarkdown(markdown), rule.file);
     } catch (error) {
-      return responseShell(renderMarkdown(window.LimsBotRouter.unknown), rule.file);
+      return responseShell(renderMarkdown("That reference could not be loaded. Please try again."));
     }
   }
+
+  log.addEventListener("click", event => {
+    const button = event.target.closest("button[data-question]");
+    if (!button) return;
+    input.value = button.dataset.question;
+    form.requestSubmit();
+  });
 
   form.addEventListener("submit", async event => {
     event.preventDefault();
