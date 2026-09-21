@@ -22,11 +22,9 @@ type Workflow =
   | "asset_scan"
   | "pilot_summary";
 
-type LimsBotRequest = {
-  workflow: Workflow;
-  userMessage?: string;
-  context?: Record<string, unknown>;
-};
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
 
 type LimsBotResponse = {
   draftTitle: string;
@@ -268,11 +266,15 @@ async function liveDraft(
 }
 
 export async function POST(req: NextRequest) {
-  let body: LimsBotRequest;
+  let body: unknown;
   try {
-    body = (await req.json()) as LimsBotRequest;
+    body = await req.json();
   } catch {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
+  }
+
+  if (!isRecord(body)) {
+    return NextResponse.json({ error: "Expected a JSON object" }, { status: 400 });
   }
 
   const validWorkflows: Workflow[] = [
@@ -283,19 +285,33 @@ export async function POST(req: NextRequest) {
     "asset_scan",
     "pilot_summary",
   ];
-  if (!body.workflow || !validWorkflows.includes(body.workflow)) {
+  const workflow = validWorkflows.find((value) => value === body.workflow);
+  if (!workflow) {
     return NextResponse.json(
       { error: "Missing or invalid 'workflow'" },
       { status: 400 }
     );
   }
 
-  const userMessage = (body.userMessage || "").slice(0, 1000);
-  const context = body.context || {};
+  if (body.userMessage !== undefined && typeof body.userMessage !== "string") {
+    return NextResponse.json(
+      { error: "Invalid 'userMessage': expected a string" },
+      { status: 400 }
+    );
+  }
+  if (body.context !== undefined && !isRecord(body.context)) {
+    return NextResponse.json(
+      { error: "Invalid 'context': expected an object" },
+      { status: 400 }
+    );
+  }
+
+  const userMessage = (body.userMessage ?? "").slice(0, 1000);
+  const context = body.context ?? {};
 
   // Try live AI; fallback to template
-  const live = await liveDraft(body.workflow, userMessage, context);
-  const result = live || templateDraft(body.workflow, userMessage, context);
+  const live = await liveDraft(workflow, userMessage, context);
+  const result = live || templateDraft(workflow, userMessage, context);
 
   return NextResponse.json(result);
 }
