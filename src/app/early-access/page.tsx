@@ -1,13 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import { waitlistOutcome, waitlistErrorMessage } from "../../lib/waitlist-submit";
 
 export default function EarlyAccessPage() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrorMessage("");
     setSubmitting(true);
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -27,9 +30,14 @@ export default function EarlyAccessPage() {
           phone: data.get("phone"),
         }),
       });
-      if (res.ok) setSubmitted(true);
+      const outcome = waitlistOutcome(res);
+      if (outcome === "joined") {
+        setSubmitted(true);
+      } else {
+        setErrorMessage(waitlistErrorMessage(outcome));
+      }
     } catch {
-      setSubmitted(true);
+      setErrorMessage(waitlistErrorMessage(waitlistOutcome("network-error")));
     } finally {
       setSubmitting(false);
     }
@@ -152,6 +160,7 @@ export default function EarlyAccessPage() {
                   <input
                     type="text"
                     name="labName"
+                    aria-label="Lab Name *"
                     required
                     placeholder="Acme Environmental Testing"
                     className="w-full px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
@@ -163,6 +172,7 @@ export default function EarlyAccessPage() {
                     <label className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Lab Size *</label>
                     <select
                       name="labSize"
+                      aria-label="Lab Size *"
                       required
                       className="w-full px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white focus:border-[#2E8B57] focus:outline-none transition appearance-none"
                     >
@@ -177,6 +187,7 @@ export default function EarlyAccessPage() {
                     <label className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Current LIMS *</label>
                     <select
                       name="currentLims"
+                      aria-label="Current LIMS *"
                       required
                       className="w-full px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white focus:border-[#2E8B57] focus:outline-none transition appearance-none"
                     >
@@ -195,6 +206,7 @@ export default function EarlyAccessPage() {
                   <input
                     type="text"
                     name="instruments"
+                    aria-label="Primary Instruments"
                     placeholder="e.g., ICP-MS, GC-MS, HPLC, Ion Chromatography"
                     className="w-full px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
                   />
@@ -204,6 +216,7 @@ export default function EarlyAccessPage() {
                   <label className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Biggest Pain Point *</label>
                   <textarea
                     name="painPoint"
+                    aria-label="Biggest Pain Point *"
                     required
                     rows={4}
                     placeholder="What's the one thing you wish your lab did better? (e.g., chain of custody tracking, audit prep, manual data entry from instruments, compliance reporting...)"
@@ -220,6 +233,7 @@ export default function EarlyAccessPage() {
                     <input
                       type="text"
                       name="name"
+                      aria-label="Your Name *"
                       required
                       placeholder="Jane Smith"
                       className="w-full px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
@@ -230,8 +244,9 @@ export default function EarlyAccessPage() {
                     <input
                       type="email"
                       name="email"
+                      aria-label="Email *"
                       required
-                      placeholder="jane@lab.com"
+                      placeholder="Email address"
                       className="w-full px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
                     />
                   </div>
@@ -242,6 +257,7 @@ export default function EarlyAccessPage() {
                   <input
                     type="tel"
                     name="phone"
+                    aria-label="Phone (optional)"
                     placeholder="(555) 123-4567"
                     className="w-full px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
                   />
@@ -250,10 +266,12 @@ export default function EarlyAccessPage() {
                 <button
                   type="submit"
                   disabled={submitting}
+                  aria-busy={submitting}
                   className="w-full px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 disabled:opacity-50 rounded-lg font-semibold text-lg transition-all text-white"
                 >
                   {submitting ? "Submitting..." : "Apply for the Pilot Program →"}
                 </button>
+                {errorMessage && <p role="alert" className="text-sm text-red-300">{errorMessage}</p>}
               </form>
 
               <p className="text-xs text-[#F8F9FA]/30 text-center mt-4">🔒 Your information is confidential and will only be used to evaluate your application.</p>
