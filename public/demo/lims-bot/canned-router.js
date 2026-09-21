@@ -16,8 +16,10 @@
     ],
     unknown: UNKNOWN_RESPONSE,
     route(query) {
-      const normalized = String(query || "").toLowerCase();
-      return this.rules.find(rule => rule.keywords.some(keyword => normalized.includes(keyword))) || null;
+      const normalized = " " + String(query || "").toLowerCase().replace(/[^a-z0-9]+/g, " ") + " ";
+      return this.rules.find(rule => rule.keywords.some(keyword =>
+        normalized.includes(" " + keyword.replace(/[^a-z0-9]+/g, " ") + " ")
+      )) || null;
     }
   };
 }());
