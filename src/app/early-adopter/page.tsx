@@ -1,13 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import { waitlistOutcome, waitlistErrorMessage } from "../../lib/waitlist-submit";
 
 export default function EarlyAdopterPage() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrorMessage("");
     setSubmitting(true);
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -25,9 +28,14 @@ export default function EarlyAdopterPage() {
           painPoint: data.get("painPoint"),
         }),
       });
-      if (res.ok) setSubmitted(true);
+      const outcome = waitlistOutcome(res);
+      if (outcome === "joined") {
+        setSubmitted(true);
+      } else {
+        setErrorMessage(waitlistErrorMessage(outcome));
+      }
     } catch {
-      setSubmitted(true);
+      setErrorMessage(waitlistErrorMessage(waitlistOutcome("network-error")));
     } finally {
       setSubmitting(false);
     }
@@ -154,6 +162,7 @@ export default function EarlyAdopterPage() {
                   <input
                     type="text"
                     name="labName"
+                    aria-label="Lab Name *"
                     required
                     placeholder="e.g., Acme Environmental Testing"
                     className="w-full px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
@@ -164,6 +173,7 @@ export default function EarlyAdopterPage() {
                   <label className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Lab Type *</label>
                   <select
                     name="labType"
+                    aria-label="Lab Type *"
                     required
                     className="w-full px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white focus:border-[#2E8B57] focus:outline-none transition appearance-none"
                   >
@@ -184,6 +194,7 @@ export default function EarlyAdopterPage() {
                     <input
                       type="text"
                       name="contactName"
+                      aria-label="Your Name *"
                       required
                       placeholder="Jane Smith"
                       className="w-full px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
@@ -194,8 +205,9 @@ export default function EarlyAdopterPage() {
                     <input
                       type="email"
                       name="email"
+                      aria-label="Email *"
                       required
-                      placeholder="jane@lab.com"
+                      placeholder="Your email address"
                       className="w-full px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
                     />
                   </div>
@@ -205,6 +217,7 @@ export default function EarlyAdopterPage() {
                   <label className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Estimated Monthly Test Volume *</label>
                   <select
                     name="testVolume"
+                    aria-label="Estimated Monthly Test Volume *"
                     required
                     className="w-full px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white focus:border-[#2E8B57] focus:outline-none transition appearance-none"
                   >
@@ -221,6 +234,7 @@ export default function EarlyAdopterPage() {
                   <label className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Biggest Current Pain Point *</label>
                   <textarea
                     name="painPoint"
+                    aria-label="Biggest Current Pain Point *"
                     required
                     rows={4}
                     maxLength={500}
@@ -232,10 +246,12 @@ export default function EarlyAdopterPage() {
                 <button
                   type="submit"
                   disabled={submitting}
+                  aria-busy={submitting}
                   className="w-full px-8 py-4 bg-[#2E8B57] hover:bg-[#2E8B57]/80 disabled:opacity-50 rounded-lg font-semibold text-lg transition-all text-white"
                 >
                   {submitting ? "Submitting..." : "Apply for the Pilot →"}
                 </button>
+                {errorMessage && <p role="alert" className="text-sm text-red-300">{errorMessage}</p>}
               </form>
 
               <p className="text-xs text-[#F8F9FA]/30 text-center mt-4">🔒 Your information is confidential and will only be used to evaluate your application.</p>
