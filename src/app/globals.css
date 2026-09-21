@@ -8,6 +8,8 @@
   --color-clean-white: #F8F9FA;  /* Clarity */
   --color-warm-dark: #2C3E50;    /* Grounding */
   --color-bg-dark: #0a0f1a;
+  --gradient-text-from: #4CC38A;
+  --gradient-text-to: #7FB2E5;
 }
 
 html {
@@ -39,10 +41,18 @@ body {
 .animate-fade-in-up { animation: fade-in-up 0.8s ease-out forwards; }
 
 .gradient-text {
-  background: linear-gradient(135deg, #2E8B57, #1E3A5F);
+  color: var(--gradient-text-from);
+  background: linear-gradient(135deg, var(--gradient-text-from), var(--gradient-text-to));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+@supports not ((background-clip: text) or (-webkit-background-clip: text)) {
+  .gradient-text {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+  }
 }
 
 .card-hover {
@@ -53,4 +63,33 @@ body {
   transform: translateY(-4px);
   border-color: rgba(46, 139, 87, 0.3);
   box-shadow: 0 8px 30px rgba(46, 139, 87, 0.1);
+}
+
+@media (forced-colors: active) {
+  .gradient-text {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: CanvasText;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-pulse-glow,
+  .animate-fade-in-up {
+    animation: none;
+  }
+
+  .animate-fade-in-up {
+    opacity: 1;
+    transform: none;
+  }
+
+  .card-hover:hover {
+    transform: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }
