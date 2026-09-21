@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 
 type Workflow =
@@ -153,6 +153,7 @@ export default function LimsBotPage() {
   const [editedRecord, setEditedRecord] = useState<string>("");
   const [audit, setAudit] = useState<AuditEvent[]>([]);
   const [error, setError] = useState<string>("");
+  const requestGeneration = useRef(0);
 
   const approvedCount = audit.filter(
     (e) => e.status === "approved" || e.status === "edited-approved"
@@ -181,9 +182,11 @@ export default function LimsBotPage() {
         : "Current: choose a workflow and asset, then try the mock scan.";
 
   async function generateDraft() {
+    const generation = ++requestGeneration.current;
     setError("");
     setLoading(true);
     setDraft(null);
+    setEditedRecord("");
     try {
       const context: Record<string, unknown> = {
         asset: selectedAsset.label,
@@ -205,18 +208,23 @@ export default function LimsBotPage() {
           context,
         }),
       });
+      if (generation !== requestGeneration.current) return;
       if (!r.ok) {
         setError(`API error: ${r.status}`);
-        setLoading(false);
         return;
       }
       const data: DraftResult = await r.json();
+      if (generation !== requestGeneration.current) return;
       setDraft(data);
       setEditedRecord(data.draftRecord);
     } catch (e) {
-      setError("Network error generating draft.");
+      if (generation === requestGeneration.current) {
+        setError("Network error generating draft.");
+      }
     } finally {
-      setLoading(false);
+      if (generation === requestGeneration.current) {
+        setLoading(false);
+      }
     }
   }
 
@@ -391,8 +399,13 @@ export default function LimsBotPage() {
                 <button
                   key={w.id}
                   onClick={() => {
+                    // Every selection invalidates pending work, even a return to the same workflow.
+                    requestGeneration.current += 1;
                     setWorkflow(w.id);
                     setDraft(null);
+                    setEditedRecord("");
+                    setError("");
+                    setLoading(false);
                   }}
                   className={`text-left px-3 py-2 rounded border text-sm transition ${
                     workflow === w.id
