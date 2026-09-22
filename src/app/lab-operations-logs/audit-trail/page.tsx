@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { promises as fs } from "fs";
 import path from "path";
+import { buildAuditTrail, type AuditTrailData } from "@/lib/audit-trail";
 
 export const metadata: Metadata = {
   title: "Audit Trail — Lab Operations Logs — LIMS BOX",
@@ -9,21 +10,7 @@ export const metadata: Metadata = {
     "Every draft, edit, approval, and rejection — recorded with user, role, timestamp, and reason. Designed to support audit workflows. LIS/LIMS-agnostic data capture.",
 };
 
-interface Scan { scan_id: string; tag_type: string; asset_id: string; asset_name: string; scanned_at: string; operator_role: string; }
-interface Service { event_id: string; instrument_id: string; name: string; performed_at: string; performed_by: string; result: string; approval_state: string; approver_role: string; }
-interface Report { report_id: string; name: string; period_start: string; period_end: string; generated_at: string; approval_state: string; approver_role: string; approver_signed_at: string; }
-interface NC { nc_id: string; name: string; linked_qc_id: string; severity: string; status: string; opened_at: string; approval_required: boolean; notes: string | null; }
-interface Draft { draft_id: string; subject: string; draft_text: string; drafted_by: string; approval_required: boolean; }
-
-interface AuditEvent {
-  ts: string;
-  type: string;
-  actor: string;
-  ref: string;
-  action: string;
-}
-
-async function load(): Promise<{ scan_events: Scan[]; service_events: Service[]; reports: Report[]; non_compliance_items: NC[]; pending_limsbot_drafts: Draft[]; }> {
+async function load(): Promise<AuditTrailData> {
   const file = path.join(process.cwd(), "public", "data", "lab_operations_logs_demo.json");
   const raw = await fs.readFile(file, "utf-8");
   return JSON.parse(raw);
@@ -32,43 +19,7 @@ async function load(): Promise<{ scan_events: Scan[]; service_events: Service[];
 export default async function AuditTrail() {
   const data = await load();
   // Synthesize a unified audit timeline from the mock data
-  const events: AuditEvent[] = [
-    ...data.scan_events.map<AuditEvent>((s) => ({
-      ts: s.scanned_at,
-      type: "scan",
-      actor: s.operator_role,
-      ref: `${s.asset_id} (${s.asset_name})`,
-      action: `Asset scanned (${s.tag_type})`,
-    })),
-    ...data.service_events.map<AuditEvent>((s) => ({
-      ts: s.performed_at,
-      type: "service",
-      actor: `${s.performed_by} → ${s.approver_role}`,
-      ref: `${s.event_id}`,
-      action: `Service event '${s.name}' result=${s.result} approval=${s.approval_state}`,
-    })),
-    ...data.reports.map<AuditEvent>((r) => ({
-      ts: r.approver_signed_at,
-      type: "report-signoff",
-      actor: r.approver_role,
-      ref: r.report_id,
-      action: `Report '${r.name}' signed`,
-    })),
-    ...data.non_compliance_items.map<AuditEvent>((nc) => ({
-      ts: nc.opened_at,
-      type: "non-compliance",
-      actor: "system",
-      ref: nc.nc_id,
-      action: `NC opened — ${nc.name} (severity=${nc.severity})`,
-    })),
-    ...data.pending_limsbot_drafts.map<AuditEvent>((d) => ({
-      ts: data.scan_events[0]?.scanned_at || new Date().toISOString(),
-      type: "limsbot-draft",
-      actor: d.drafted_by,
-      ref: d.draft_id,
-      action: `LIMS BOT draft '${d.subject}' awaiting human approval`,
-    })),
-  ].sort((a, b) => (a.ts < b.ts ? 1 : -1));
+  const events = buildAuditTrail(data);
 
   const typeBadge = (t: string) => {
     const map: Record<string, string> = {
