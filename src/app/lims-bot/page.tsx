@@ -152,13 +152,12 @@ export default function LimsBotPage() {
   const [draft, setDraft] = useState<DraftResult | null>(null);
   const [editedRecord, setEditedRecord] = useState<string>("");
   const [audit, setAudit] = useState<AuditEvent[]>([]);
+  const [approvedCount, setApprovedCount] = useState(0);
+  const [rejectedCount, setRejectedCount] = useState(0);
   const [error, setError] = useState<string>("");
   const generation = useRef(0);
 
-  const approvedCount = audit.filter(
-    (e) => e.status === "approved" || e.status === "edited-approved"
-  ).length;
-  const rejectedCount = audit.filter((e) => e.status === "rejected").length;
+  const totalCount = approvedCount + rejectedCount;
   const onboardingComplete = audit.length > 0;
   const currentOnboardingStep = onboardingComplete
     ? ONBOARDING_STEPS.length
@@ -237,6 +236,11 @@ export default function LimsBotPage() {
       preview: editedRecord.split("\n")[0]?.slice(0, 80) || draft.draftTitle,
     };
     setAudit((prev) => [event, ...prev].slice(0, 50));
+    if (status === "rejected") {
+      setRejectedCount((prev) => prev + 1);
+    } else {
+      setApprovedCount((prev) => prev + 1);
+    }
     setDraft(null);
     setEditedRecord("");
     setUserMessage("");
@@ -553,8 +557,13 @@ export default function LimsBotPage() {
             <div className="text-xs text-[#F8F9FA]/60 mb-3 flex flex-wrap gap-3">
               <span>Approved: <strong className="text-[#2E8B57]">{approvedCount}</strong></span>
               <span>Rejected: <strong className="text-[#E85D3B]">{rejectedCount}</strong></span>
-              <span>Total: <strong>{audit.length}</strong></span>
+              <span>Total: <strong>{totalCount}</strong></span>
             </div>
+            {totalCount > audit.length && (
+              <p className="text-xs text-[#F8F9FA]/60 mb-3">
+                Showing only the latest 50 events.
+              </p>
+            )}
             {audit.length === 0 ? (
               <p className="text-xs text-[#F8F9FA]/40 italic">
                 No events yet. Generate a draft and approve or reject it.
