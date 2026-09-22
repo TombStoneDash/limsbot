@@ -22,12 +22,6 @@ type Workflow =
   | "asset_scan"
   | "pilot_summary";
 
-type LimsBotRequest = {
-  workflow: Workflow;
-  userMessage?: string;
-  context?: Record<string, unknown>;
-};
-
 type LimsBotResponse = {
   draftTitle: string;
   draftRecord: string;
@@ -281,12 +275,20 @@ async function liveDraft(
 }
 
 export async function POST(req: NextRequest) {
-  let body: LimsBotRequest;
+  let parsedBody: unknown;
   try {
-    body = (await req.json()) as LimsBotRequest;
+    parsedBody = await req.json();
   } catch {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
+
+  if (parsedBody === null || typeof parsedBody !== "object" || Array.isArray(parsedBody)) {
+    return NextResponse.json(
+      { error: "Request body must be a JSON object" },
+      { status: 400 }
+    );
+  }
+  const body = parsedBody as Record<string, unknown>;
 
   const validWorkflows: Workflow[] = [
     "field_sample",
@@ -296,19 +298,34 @@ export async function POST(req: NextRequest) {
     "asset_scan",
     "pilot_summary",
   ];
-  if (!body.workflow || !validWorkflows.includes(body.workflow)) {
+  if (typeof body.workflow !== "string" || !validWorkflows.includes(body.workflow as Workflow)) {
     return NextResponse.json(
       { error: "Missing or invalid 'workflow'" },
       { status: 400 }
     );
   }
 
-  const userMessage = (body.userMessage || "").slice(0, 1000);
-  const context = body.context || {};
+  if (body.userMessage !== undefined && typeof body.userMessage !== "string") {
+    return NextResponse.json(
+      { error: "'userMessage' must be a string" },
+      { status: 400 }
+    );
+  }
+  if (body.context !== undefined &&
+      (body.context === null || typeof body.context !== "object" || Array.isArray(body.context))) {
+    return NextResponse.json(
+      { error: "'context' must be a JSON object" },
+      { status: 400 }
+    );
+  }
+
+  const workflow = body.workflow as Workflow;
+  const userMessage = (body.userMessage ?? "").slice(0, 1000);
+  const context = (body.context ?? {}) as Record<string, unknown>;
 
   // Try live AI; fallback to template
-  const live = await liveDraft(body.workflow, userMessage, context);
-  const result = live || templateDraft(body.workflow, userMessage, context);
+  const live = await liveDraft(workflow, userMessage, context);
+  const result = live || templateDraft(workflow, userMessage, context);
 
   return NextResponse.json(result);
 }
