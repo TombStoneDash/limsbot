@@ -1,10 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { waitlistOutcome, waitlistErrorMessage } from "@/lib/waitlist-submit";
 
 export function WaitlistCompact() {
   const [submitted, setSubmitted] = useState(false);
+  const confirmationRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (submitted) {
+      confirmationRef.current?.focus();
+    }
+  }, [submitted]);
   const [submitting, setSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -44,7 +51,7 @@ export function WaitlistCompact() {
         <div className="bg-[#2C3E50]/40 border border-[#2E8B57]/30 rounded-lg p-8">
           {submitted ? (
             <div className="text-center">
-              <div className="text-[#2E8B57] text-2xl font-bold mb-2">✓ You&apos;re on the list.</div>
+              <h3 ref={confirmationRef} tabIndex={-1} className="text-[#2E8B57] text-2xl font-bold mb-2">✓ You&apos;re on the list.</h3>
               <p className="text-[#F8F9FA]/60">We&apos;ll reach out when pilot deployments begin.</p>
               <p className="text-sm text-[#F8F9FA]/40 mt-2">Questions? <a href="mailto:info@lims.bot" className="text-[#2E8B57] hover:underline">info@lims.bot</a></p>
             </div>
@@ -77,6 +84,13 @@ export function WaitlistCompact() {
 
 export function Waitlist() {
   const [submitted, setSubmitted] = useState(false);
+  const confirmationRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (submitted) {
+      confirmationRef.current?.focus();
+    }
+  }, [submitted]);
   const [submitting, setSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -124,7 +138,7 @@ export function Waitlist() {
 
         {submitted ? (
           <div className="p-8 bg-[#2E8B57]/10 border border-[#2E8B57]/30 rounded-lg">
-            <div className="text-[#2E8B57] text-xl font-semibold mb-2">✓ You&apos;re on the list.</div>
+            <h3 ref={confirmationRef} tabIndex={-1} className="text-[#2E8B57] text-xl font-semibold mb-2">✓ You&apos;re on the list.</h3>
             <p className="text-[#F8F9FA]/60">Thank you for your interest in LIMS BOX. We&apos;ll reach out to discuss pilot program details.</p>
             <p className="text-sm text-[#F8F9FA]/40 mt-2">Questions? <a href="mailto:info@lims.bot" className="text-[#2E8B57] hover:underline">info@lims.bot</a></p>
           </div>
