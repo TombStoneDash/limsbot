@@ -112,5 +112,12 @@ export function buildAuditTrail(data: AuditTrailData): AuditEvent[] {
     })),
   ];
 
-  return events.sort((a, b) => (a.ts < b.ts ? 1 : -1));
+  return events.sort((a, b) => {
+    const aTime = Date.parse(a.ts);
+    const bTime = Date.parse(b.ts);
+    // Keep unparseable timestamps last, retaining assembly order for ties.
+    if (Number.isNaN(aTime)) return Number.isNaN(bTime) ? 0 : 1;
+    if (Number.isNaN(bTime)) return -1;
+    return bTime - aTime;
+  });
 }
