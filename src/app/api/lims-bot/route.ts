@@ -265,11 +265,25 @@ async function liveDraft(
     const content = data?.choices?.[0]?.message?.content;
     if (!content) return null;
     const parsed = JSON.parse(content);
-    if (!parsed.draftTitle || !parsed.draftRecord) return null;
+    if (
+      parsed === null || typeof parsed !== "object" || Array.isArray(parsed) ||
+      typeof parsed.draftTitle !== "string" || !parsed.draftTitle.trim() ||
+      typeof parsed.draftRecord !== "string" || !parsed.draftRecord.trim()
+    ) return null;
+    if (
+      "structuredFields" in parsed &&
+      (parsed.structuredFields === null ||
+        typeof parsed.structuredFields !== "object" ||
+        Array.isArray(parsed.structuredFields) ||
+        !Object.values(parsed.structuredFields).every((value) =>
+          typeof value === "string" || typeof value === "boolean" ||
+          (typeof value === "number" && Number.isFinite(value))
+        ))
+    ) return null;
     return {
       draftTitle: parsed.draftTitle,
       draftRecord: parsed.draftRecord,
-      structuredFields: parsed.structuredFields || {},
+      structuredFields: parsed.structuredFields ?? {},
       requiresHumanApproval: true,
       safetyNote: SAFETY_NOTE,
       suggestedNextAction: NEXT_ACTION,
