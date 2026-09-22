@@ -41,6 +41,7 @@ type LimsBotResponse = {
 const SAFETY_NOTE =
   "AI draft only. Human review required before committing.";
 const NEXT_ACTION = "Approve, edit, or reject this draft.";
+const MOCK_LOT_EXPIRY = "2026-08-15";
 
 function ts(): string {
   return new Date().toISOString().replace("T", " ").replace(/\.\d+Z$/, " UTC");
@@ -55,7 +56,7 @@ function templateDraft(
     (context.asset as string) ||
     (context.assetName as string) ||
     "Sciclone G3 NGSx Workstation";
-  const lot = (context.lot as string) || "Buffer A · Lot LOT-2026-001 · Exp 2026-08-15";
+  const lot = (context.lot as string) || `Buffer A · Lot LOT-2026-001 · Exp ${MOCK_LOT_EXPIRY}`;
   const sample = (context.sample as string) || "Field Collection 001";
   const operator = (context.operator as string) || "Pending operator sign-off";
 
@@ -131,7 +132,18 @@ function templateDraft(
         mode: "template",
       };
 
-    case "reagent_lot":
+    case "reagent_lot": {
+      const today = new Date();
+      const todayUtc = Date.UTC(
+        today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate()
+      );
+      const daysToExpiry =
+        (Date.parse(`${MOCK_LOT_EXPIRY}T00:00:00Z`) - todayUtc) / 86_400_000;
+      const expiryStatus = daysToExpiry > 0
+        ? `Days to expiry: ${daysToExpiry} (calculated from lot expiry vs today).`
+        : daysToExpiry === 0
+          ? "Lot expires today."
+          : `Days since expiry: ${-daysToExpiry}.`;
       return {
         draftTitle: `Reagent Lot Check — ${lot}`,
         draftRecord:
@@ -139,13 +151,13 @@ function templateDraft(
           `Verified: ${ts()}\n` +
           `Visual inspection: Clear, no precipitate, seal intact.\n` +
           `Storage: 4 °C — within range.\n` +
-          `Days to expiry: 100 (calculated from lot expiry vs today).\n` +
+          `${expiryStatus}\n` +
           `Operator note: ${userMessage || "Routine lot verification."}\n` +
           `Status: Drafted — pending human approval.`,
         structuredFields: {
           reagent: "Buffer A",
           lot: "LOT-2026-001",
-          expiry: "2026-08-15",
+          expiry: MOCK_LOT_EXPIRY,
           storage_c: 4,
           condition_ok: true,
         },
@@ -154,6 +166,7 @@ function templateDraft(
         suggestedNextAction: NEXT_ACTION,
         mode: "template",
       };
+    }
 
     case "asset_scan":
       return {
