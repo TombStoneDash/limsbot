@@ -438,7 +438,16 @@ export default function LimsBotPage() {
               {MOCK_ASSETS.map((a) => (
                 <button
                   key={a.id}
-                  onClick={() => setSelectedAsset(a)}
+                  onClick={() => {
+                    if (selectedAsset.id === a.id) return;
+                    generation.current += 1;
+                    setSelectedAsset(a);
+                    setDraft(null);
+                    setEditedRecord("");
+                    setError("");
+                    setScanned(false);
+                    setLoading(false);
+                  }}
                   className={`text-left px-3 py-2 rounded border text-sm transition ${
                     selectedAsset.id === a.id
                       ? "border-[#E85D3B] bg-[#E85D3B]/10"
