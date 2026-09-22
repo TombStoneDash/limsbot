@@ -152,6 +152,7 @@ export default function LimsBotPage() {
   const [draft, setDraft] = useState<DraftResult | null>(null);
   const [editedRecord, setEditedRecord] = useState<string>("");
   const [audit, setAudit] = useState<AuditEvent[]>([]);
+  // Session totals outlive the capped, 50-event audit history.
   const [approvedCount, setApprovedCount] = useState(0);
   const [rejectedCount, setRejectedCount] = useState(0);
   const [error, setError] = useState<string>("");
