@@ -268,12 +268,20 @@ async function liveDraft(
 }
 
 export async function POST(req: NextRequest) {
-  let body: LimsBotRequest;
+  let parsed: unknown;
   try {
-    body = (await req.json()) as LimsBotRequest;
+    parsed = await req.json();
   } catch {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
+
+  if (parsed === null || typeof parsed !== "object" || Array.isArray(parsed)) {
+    return NextResponse.json(
+      { error: "Request body must be a non-null, non-array object" },
+      { status: 400 }
+    );
+  }
+  const body = parsed as LimsBotRequest;
 
   const validWorkflows: Workflow[] = [
     "field_sample",
@@ -286,6 +294,22 @@ export async function POST(req: NextRequest) {
   if (!body.workflow || !validWorkflows.includes(body.workflow)) {
     return NextResponse.json(
       { error: "Missing or invalid 'workflow'" },
+      { status: 400 }
+    );
+  }
+
+  if (body.userMessage !== undefined && typeof body.userMessage !== "string") {
+    return NextResponse.json(
+      { error: "'userMessage' must be a string when supplied" },
+      { status: 400 }
+    );
+  }
+  if (
+    body.context !== undefined &&
+    (body.context === null || typeof body.context !== "object" || Array.isArray(body.context))
+  ) {
+    return NextResponse.json(
+      { error: "'context' must be a non-null, non-array object when supplied" },
       { status: 400 }
     );
   }
