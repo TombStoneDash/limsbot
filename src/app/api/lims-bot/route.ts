@@ -318,6 +318,38 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  if (body.workflow === "pilot_summary") {
+    if (
+      "context" in body &&
+      (body.context === null || typeof body.context !== "object" || Array.isArray(body.context))
+    ) {
+      return NextResponse.json(
+        { error: "'context' must be a non-null JSON object for pilot_summary when supplied" },
+        { status: 400 }
+      );
+    }
+
+    const pilotContext = body.context ?? {};
+    let total = 0;
+    for (const field of ["approvedCount", "rejectedCount"] as const) {
+      if (!(field in pilotContext)) continue;
+      const count = pilotContext[field];
+      if (typeof count !== "number" || !Number.isSafeInteger(count) || count < 0) {
+        return NextResponse.json(
+          { error: `'context.${field}' must be a nonnegative safe integer when supplied` },
+          { status: 400 }
+        );
+      }
+      total += count;
+    }
+    if (!Number.isSafeInteger(total)) {
+      return NextResponse.json(
+        { error: "The sum of 'context.approvedCount' and 'context.rejectedCount' must be a safe integer" },
+        { status: 400 }
+      );
+    }
+  }
+
   const userMessage = (body.userMessage ?? "").slice(0, 1000);
   const context = body.context || {};
 
