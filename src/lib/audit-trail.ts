@@ -112,5 +112,5 @@ export function buildAuditTrail(data: AuditTrailData): AuditEvent[] {
     })),
   ];
 
-  return events.sort((a, b) => (a.ts < b.ts ? 1 : -1));
+  return events.sort((a, b) => Date.parse(b.ts) - Date.parse(a.ts));
 }
