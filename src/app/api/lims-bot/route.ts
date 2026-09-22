@@ -281,12 +281,20 @@ async function liveDraft(
 }
 
 export async function POST(req: NextRequest) {
-  let body: LimsBotRequest;
+  let parsed: unknown;
   try {
-    body = (await req.json()) as LimsBotRequest;
+    parsed = await req.json();
   } catch {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
+
+  if (parsed === null || typeof parsed !== "object" || Array.isArray(parsed)) {
+    return NextResponse.json(
+      { error: "Request body must be a non-null JSON object" },
+      { status: 400 }
+    );
+  }
+  const body = parsed as LimsBotRequest;
 
   const validWorkflows: Workflow[] = [
     "field_sample",
@@ -303,7 +311,14 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const userMessage = (body.userMessage || "").slice(0, 1000);
+  if ("userMessage" in body && typeof body.userMessage !== "string") {
+    return NextResponse.json(
+      { error: "'userMessage' must be a string when supplied" },
+      { status: 400 }
+    );
+  }
+
+  const userMessage = (body.userMessage ?? "").slice(0, 1000);
   const context = body.context || {};
 
   // Try live AI; fallback to template
