@@ -24,7 +24,13 @@ export default function DemoLoopVideo() {
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+    const motionPreference = window.matchMedia?.("(prefers-reduced-motion: reduce)");
+    function handleMotionChange(event: MediaQueryListEvent) {
+      if (event.matches) video?.pause();
+    }
+    motionPreference?.addEventListener?.("change", handleMotionChange);
+
+    if (!motionPreference?.matches) {
       void (async () => {
         try {
           await video?.play();
@@ -51,7 +57,10 @@ export default function DemoLoopVideo() {
     }
 
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      motionPreference?.removeEventListener?.("change", handleMotionChange);
+    };
   }, []);
 
   return (
