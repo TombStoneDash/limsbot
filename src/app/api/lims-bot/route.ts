@@ -318,8 +318,41 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  if (
+    "context" in body &&
+    (body.context === null || typeof body.context !== "object" || Array.isArray(body.context))
+  ) {
+    return NextResponse.json(
+      { error: "'context' must be a non-null JSON object when supplied" },
+      { status: 400 }
+    );
+  }
+
   const userMessage = (body.userMessage ?? "").slice(0, 1000);
-  const context = body.context || {};
+  const context = body.context ?? {};
+
+  if (body.workflow === "pilot_summary") {
+    for (const field of ["approvedCount", "rejectedCount"] as const) {
+      if (
+        field in context &&
+        (typeof context[field] !== "number" ||
+          !Number.isSafeInteger(context[field]) || context[field] < 0)
+      ) {
+        return NextResponse.json(
+          { error: `'context.${field}' must be a nonnegative safe integer when supplied` },
+          { status: 400 }
+        );
+      }
+    }
+    const total = ((context.approvedCount as number) ?? 0) +
+      ((context.rejectedCount as number) ?? 0);
+    if (!Number.isSafeInteger(total)) {
+      return NextResponse.json(
+        { error: "'context.approvedCount' + 'context.rejectedCount' must be a safe integer" },
+        { status: 400 }
+      );
+    }
+  }
 
   // Try live AI; fallback to template
   const live = await liveDraft(body.workflow, userMessage, context);
