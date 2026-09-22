@@ -156,6 +156,7 @@
       "subject": "Close NC-001 (missed daily temp)",
       "draft_text": "Daily temperature check missed on 2026-05-04. Recovery: extra read taken 2026-05-04 16:10. Awaiting human-reviewed signoff.",
       "drafted_by": "limsbot-local",
+      "drafted_at": "2026-05-04T16:15:00-07:00",
       "approval_required": true
     },
     {
@@ -163,6 +164,7 @@
       "subject": "Buffer A reagent rotation reminder",
       "draft_text": "Buffer A lot expires 2026-05-19. Recommend swapping to next lot before run on 2026-05-15.",
       "drafted_by": "limsbot-local",
+      "drafted_at": "2026-05-06T09:05:00-07:00",
       "approval_required": true
     }
   ],
