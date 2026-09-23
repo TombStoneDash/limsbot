@@ -35,14 +35,15 @@ describe("LIMS BOT mock reagent expiry", () => {
         reagent: "Buffer A",
         lot: "LOT-2026-001",
         expiry: "2026-08-15",
-        storage_c: 4,
-        condition_ok: true,
+        condition_status: "unverified",
       },
       requiresHumanApproval: true,
       safetyNote: "AI draft only. Human review required before committing.",
       suggestedNextAction: "Approve, edit, or reject this draft.",
       mode: "template",
     });
+    expect(draft.structuredFields).not.toHaveProperty("condition_ok");
+    expect(draft.structuredFields).not.toHaveProperty("storage_c");
     expect(draft.draftRecord).toContain("Reagent: Buffer A · Lot LOT-2026-001 · Exp 2026-08-15\n");
     expect(draft.draftRecord).toContain("Status: Drafted — pending human approval.");
     expect(forbiddenFetch).not.toHaveBeenCalled();

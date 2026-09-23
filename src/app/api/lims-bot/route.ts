@@ -148,9 +148,9 @@ function templateDraft(
         draftTitle: `Reagent Lot Check — ${lot}`,
         draftRecord:
           `Reagent: ${lot}\n` +
-          `Verified: ${ts()}\n` +
-          `Visual inspection: Clear, no precipitate, seal intact.\n` +
-          `Storage: 4 °C — within range.\n` +
+          `Drafted: ${ts()}\n` +
+          `Visual inspection: Pending operator verification.\n` +
+          `Actual storage conditions: Pending operator verification.\n` +
           `${expiryStatus}\n` +
           `Operator note: ${userMessage || "Routine lot verification."}\n` +
           `Status: Drafted — pending human approval.`,
@@ -158,8 +158,7 @@ function templateDraft(
           reagent: "Buffer A",
           lot: "LOT-2026-001",
           expiry: MOCK_LOT_EXPIRY,
-          storage_c: 4,
-          condition_ok: true,
+          condition_status: "unverified",
         },
         requiresHumanApproval: true,
         safetyNote: SAFETY_NOTE,
