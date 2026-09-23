@@ -1,11 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function EarlyAccessPage() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const confirmationRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (submitted) {
+      confirmationRef.current?.focus();
+    }
+  }, [submitted]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -137,7 +144,7 @@ export default function EarlyAccessPage() {
           {submitted ? (
             <div className="bg-[#2E8B57]/10 border border-[#2E8B57]/30 rounded-lg p-12 text-center">
               <div className="text-4xl mb-4">🧪</div>
-              <div className="text-[#2E8B57] text-2xl font-bold mb-2">Application Received</div>
+              <h2 ref={confirmationRef} tabIndex={-1} className="text-[#2E8B57] text-2xl font-bold mb-2">Application Received</h2>
               <p className="text-[#F8F9FA]/60 mb-4">
                 Thank you for your interest in LIMS BOX Early Adopter Program.
                 We&apos;ll review your application and reach out within 48 hours.
