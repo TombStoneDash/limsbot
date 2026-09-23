@@ -116,7 +116,7 @@ function templateDraft(
           `Asset: ${asset}\n` +
           `Task: ${userMessage || "Weekly inspection"}\n` +
           `Performed: ${ts()}\n` +
-          `Findings: No anomalies observed. Surfaces wiped. Fluid levels nominal.\n` +
+          `Findings: Pending operator verification.\n` +
           `Next due: +7 days from today.\n` +
           `Operator: ${operator}\n` +
           `Status: Drafted by LIMS BOT — pending human approval.`,
@@ -124,7 +124,7 @@ function templateDraft(
           asset_label: asset,
           maintenance_type: "weekly_inspection",
           interval_days: 7,
-          findings_clear: true,
+          findings_status: "unverified",
         },
         requiresHumanApproval: true,
         safetyNote: SAFETY_NOTE,
