@@ -402,6 +402,7 @@ export default function LimsBotPage() {
                 <button
                   key={w.id}
                   onClick={() => {
+                    if (w.id === workflow) return;
                     // Invalidate even a round trip back to the same workflow.
                     generation.current += 1;
                     setWorkflow(w.id);
