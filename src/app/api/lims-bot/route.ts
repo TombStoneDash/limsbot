@@ -94,13 +94,13 @@ function templateDraft(
           `From: Field Scout (operator)\n` +
           `To: Receiving lab (pending verification)\n` +
           `Timestamp: ${ts()}\n` +
-          `Seal status: Intact (operator-attested)\n` +
+          `Seal status: Pending operator verification.\n` +
           `Operator note: ${userMessage || "Standard handoff."}\n` +
           `Status: Drafted — awaiting receiving-side acknowledgement.`,
         structuredFields: {
           event_type: "custody_transfer",
           sample_id: sample,
-          seal_intact: true,
+          seal_status: "unverified",
           requires_receiver_ack: true,
         },
         requiresHumanApproval: true,
