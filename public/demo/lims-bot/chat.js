@@ -90,6 +90,8 @@
     appendMessage("bot", "<p>Loading local reference...</p>");
     const pending = log.lastElementChild;
     const html = await answer(query);
+    const wasNearBottom = log.scrollHeight - log.clientHeight - log.scrollTop <= 32;
     pending.querySelector(".bubble").innerHTML = html;
+    if (wasNearBottom) log.scrollTop = log.scrollHeight;
   });
 }());
