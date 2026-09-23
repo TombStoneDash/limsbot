@@ -401,6 +401,7 @@ export default function LimsBotPage() {
               {WORKFLOWS.map((w) => (
                 <button
                   key={w.id}
+                  aria-pressed={workflow === w.id}
                   onClick={() => {
                     // Invalidate even a round trip back to the same workflow.
                     generation.current += 1;
@@ -444,6 +445,7 @@ export default function LimsBotPage() {
               {MOCK_ASSETS.map((a) => (
                 <button
                   key={a.id}
+                  aria-pressed={selectedAsset.id === a.id}
                   onClick={() => {
                     if (selectedAsset.id === a.id) return;
                     generation.current += 1;
