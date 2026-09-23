@@ -19,9 +19,20 @@ export function pickLatestAsset(assets: DemoAsset[]): DemoAsset {
     throw new Error("Cannot pick the latest asset from an empty array.");
   }
 
-  return assets.reduce((latest, asset) =>
-    Date.parse(asset.captured_at) > Date.parse(latest.captured_at)
-      ? asset
-      : latest
-  );
+  let latest: DemoAsset | undefined;
+  let latestTime = -Infinity;
+
+  for (const asset of assets) {
+    const captureTime = Date.parse(asset.captured_at);
+    if (Number.isFinite(captureTime) && captureTime > latestTime) {
+      latest = asset;
+      latestTime = captureTime;
+    }
+  }
+
+  if (!latest) {
+    throw new Error("Cannot pick the latest asset: no valid capture timestamps.");
+  }
+
+  return latest;
 }
