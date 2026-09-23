@@ -38,6 +38,8 @@ type DraftResult = {
   mode: "live" | "template";
 };
 
+const OPERATOR_NOTE_LIMIT = 1000;
+
 const MOCK_ASSETS: Asset[] = [
   {
     id: "sciclone-g3",
@@ -158,6 +160,7 @@ export default function LimsBotPage() {
   const [error, setError] = useState<string>("");
   const generation = useRef(0);
   const isRecordBlank = editedRecord.trim().length === 0;
+  const isNoteTooLong = userMessage.length > OPERATOR_NOTE_LIMIT;
 
   const onboardingComplete = audit.length > 0;
   const currentOnboardingStep = onboardingComplete
@@ -182,6 +185,7 @@ export default function LimsBotPage() {
         : "Current: choose a workflow and asset, then try the mock scan.";
 
   async function generateDraft() {
+    if (isNoteTooLong) return;
     const requestGeneration = ++generation.current;
     setError("");
     setLoading(true);
@@ -473,17 +477,26 @@ export default function LimsBotPage() {
 
           <div className="rounded-lg border border-[#1E3A5F]/40 p-5 bg-[#1E3A5F]/10">
             <h2 className="text-sm uppercase tracking-wide text-[#2DBDB6] mb-3">
-              3. Operator note (optional)
+              <label htmlFor="operator-note">3. Operator note (optional)</label>
             </h2>
             <textarea
+              id="operator-note"
+              aria-invalid={isNoteTooLong}
+              aria-describedby={isNoteTooLong ? "operator-note-count operator-note-error" : "operator-note-count"}
               value={userMessage}
               onChange={(e) => setUserMessage(e.target.value)}
               placeholder="e.g., Routine field collection, conditions nominal."
               rows={3}
               className="w-full bg-[#0a0f1a] border border-[#1E3A5F]/60 rounded px-3 py-2 text-sm text-[#F8F9FA] placeholder:text-[#F8F9FA]/30 focus:border-[#2DBDB6] focus:outline-none"
             />
+            <p id="operator-note-count" className="mt-1 text-xs text-[#F8F9FA]/60">
+              {userMessage.length.toLocaleString("en-US")} / {OPERATOR_NOTE_LIMIT.toLocaleString("en-US")} characters
+            </p>
+            <p id="operator-note-error" role="status" className="mt-1 text-xs text-[#E85D3B]">
+              {isNoteTooLong && "Operator note exceeds the 1,000-character limit. Shorten it before generating a draft so no observations are lost. Your full note is preserved here."}
+            </p>
             <button
-              disabled={loading}
+              disabled={loading || isNoteTooLong}
               onClick={generateDraft}
               className="mt-3 px-5 py-2 rounded bg-[#2DBDB6] hover:bg-[#2DBDB6]/90 text-[#0a0f1a] text-sm font-semibold disabled:opacity-50"
             >
