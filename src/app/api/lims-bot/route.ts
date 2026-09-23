@@ -333,17 +333,26 @@ export async function POST(req: NextRequest) {
   }
 
   const userMessage = (body.userMessage ?? "").slice(0, 1000);
-  if (body.workflow === "pilot_summary") {
-    if (
-      "context" in body &&
-      (body.context === null || typeof body.context !== "object" || Array.isArray(body.context))
-    ) {
+  if (
+    "context" in body &&
+    (body.context === null || typeof body.context !== "object" || Array.isArray(body.context))
+  ) {
+    return NextResponse.json(
+      { error: `'context' must be a non-null JSON object for ${body.workflow}` },
+      { status: 400 }
+    );
+  }
+  const context = body.context ?? {};
+  for (const field of ["asset", "assetName", "lot", "sample", "operator"] as const) {
+    if (field in context && typeof context[field] !== "string") {
       return NextResponse.json(
-        { error: "'context' must be a non-null JSON object for pilot_summary" },
+        { error: `'context.${field}' must be a string when supplied` },
         { status: 400 }
       );
     }
-    const counts = body.context ?? {};
+  }
+  if (body.workflow === "pilot_summary") {
+    const counts = context;
     for (const field of ["approvedCount", "rejectedCount"] as const) {
       if (field in counts) {
         const value = counts[field];
@@ -363,7 +372,6 @@ export async function POST(req: NextRequest) {
       );
     }
   }
-  const context = body.context || {};
 
   // Try live AI; fallback to template
   const live = await liveDraft(body.workflow, userMessage, context);
