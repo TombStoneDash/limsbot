@@ -156,6 +156,7 @@ export default function LimsBotPage() {
   const [rejectedCount, setRejectedCount] = useState(0);
   const [error, setError] = useState<string>("");
   const generation = useRef(0);
+  const isRecordBlank = editedRecord.trim().length === 0;
 
   const onboardingComplete = audit.length > 0;
   const currentOnboardingStep = onboardingComplete
@@ -225,6 +226,7 @@ export default function LimsBotPage() {
 
   function commitAudit(status: "approved" | "rejected" | "edited-approved") {
     if (!draft) return;
+    if (status !== "rejected" && isRecordBlank) return;
     const event: AuditEvent = {
       id: shortId(),
       timestamp: nowStamp(),
@@ -510,12 +512,19 @@ export default function LimsBotPage() {
               <div className="text-base font-semibold mb-2">{draft.draftTitle}</div>
               <textarea
                 value={editedRecord}
+                aria-label="Draft record"
+                aria-invalid={isRecordBlank}
+                aria-describedby={isRecordBlank ? "draft-record-error" : undefined}
                 onChange={(e) => setEditedRecord(e.target.value)}
                 rows={Math.min(14, Math.max(8, editedRecord.split("\n").length + 1))}
                 className="w-full bg-[#0a0f1a] border border-[#1E3A5F]/60 rounded px-3 py-2 text-sm font-mono text-[#F8F9FA] focus:border-[#2DBDB6] focus:outline-none"
               />
+              <p id="draft-record-error" role="status" className="mt-2 text-sm text-[#E85D3B]">
+                {isRecordBlank && "Enter non-whitespace text before approving, or reset edits to restore the generated record."}
+              </p>
               <div className="flex flex-wrap gap-2 mt-3">
                 <button
+                  disabled={isRecordBlank}
                   onClick={() =>
                     commitAudit(
                       editedRecord !== draft.draftRecord
@@ -523,7 +532,7 @@ export default function LimsBotPage() {
                         : "approved"
                     )
                   }
-                  className="px-4 py-2 rounded bg-[#2E8B57] hover:bg-[#2E8B57]/90 text-white text-sm font-medium"
+                  className="px-4 py-2 rounded bg-[#2E8B57] hover:bg-[#2E8B57]/90 text-white text-sm font-medium disabled:opacity-50"
                 >
                   Approve
                 </button>
