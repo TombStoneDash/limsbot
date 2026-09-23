@@ -90,6 +90,9 @@
     appendMessage("bot", "<p>Loading local reference...</p>");
     const pending = log.lastElementChild;
     const html = await answer(query);
+    // Allow a 24px gap for readers following the bottom, checked after loading.
+    const followingBottom = log.scrollHeight - log.clientHeight - log.scrollTop <= 24;
     pending.querySelector(".bubble").innerHTML = html;
+    if (followingBottom) log.scrollTop = log.scrollHeight;
   });
 }());
