@@ -472,10 +472,11 @@ export default function LimsBotPage() {
           </div>
 
           <div className="rounded-lg border border-[#1E3A5F]/40 p-5 bg-[#1E3A5F]/10">
-            <h2 className="text-sm uppercase tracking-wide text-[#2DBDB6] mb-3">
+            <h2 id="operator-note-heading" className="text-sm uppercase tracking-wide text-[#2DBDB6] mb-3">
               3. Operator note (optional)
             </h2>
             <textarea
+              aria-labelledby="operator-note-heading"
               value={userMessage}
               onChange={(e) => setUserMessage(e.target.value)}
               placeholder="e.g., Routine field collection, conditions nominal."
