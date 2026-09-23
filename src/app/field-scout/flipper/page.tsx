@@ -73,9 +73,9 @@ export default async function FlipperDashboardPage() {
   const discovery = await loadAuthorizedDiscovery();
   // Pick the most recently captured demo scan event.
   const latest = pickLatestAsset(registry.assets);
-  const limsBotDraft = `Asset ${latest.asset_id} (${latest.asset_name}) scanned at ${latest.location}. Last calibration check on file: ${new Date(
+  const limsBotDraft = `Asset ${latest.asset_id} (${latest.asset_name}) scanned at ${latest.location}. Scan capture time: ${new Date(
     latest.captured_at
-  ).toLocaleDateString()}. Suggested next workflow step: schedule operator verification, log scan event in maintenance ledger, attach to today's run sheet. Awaiting human approval before any record is written.`;
+  ).toLocaleString()}. Calibration status is not provided and requires operator verification. Suggested next workflow step: schedule operator verification, log scan event in maintenance ledger, attach to today's run sheet. Awaiting human approval before any record is written.`;
 
   return (
     <main className="min-h-screen bg-[#0a0f1a] text-[#F8F9FA]">
