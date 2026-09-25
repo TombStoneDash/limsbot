@@ -332,6 +332,37 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  if (body.workflow === "pilot_summary" && "context" in body) {
+    const context = body.context;
+    if (context === null || typeof context !== "object" || Array.isArray(context)) {
+      return NextResponse.json(
+        { error: "'context' must be a non-null JSON object for pilot_summary" },
+        { status: 400 }
+      );
+    }
+
+    for (const field of ["approvedCount", "rejectedCount"] as const) {
+      if (field in context) {
+        const count = context[field];
+        if (typeof count !== "number" || !Number.isSafeInteger(count) || count < 0) {
+          return NextResponse.json(
+            { error: `'context.${field}' must be a nonnegative safe integer` },
+            { status: 400 }
+          );
+        }
+      }
+    }
+
+    const total = ((context.approvedCount as number) ?? 0) +
+      ((context.rejectedCount as number) ?? 0);
+    if (!Number.isSafeInteger(total)) {
+      return NextResponse.json(
+        { error: "Combined approvedCount and rejectedCount total must be a safe integer" },
+        { status: 400 }
+      );
+    }
+  }
+
   const userMessage = (body.userMessage ?? "").slice(0, 1000);
   if (body.workflow === "pilot_summary") {
     if (
