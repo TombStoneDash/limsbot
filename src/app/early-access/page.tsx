@@ -154,9 +154,10 @@ export default function EarlyAccessPage() {
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Lab Info */}
                 <div>
-                  <label className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Lab Name *</label>
+                  <label htmlFor="early-access-labName" className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Lab Name *</label>
                   <input
                     type="text"
+                    id="early-access-labName"
                     name="labName"
                     required
                     placeholder="Acme Environmental Testing"
@@ -166,8 +167,9 @@ export default function EarlyAccessPage() {
 
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Lab Size *</label>
+                    <label htmlFor="early-access-labSize" className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Lab Size *</label>
                     <select
+                      id="early-access-labSize"
                       name="labSize"
                       required
                       className="w-full px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white focus:border-[#2E8B57] focus:outline-none transition appearance-none"
@@ -180,8 +182,9 @@ export default function EarlyAccessPage() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Current LIMS *</label>
+                    <label htmlFor="early-access-currentLims" className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Current LIMS *</label>
                     <select
+                      id="early-access-currentLims"
                       name="currentLims"
                       required
                       className="w-full px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white focus:border-[#2E8B57] focus:outline-none transition appearance-none"
@@ -197,9 +200,10 @@ export default function EarlyAccessPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Primary Instruments</label>
+                  <label htmlFor="early-access-instruments" className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Primary Instruments</label>
                   <input
                     type="text"
+                    id="early-access-instruments"
                     name="instruments"
                     placeholder="e.g., ICP-MS, GC-MS, HPLC, Ion Chromatography"
                     className="w-full px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
@@ -207,8 +211,9 @@ export default function EarlyAccessPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Biggest Pain Point *</label>
+                  <label htmlFor="early-access-painPoint" className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Biggest Pain Point *</label>
                   <textarea
+                    id="early-access-painPoint"
                     name="painPoint"
                     required
                     rows={4}
@@ -222,9 +227,10 @@ export default function EarlyAccessPage() {
 
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Your Name *</label>
+                    <label htmlFor="early-access-name" className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Your Name *</label>
                     <input
                       type="text"
+                      id="early-access-name"
                       name="name"
                       required
                       placeholder="Jane Smith"
@@ -232,9 +238,10 @@ export default function EarlyAccessPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Email *</label>
+                    <label htmlFor="early-access-email" className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Email *</label>
                     <input
                       type="email"
+                      id="early-access-email"
                       name="email"
                       required
                       placeholder="jane@lab.com"
@@ -244,9 +251,10 @@ export default function EarlyAccessPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Phone <span className="text-[#F8F9FA]/30">(optional)</span></label>
+                  <label htmlFor="early-access-phone" className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Phone <span className="text-[#F8F9FA]/30">(optional)</span></label>
                   <input
                     type="tel"
+                    id="early-access-phone"
                     name="phone"
                     placeholder="(555) 123-4567"
                     className="w-full px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white placeholder-[#F8F9FA]/30 focus:border-[#2E8B57] focus:outline-none transition"
