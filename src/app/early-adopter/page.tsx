@@ -156,9 +156,10 @@ export default function EarlyAdopterPage() {
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Lab Info */}
                 <div>
-                  <label className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Lab Name *</label>
+                  <label htmlFor="labName" className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Lab Name *</label>
                   <input
                     type="text"
+                    id="labName"
                     name="labName"
                     required
                     placeholder="e.g., Acme Environmental Testing"
@@ -167,8 +168,9 @@ export default function EarlyAdopterPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Lab Type *</label>
+                  <label htmlFor="labType" className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Lab Type *</label>
                   <select
+                    id="labType"
                     name="labType"
                     required
                     className="w-full px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white focus:border-[#2E8B57] focus:outline-none transition appearance-none"
@@ -186,9 +188,10 @@ export default function EarlyAdopterPage() {
 
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Your Name *</label>
+                    <label htmlFor="contactName" className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Your Name *</label>
                     <input
                       type="text"
+                      id="contactName"
                       name="contactName"
                       required
                       placeholder="Jane Smith"
@@ -196,9 +199,10 @@ export default function EarlyAdopterPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Email *</label>
+                    <label htmlFor="email" className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Email *</label>
                     <input
                       type="email"
+                      id="email"
                       name="email"
                       required
                       placeholder="jane@lab.com"
@@ -208,8 +212,9 @@ export default function EarlyAdopterPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Estimated Monthly Test Volume *</label>
+                  <label htmlFor="testVolume" className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Estimated Monthly Test Volume *</label>
                   <select
+                    id="testVolume"
                     name="testVolume"
                     required
                     className="w-full px-4 py-3 bg-[#0a0f1a]/60 border border-[#1E3A5F]/50 rounded-lg text-white focus:border-[#2E8B57] focus:outline-none transition appearance-none"
@@ -224,8 +229,9 @@ export default function EarlyAdopterPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Biggest Current Pain Point *</label>
+                  <label htmlFor="painPoint" className="block text-sm font-medium text-[#F8F9FA]/70 mb-1.5">Biggest Current Pain Point *</label>
                   <textarea
+                    id="painPoint"
                     name="painPoint"
                     required
                     rows={4}
