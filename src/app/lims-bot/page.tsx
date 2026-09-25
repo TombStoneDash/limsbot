@@ -403,6 +403,7 @@ export default function LimsBotPage() {
                   key={w.id}
                   aria-pressed={workflow === w.id}
                   onClick={() => {
+                    if (w.id === workflow) return;
                     // Invalidate even a round trip back to the same workflow.
                     generation.current += 1;
                     setWorkflow(w.id);
