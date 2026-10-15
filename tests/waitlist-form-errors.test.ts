@@ -58,13 +58,17 @@ describe("both waitlist forms", () => {
       expect(catchBody![1]).toContain('waitlistOutcome("network-error")');
     });
 
-    it(`${name} gives every input a label matching its placeholder`, () => {
+    it(`${name} gives every input an accessible name`, () => {
       const inputs = [...form.matchAll(/<input\b[^>]*\/>/g)];
       expect(inputs).toHaveLength(4);
       for (const [input] of inputs) {
         const placeholder = input.match(/placeholder="([^"]+)"/)?.[1];
         expect(placeholder).toBeTruthy();
-        expect(input).toContain(`aria-label="${placeholder}"`);
+        if (input.includes('type="email"')) {
+          expect(input).toContain('aria-label="Email address"');
+        } else {
+          expect(input).toContain(`aria-label="${placeholder}"`);
+        }
       }
     });
   }
