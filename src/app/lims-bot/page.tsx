@@ -213,7 +213,11 @@ export default function LimsBotPage() {
       });
       if (requestGeneration !== generation.current) return;
       if (!r.ok) {
-        setError(`API error: ${r.status}`);
+        setError(
+          r.status === 429
+            ? "The demo is busy. Please wait a moment and try again."
+            : "The demo could not create a draft just now. Please try again."
+        );
         return;
       }
       const data: DraftResult = await r.json();
@@ -222,7 +226,9 @@ export default function LimsBotPage() {
       setEditedRecord(data.draftRecord);
     } catch {
       if (requestGeneration === generation.current) {
-        setError("Network error generating draft.");
+        setError(
+          "We could not reach the demo. Check your connection and try again."
+        );
       }
     } finally {
       if (requestGeneration === generation.current) setLoading(false);
@@ -498,14 +504,18 @@ export default function LimsBotPage() {
             </p>
             <button
               disabled={loading || isNoteTooLong}
+              aria-busy={loading}
               onClick={generateDraft}
               className="mt-3 px-5 py-2 rounded bg-[#2DBDB6] hover:bg-[#2DBDB6]/90 text-[#0a0f1a] text-sm font-semibold disabled:opacity-50"
             >
               {loading ? "Drafting…" : "Generate draft"}
             </button>
             {error && (
-              <p className="mt-2 text-xs text-[#E85D3B]">{error}</p>
+              <p role="alert" className="mt-2 text-sm text-[#FFB4A2]">{error}</p>
             )}
+            <p role="status" className="sr-only">
+              {draft ? "Draft ready for review." : ""}
+            </p>
           </div>
 
           {draft && (
