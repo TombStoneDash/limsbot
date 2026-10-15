@@ -116,7 +116,7 @@ describe("workflow reselection", () => {
   it.each(["http", "network"] as const)("preserves a displayed %s error on reselection", async (outcome) => {
     if (outcome === "http") fetchMock.mockResolvedValueOnce({ ok: false, status: 503 });
     else fetchMock.mockRejectedValueOnce(new Error("Offline"));
-    const error = outcome === "http" ? "API error: 503" : "Network error generating draft.";
+    const error = outcome === "http" ? "The demo could not create a draft just now. Please try again." : "We could not reach the demo. Check your connection and try again.";
     await click("Mock scan");
     await click("Generate draft");
     expect(container.textContent).toContain(error);

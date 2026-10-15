@@ -153,7 +153,11 @@ describe("onboarding card interactions", () => {
     else fetchMock.mockRejectedValueOnce(new Error("Offline"));
     await click("Generate draft");
     expectProgress(1, "Generate a documentation draft");
-    expect(container.textContent).toContain(failure === "http" ? "API error: 400" : "Network error generating draft.");
+    expect(container.textContent).toContain(
+      failure === "http"
+        ? "The demo could not create a draft just now. Please try again."
+        : "We could not reach the demo. Check your connection and try again.",
+    );
     expect(button("Generate draft").disabled).toBe(false);
     await click("Generate draft");
     expectProgress(2, "Review and make the human decision");

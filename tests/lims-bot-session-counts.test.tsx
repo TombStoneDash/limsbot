@@ -90,7 +90,7 @@ it("includes an evicted rejection and edited approval in session totals and the 
 
   fetchMock.mockResolvedValueOnce({ ok: false, status: 503 });
   await click("Generate draft");
-  expect(container.textContent).toContain("API error: 503");
+  expect(container.textContent).toContain("The demo could not create a draft just now. Please try again.");
   expectTotals(50, 1);
 
   await click("Generate draft");

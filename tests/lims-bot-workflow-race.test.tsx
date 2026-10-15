@@ -64,8 +64,8 @@ async function settle(request: ReturnType<typeof queueRequest>, outcome: Outcome
 
 function expectNoObsoleteState() {
   expect(container.textContent).not.toContain("Obsolete field sample");
-  expect(container.textContent).not.toContain("API error:");
-  expect(container.textContent).not.toContain("Network error generating draft.");
+  expect(container.textContent).not.toContain("The demo could not create a draft just now. Please try again.");
+  expect(container.textContent).not.toContain("We could not reach the demo. Check your connection and try again.");
 }
 
 beforeEach(async () => {
@@ -165,7 +165,7 @@ describe("workflow generation races", () => {
     const failed = queueRequest();
     await click("Generate draft");
     await settle(failed, "http");
-    expect(container.textContent).toContain("API error: 503");
+    expect(container.textContent).toContain("The demo could not create a draft just now. Please try again.");
     await click("Chain-of-custody event");
     expectNoObsoleteState();
     expect(button("Generate draft").disabled).toBe(false);
