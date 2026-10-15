@@ -363,7 +363,25 @@ export async function POST(req: NextRequest) {
       );
     }
   }
+  if (
+    "context" in body &&
+    (body.context === null || typeof body.context !== "object" || Array.isArray(body.context))
+  ) {
+    return NextResponse.json(
+      { error: "'context' must be a non-null JSON object when supplied" },
+      { status: 400 }
+    );
+  }
   const context = body.context || {};
+
+  for (const field of ["asset", "assetName", "sample", "lot", "operator", "assetType"]) {
+    if (field in context && typeof context[field] !== "string") {
+      return NextResponse.json(
+        { error: `'context.${field}' must be a string when supplied` },
+        { status: 400 }
+      );
+    }
+  }
 
   // Try live AI; fallback to template
   const live = await liveDraft(body.workflow, userMessage, context);
