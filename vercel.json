@@ -1,7 +1,7 @@
 {
   "redirects": [
     {
-      "source": "/(.*)",
+      "source": "/((?!lims-bot).*)",
       "missing": [{ "type": "host", "value": "lims.bot" }],
       "destination": "https://lims.bot/$1",
       "permanent": true
